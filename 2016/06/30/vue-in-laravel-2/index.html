@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="在Laravel中使用Vue.js（下）"/>
+
+
+
+
+  <meta name="keywords" content="比特海, 前端, Laravel, Vue, Aevit" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aevit">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://aevit.xyz/2016/06/30/vue-in-laravel-2/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?27c09d216f39fb173da80070c4219fb8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> 在Laravel中使用Vue.js（下） - Aevit </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Aevit</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Aevit</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          在Laravel中使用Vue.js（下）
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-06-30
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo功能说明"><span class="toc-text">Demo功能说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预处理"><span class="toc-text">预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编码"><span class="toc-text">编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试数据"><span class="toc-text">测试数据</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<a href="/2016/06/29/vue-in-laravel-1/">上一篇文章</a>中，我们已经介绍了如何在<code>Laravel</code>中搭建<code>Vue.js</code>所需要的环境，以及简单的编码示例，接下来我们将会稍微深入一点，完成一个多标签切换显示的小功能。</p>
+<blockquote>
+<p>本文需要对<code>Laravel</code>及<code>Vue.js</code>有基本的了解；</p>
+<p>另外，本文使用到了<code>sass</code>、<code>jade</code>，如果不了解或不想使用，可以考虑其他预处理器，甚至可以粗暴地使用原生<code>html</code>、<code>css</code>来写</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Demo功能说明"><a href="#Demo功能说明" class="headerlink" title="Demo功能说明"></a>Demo功能说明</h2><p>在开发前，让我们看下我们将要实现的UI：</p>
+<p><img src="http://aevit.qiniudn.com/030694bde6c596bd6b95ef0a53d55a811467279357.jpeg" alt="image"></p>
+<p>上面有2级<code>tab</code>供切换显示，下面的图片内容根据<code>tab</code>的切换来显示不同内容。</p>
+<p>这里主要涉及到数据的处理及展示，是很适合使用<code>Vue.js</code>的。</p>
+<p>假如下面的图片不仅仅只有一张图片显示，可能还会加个<code>hover</code>等其他东西，这时候可以考虑将之封装成一个<code>组件（Component）</code>，这是非常有用的一个做法。<br>（这里为了节省时间，我们在这个<code>Component</code>里就不加<code>hover</code>等其他东西了，只显示一张图片）。</p>
+<blockquote>
+<p>组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素，Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。</p>
+</blockquote>
+<p>建议先阅读一遍<a href="https://vuejs.org.cn/guide/components.html" target="_blank" rel="external">官方的Component文档</a></p>
+<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p><code>Vue.js</code>支持各种预处理工具，如<code>sass</code>、<code>stylus</code>、<code>jade</code>等。</p>
+<p>假设要使用<code>stylus</code>、<code>jade</code>，只要仿照以下命令安装一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install stylus jade --save-dev</div></pre></td></tr></table></figure>
+<p>然后在之后的<code>vue</code>文件里，指定类型即可，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;template lang=&apos;jade&apos;&gt;</div><div class="line">.hello</div><div class="line">  h1 Hello Vue</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;style lang=&quot;stylus&quot; scoped&gt;</div><div class="line">.hello</div><div class="line">  width: 100vw;</div><div class="line">  height: 100vh;</div><div class="line">  display: flex;</div><div class="line">  justify-content: center;</div><div class="line">  align-items: center;</div><div class="line">&lt;/style&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">  el() &#123;</div><div class="line">    return &apos;#app&apos;</div><div class="line">  &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>本文示例代码是采用<code>jade</code>＋<code>sass</code>的方式来写的，<code>sass</code>是用<code>Laravel</code>本身封装的<code>elixir api</code>来转换的，所以这里只需要安装<code>jade</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install jade --save-dev</div></pre></td></tr></table></figure>
+<h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>接下来让我们进入实际的编码阶段，前期准备还是跟<a href="/2016/06/29/vue-in-laravel-1/#编码">上一篇文章</a>所说的一样。</p>
+<p>1、在<code>./gulpfile.js</code>里增加一句代码（这里我们将之命名为<code>tab.js</code>）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mix.browserify(&apos;entries/tab.js&apos;, &apos;public/js/tab.js&apos;);</div></pre></td></tr></table></figure>
+<p>2、添加一些测试数据，并修改<code>./app/Http/routes.php</code>，增加一条路由。</p>
+<p>首先创建<code>./config/tab_sample_data.php</code>文件，添加等下需要的测试数据，具体数据结构及内容有点长，就不直接贴在这了，需要的话请去本文最后面的<code>附录</code>查看。</p>
+<p>接着让我们配置好路由并传递数据过去：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Route::get(&apos;tab&apos;, function () &#123;</div><div class="line">    $tabSampleData = \Config::get(&apos;tab_sample_data&apos;);</div><div class="line">    return view(&apos;tab&apos;, [&apos;allData&apos; =&gt; $tabSampleData]);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>3、创建文件<code>./resources/views/tab.blade.php</code>，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">        &lt;title&gt;Vue-Tab-Demo&lt;/title&gt;</div><div class="line">        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/app.css&quot; media=&quot;screen&quot; title=&quot;no title&quot; charset=&quot;utf-8&quot;&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &#123;&#123;-- Vue入口 --&#125;&#125;</div><div class="line">        &lt;div id=&apos;app&apos;&gt;&lt;/div&gt;</div><div class="line">        &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">          // 转换 php 传来的数据，给 Tab.vue 文件使用</div><div class="line">          @if(isset($allData))</div><div class="line">              var allData = &#123;!! json_encode($allData) !!&#125;;</div><div class="line">          @endif</div><div class="line">        &lt;/script&gt;</div><div class="line">        &#123;&#123;-- CDN --&#125;&#125;</div><div class="line">        &lt;script src=&quot;//cdn.bootcss.com/vue/1.0.26/vue.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">        &#123;&#123;-- 引进编译后的js文件 --&#125;&#125;</div><div class="line">        &lt;script src=&quot;&#123;&#123; asset(&apos;/js/tab.js&apos;)&#125;&#125;&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>4、创建<code>./resources/assets/js/entries/tab.js</code>文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;;</div><div class="line">import Tab from &apos;../views/Tab.vue&apos;;</div><div class="line"></div><div class="line">Vue.config.debug = true;</div><div class="line"></div><div class="line">Promise.all([</div><div class="line">  new Promise((resolve) =&gt; &#123;</div><div class="line">    if (window.addEventListener) &#123;</div><div class="line">      window.addEventListener(&apos;DOMContentLoaded&apos;, resolve);</div><div class="line">    &#125; else &#123;</div><div class="line">      window.attachEvent(&apos;onload&apos;, resolve);</div><div class="line">    &#125;</div><div class="line">  &#125;),</div><div class="line">]).then((event) =&gt; &#123;</div><div class="line">  new Vue(Tab);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>5、创建<code>./resources/assets/js/components/TabItem.vue</code>文件（文件夹不存的话，请自行创建），这里主要就是用来封装我们上面提到的<code>组件（component）</code>，为了节省时间，我们就只显示一张图片，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;template lang=&quot;jade&quot;&gt;</div><div class="line">.tab-list-item</div><div class="line">    img(:src=&apos;info.pic_url&apos;)</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  props: [&apos;info&apos;],</div><div class="line">  data() &#123;</div><div class="line">    return &#123;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  computed:&#123;</div><div class="line"></div><div class="line">  &#125;,</div><div class="line">  ready() &#123;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line"></div><div class="line">  &#125;,</div><div class="line">  events: &#123;</div><div class="line">  &#125;,</div><div class="line">  components: &#123;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>6、创建<code>./resources/assets/js/views/Tab.vue</code>文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">&lt;template lang=&quot;jade&quot;&gt;</div><div class="line">.tab-container</div><div class="line">  .tab-nav</div><div class="line">    ul.tab-main-nav</div><div class="line">      li.tab-main-nav-item(@click=&apos;setCategoryNav(0)&apos;, :class=&apos;&#123;active: categoryNav === 0&#125;&apos;) 产品设计</div><div class="line">      li.tab-main-nav-item(@click=&apos;setCategoryNav(1)&apos;,:class=&apos;&#123;active: categoryNav === 1&#125;&apos;) 交互设计</div><div class="line">      li.tab-main-nav-item(@click=&apos;setCategoryNav(2)&apos;,:class=&apos;&#123;active: categoryNav === 2&#125;&apos;) 视觉设计</div><div class="line">    ul.tab-sub-nav</div><div class="line">      li.tab-sub-nav-item(v-for=&apos;item in subNavList&apos;, :class=&apos;&#123;active: subNav === item&#125;&apos; @click=&apos;setSubNav(item)&apos;) &#123;&#123;item&#125;&#125;</div><div class="line">  .tab-list</div><div class="line">    tab-item(v-for=&apos;item in subList&apos;, :info=&apos;item&apos;)</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">import TabItem from &apos;../components/TabItem.vue&apos;</div><div class="line"></div><div class="line">export default &#123;</div><div class="line">  el() &#123;</div><div class="line">    return &apos;#app&apos;</div><div class="line">  &#125;,</div><div class="line">  data() &#123;</div><div class="line">    return &#123;</div><div class="line">      categoryNav: 0,</div><div class="line">      totalData: allData,</div><div class="line">      subNav: &apos;全部&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  computed:&#123;</div><div class="line">    subNavList() &#123;</div><div class="line">      let self = this;</div><div class="line">      let subList = self.totalData[self.categoryNav];</div><div class="line"></div><div class="line">      let navList = [&apos;全部&apos;];</div><div class="line">      for (var i = 0; i &lt; subList.length; i++) &#123;</div><div class="line">        navList.push(subList[i].name);</div><div class="line">      &#125;</div><div class="line">      return navList;</div><div class="line">    &#125;,</div><div class="line">    subList() &#123;</div><div class="line">      let self = this;</div><div class="line">      let subList = self.totalData[self.categoryNav];</div><div class="line"></div><div class="line">      let list = [];</div><div class="line">      for (var i = 0; i &lt; subList.length; i++) &#123;</div><div class="line">        let wList = subList[i].list;</div><div class="line">        for (var j = 0; j &lt; wList.length; j++) &#123;</div><div class="line">          if (self.subNav == &apos;全部&apos;) &#123;</div><div class="line">            list.push(wList[j]);</div><div class="line">          &#125; else if (self.subNav == subList[i].name) &#123;</div><div class="line">            list.push(wList[j]);</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">      return list;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  ready() &#123;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    setCategoryNav(nav) &#123;</div><div class="line">      this.categoryNav = nav;</div><div class="line">      this.subNav = &apos;全部&apos;;</div><div class="line">    &#125;,</div><div class="line">    setSubNav(nav) &#123;</div><div class="line">      this.subNav = nav;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  events: &#123;</div><div class="line">  &#125;,</div><div class="line">  components: &#123;</div><div class="line">    TabItem</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>7、接下来进入<code>sass</code>部分，先在<code>./resources/assets/sass/app.scss</code>里增加一句代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@import &apos;tab&apos;;</div></pre></td></tr></table></figure>
+<p>然后创建<code>./resources/assets/sass/_tab.scss</code>文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">.tab &#123;</div><div class="line">  $mainColor: #c45441;</div><div class="line">  $activeColor: #515151;</div><div class="line"></div><div class="line">  &amp;-container &#123;</div><div class="line">    height: 100%;</div><div class="line">    width: 60%;</div><div class="line">    margin: 0 auto;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  &amp;-nav &#123;</div><div class="line">    color: #b0b0b0;</div><div class="line">    margin: 80px auto 0px;</div><div class="line">    max-width: 400px;</div><div class="line">  &#125;</div><div class="line">  &amp;-main-nav &#123;</div><div class="line">    margin: 0;</div><div class="line">    padding: 0;</div><div class="line">    height: 30px;</div><div class="line">    border-bottom: 1px solid $mainColor;</div><div class="line">    display: flex;</div><div class="line">    justify-content: space-between;</div><div class="line">    &amp;-item &#123;</div><div class="line">      display: inline;</div><div class="line">      cursor: pointer;</div><div class="line">      height: 31px;</div><div class="line">      &amp;.active &#123;</div><div class="line">        color: $activeColor;</div><div class="line">        border-bottom: 1px solid $mainColor;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  &amp;-sub-nav &#123;</div><div class="line">    padding: 0;</div><div class="line">    font-size: 13px;</div><div class="line">    &amp;-item &#123;</div><div class="line">      display: inline;</div><div class="line">      padding: 5px;</div><div class="line">      cursor: pointer;</div><div class="line">      &amp;.active &#123;</div><div class="line">        color: $activeColor;</div><div class="line">        border-bottom: 1px solid $mainColor;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  &amp;-list &#123;</div><div class="line">    margin: 60px 0 0 0;</div><div class="line">    padding: 0;</div><div class="line">    display: flex;</div><div class="line">    justify-content: flex-start;</div><div class="line">    flex-wrap: wrap;</div><div class="line">    &amp;-item &#123;</div><div class="line">      margin-left: 10px;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>8、运行<code>gulp watch</code>命令，去浏览器访问<code>http://localhost:3000/tab</code>查看效果 （具体域名请根据自身修改，这里是我本地的）</p>
+<blockquote>
+<p>注意：请在<code>Chrome</code>等现代化浏览器下访问</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是多标签切换显示的小功能Demo，从中我们可以<code>稍微</code>了解到<code>Vue.js</code>的<code>组件（components）</code>功能。我现在学到的只是皮毛，以后有机会再来深入地学习及应用。</p>
+<blockquote>
+<p>Vue.js 是一个构建数据驱动的 web 界面的库。Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。<br>Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或已有项目整合。另一方面，在与相关工具和支持库一起使用时，Vue.js 也能完美地驱动复杂的单页应用。</p>
+<p>—— 官方描述</p>
+</blockquote>
+<p>最后附上这两篇<code>在Laravel中使用Vue.js</code>文章里的示例工程代码：<a href="https://github.com/Aevit/vue.demo.aevit.xyz" target="_blank" rel="external">github地址</a></p>
+<p>以上代码是在<a href="http://w3ctrain.com/" target="_blank" rel="external">我最敬爱和佩服的大楷哥</a>的悉心指点下完成，在此衷心献上我一双<code>二十几年份</code>的膝盖，希望他以后在我宿舍睡觉时，能不要再放了几个屁还死不承认。</p>
+<hr>
+<p>2016-06-30 20:01<br>Aevit<br>华师一课南座</p>
+<hr>
+<p><a href="http://aevit.qiniudn.com/241a8b0158abd0254451b2d938fe77f91467280783.jpeg" title="布达拉宫" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/241a8b0158abd0254451b2d938fe77f91467280783.jpeg" alt=""></a><br>摄影：Aevit 2015年10月 布达拉宫</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h3><p><code>./config/tab_sample_data.php</code>文件内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">return array(</div><div class="line">  // 产品</div><div class="line">  array(</div><div class="line">    array(</div><div class="line">      &apos;name&apos; =&gt; &apos;厨房&apos;,</div><div class="line">      &apos;list&apos; =&gt; array(</div><div class="line">        array(</div><div class="line">          &apos;pic_url&apos; =&gt; &apos;http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png&apos;,</div><div class="line">        ),</div><div class="line">        array(</div><div class="line">          &apos;pic_url&apos; =&gt; &apos;http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png&apos;,</div><div class="line">        ),</div><div class="line">        array(</div><div class="line">          &apos;pic_url&apos; =&gt; &apos;http://aevit.qiniudn.com/a797f2435852b8471bf5a79342e4aee61460975212.png&apos;,</div><div class="line">        ),</div><div class="line">      )</div><div class="line">    ),</div><div class="line">    array(</div><div class="line">      &apos;name&apos; =&gt; &apos;卫浴&apos;,</div><div class="line">      &apos;list&apos; =&gt; array(</div><div class="line">        array(</div><div class="line">          &apos;pic_url&apos; =&gt; &apos;http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png&apos;,</div><div class="line">        ),</div><div class="line">        array(</div><div class="line">          &apos;pic_url&apos; =&gt; &apos;http://aevit.qiniudn.com/5850d66f802feda8cb9b0963bfdd66f11460975212.png&apos;,</div><div class="line">        ),</div><div class="line">      )</div><div class="line">    )</div><div class="line">  ),</div><div class="line"></div><div class="line">  // 交互</div><div class="line">  array(</div><div class="line">    array(</div><div class="line">      &apos;name&apos; =&gt; &apos;数码&apos;,</div><div class="line">      &apos;list&apos; =&gt; array(</div><div class="line">        array(</div><div class="line">          &apos;pic_url&apos; =&gt; &apos;http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png&apos;,</div><div class="line">        ),</div><div class="line">      )</div><div class="line">    ),</div><div class="line">    array(</div><div class="line">      &apos;name&apos; =&gt; &apos;厨房&apos;,</div><div class="line">      &apos;list&apos; =&gt; array(</div><div class="line">        array(</div><div class="line">          &apos;pic_url&apos; =&gt; &apos;http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png&apos;,</div><div class="line">        ),</div><div class="line">      )</div><div class="line">    )</div><div class="line">  ),</div><div class="line"></div><div class="line">  // 视觉</div><div class="line">  array(</div><div class="line">    array(</div><div class="line">      &apos;name&apos; =&gt; &apos;卫浴&apos;,</div><div class="line">      &apos;list&apos; =&gt; array(</div><div class="line">        array(</div><div class="line">          &apos;pic_url&apos; =&gt; &apos;http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png&apos;,</div><div class="line">        ),</div><div class="line">      )</div><div class="line">    ),</div><div class="line">  ),</div><div class="line">);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/比特海/">比特海</a>
+            
+              <a href="/tags/前端/">前端</a>
+            
+              <a href="/tags/Laravel/">Laravel</a>
+            
+              <a href="/tags/Vue/">Vue</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/08/04/github-wave-animation/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">iOS实现水波动画</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/06/29/vue-in-laravel-1/">
+        <span class="next-text nav-default">在Laravel中使用Vue.js（上）</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:aevit@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2014 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aevit</span>
+  </span>
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://aevit.xyz/2016/06/30/vue-in-laravel-2/';
+        this.page.identifier = '2016/06/30/vue-in-laravel-2/';
+        this.page.title = '在Laravel中使用Vue.js（下）';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//aevit.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+  </body>
+</html>

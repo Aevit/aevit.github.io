@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aevit">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://aevit.xyz/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?27c09d216f39fb173da80070c4219fb8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> Aevit </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Aevit</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Aevit</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/03/28/iOS-network-keep-alive/">NSURLSession错误使用引起的网络阻塞问题</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-03-28
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一段时间公司的 APP 在某个时间段比较多人访问时，经常出现连接不上服务器的情况，刚开始我们一直都以为是服务器问题，运维同事做了一些措施还是不能解决。</p>
+<p>后来在使用 <code>Charles</code> 抓包时，看到每次的接口请求，<code>Keep-Alive</code> 都是不生效的。</p>
+<p>猜测是因为这里导致用户发起的每个请求，都要重新进行 DNS 解析、建立 SSL 握手等操作（尤其我们首页每次刷新还都会同时发起好几个请求…）。</p>
+<p>而我们 DNS 用的貌似是第三方的服务，所以问题比较大可能是出在跟我们服务器的握手阶段（为了方便定位是什么问题，我在一个版本中，加入了错误码的提示，发现很多是超时、握手失败等情况）。</p>
+<p>当很多人同时访问时，由于前面有大量握手（我们用的是 HTTPS，报文会比 HTTP 多一些）没建立成功，服务器还在忙着处理，后面的请求就处理不过来了，所以就阻塞了。</p>
+<p>那应该如何解决呢？</p>
+          <div class="read-more">
+            <a href="/2017/03/28/iOS-network-keep-alive/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/03/12/iOS-autorelease/">iOS 自动释放池原理探究</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-03-12
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章主要通过苹果开源的 <a href="https://opensource.apple.com/source/objc4/objc4-706/runtime/NSObject.mm.auto.html" target="_blank" rel="external">NSObject.mm</a>（注：写这文章时的日期是 2017.3.12，使用的版本是<code>objc4-706</code>，可能与以前的版本会稍有不同） 来对 <code>@autoreleasepool</code> 进行说明。</p>
+          <div class="read-more">
+            <a href="/2017/03/12/iOS-autorelease/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/01/09/iOS-__block/">__block修饰符探究</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-01-09
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们知道，在 <code>block</code> 里面能读取外部变量，但是如果需要修改外部变量的值，需要给变量加上 <code>__block</code> 修饰符才行。</p>
+<p>接下来让我们带着2个问题来研究一下：</p>
+<ol>
+<li>为什么不加 <code>__block</code> 就只能读取，不能修改（即：<code>block</code> 的实现，是怎么达到不能修改的）</li>
+<li>加了 <code>__block</code> 为什么就能修改</li>
+</ol>
+          <div class="read-more">
+            <a href="/2017/01/09/iOS-__block/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/10/25/iOS-class-cluster/">iOS设计模式 —— 类簇</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-10-25
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 <code>iOS</code> 中，类簇的使用是比较普遍的，如 <code>NSNumber</code>，<code>NSArray</code>，<code>NSString</code> 等，属于 <code>抽象工厂</code> 模式的一种应用，隐藏了具体的实现类，只暴露出简单的接口。</p>
+          <div class="read-more">
+            <a href="/2016/10/25/iOS-class-cluster/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/09/04/github-swiss-knife/">瑞士军刀小动画（iOS）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-09-04
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>周末闲来无事，刚好想起 <a href="http://pandara.xyz/" target="_blank" rel="external">@我最敬爱和佩服的烧饼哥</a> 前阵子去北京，过安检时被没收了一把瑞士军刀，就画了把瑞士军刀，并弄了个小动画送给他。</p>
+<p>希望他下次过安检时不要被查到我这把瑞士军刀，不然可能连电脑都要没收了＝。＝</p>
+<blockquote>
+<p>PS: 图是用 <code>Sketch</code> 画的</p>
+</blockquote>
+<p>展示：</p>
+<p><img src="http://aevit.qiniudn.com/e209ef12cf7b513c883956a89aa6f3fd1472996709.gif" alt="image"></p>
+          <div class="read-more">
+            <a href="/2016/09/04/github-swiss-knife/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/08/30/iOS-trivia/">iOS冷知识汇总</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-08-30
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要收录iOS开发的一些冷知识（不定期更新）</p>
+          <div class="read-more">
+            <a href="/2016/08/30/iOS-trivia/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/08/04/github-wave-animation/">iOS实现水波动画</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-08-04
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>iOS下实现水波动画，动画曲线使用的是<code>正弦型函数解析式</code>。<br>效果图如下（图在最后有点卡顿的感觉，是因为gif重新开始播放了）</p>
+<blockquote>
+<p>PS：gif图中下面的<code>Water</code>，在水波动画的基础上，使用遮罩实现了<code>Water</code>字体的<code>蓝白颜色交替</code></p>
+</blockquote>
+<p><img src="http://aevit.qiniudn.com/6d34efef07654d9ac80ca3cafe89c9931470240534.gif" alt="image"></p>
+          <div class="read-more">
+            <a href="/2016/08/04/github-wave-animation/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/06/30/vue-in-laravel-2/">在Laravel中使用Vue.js（下）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-06-30
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<a href="/2016/06/29/vue-in-laravel-1/">上一篇文章</a>中，我们已经介绍了如何在<code>Laravel</code>中搭建<code>Vue.js</code>所需要的环境，以及简单的编码示例，接下来我们将会稍微深入一点，完成一个多标签切换显示的小功能。</p>
+<blockquote>
+<p>本文需要对<code>Laravel</code>及<code>Vue.js</code>有基本的了解；</p>
+<p>另外，本文使用到了<code>sass</code>、<code>jade</code>，如果不了解或不想使用，可以考虑其他预处理器，甚至可以粗暴地使用原生<code>html</code>、<code>css</code>来写</p>
+</blockquote>
+          <div class="read-more">
+            <a href="/2016/06/30/vue-in-laravel-2/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/06/29/vue-in-laravel-1/">在Laravel中使用Vue.js（上）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-06-29
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Laravel</code>是一套简洁、优雅的PHP Web开发框架(PHP Web Framework)。官方宣传语：<code>The PHP Framework For Web Artisans</code> - <code>为web艺术家创建的框架</code></p>
+<p><code>Vue.js</code>是数据驱动的组件，为现代化的 Web 界面而生</p>
+<p>本文主要说明如何在<code>Laravel</code>中使用<code>Vue.js</code>，包括<code>Vue</code>的环境布署、<code>Vue</code>的开发过程、<code>Vue</code>的使用demo</p>
+<blockquote>
+<p>本文需要对<code>Laravel</code>及<code>Vue.js</code>有基本的了解<br>本文用到的知识点：<code>nvm</code>、<code>npm</code>、<code>Browserify</code>、<code>gulp</code>、<code>es6的Promise</code>、<code>CDN</code>等</p>
+</blockquote>
+          <div class="read-more">
+            <a href="/2016/06/29/vue-in-laravel-1/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/06/18/laravel-learning-3/">Laravel学习笔记（三）</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-06-18
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>本文笔记主要包括以下内容：</p>
+<ol>
+<li>保存小量数据为本地文件（<code>File</code>持久化）</li>
+<li>写入<code>config</code>文件（默认的<code>Config::set</code>方法不能持久化到文件）</li>
+<li>传递<code>php变量</code>给<code>js</code>使用</li>
+</ol>
+          <div class="read-more">
+            <a href="/2016/06/18/laravel-learning-3/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+    
+      <a class="next" href="/page/2/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+          </div>
+          
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:aevit@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2014 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aevit</span>
+  </span>
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+  </body>
+</html>
