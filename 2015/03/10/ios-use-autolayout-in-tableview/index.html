@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="autolayout在tableview中的使用"/>
+
+
+
+
+  <meta name="keywords" content="比特海, iOS, 教程, Aevit" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Aevit">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://aevit.xyz/2015/03/10/ios-use-autolayout-in-tableview/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?27c09d216f39fb173da80070c4219fb8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> autolayout在tableview中的使用 - Aevit </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Aevit</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Aevit</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          autolayout在tableview中的使用
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-03-10
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#在tableview在使用autolayout，自适应cell的高度（iOS7-）"><span class="toc-text">在tableview在使用autolayout，自适应cell的高度（iOS7+）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概述"><span class="toc-text">一、概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、声明NSDictinary-offscreenCell"><span class="toc-text">1、声明NSDictinary *offscreenCell</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、cell的注册"><span class="toc-text">2、cell的注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、初始化cell，并返回cell高度"><span class="toc-text">3、初始化cell，并返回cell高度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、cell赋值"><span class="toc-text">4、cell赋值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、使用autolayout对需要的控件进行布局"><span class="toc-text">5、使用autolayout对需要的控件进行布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、通知系统进行布局"><span class="toc-text">6、通知系统进行布局</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、关键点"><span class="toc-text">二、关键点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、示例代码"><span class="toc-text">三、示例代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、完整demo代码"><span class="toc-text">四、完整demo代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、autolayout相关资料"><span class="toc-text">五、autolayout相关资料</span></a>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h3 id="在tableview在使用autolayout，自适应cell的高度（iOS7-）"><a href="#在tableview在使用autolayout，自适应cell的高度（iOS7-）" class="headerlink" title="在tableview在使用autolayout，自适应cell的高度（iOS7+）"></a>在tableview在使用autolayout，自适应cell的高度（iOS7+）</h3><hr>
+<a id="more"></a>
+<h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h4 id="1、声明NSDictinary-offscreenCell"><a href="#1、声明NSDictinary-offscreenCell" class="headerlink" title="1、声明NSDictinary *offscreenCell"></a>1、声明<code>NSDictinary *offscreenCell</code></h4><blockquote>
+<p>a. 用来存储每种类型cell的一个对象实例<br>b. 此<code>dictionary</code>的<code>key</code>为每种类型cell的<code>reuse identifier</code>，<code>value</code>为该类型cell的一个对象实例</p>
+</blockquote>
+<h4 id="2、cell的注册"><a href="#2、cell的注册" class="headerlink" title="2、cell的注册"></a>2、cell的注册</h4><blockquote>
+<p>a. 使用<code>tableview</code>的<code>registerClass</code>方法来进行cell的注册<br>b. 若有多种类型的cell，则要用<code>registerClass</code>注册多个cell</p>
+</blockquote>
+<h4 id="3、初始化cell，并返回cell高度"><a href="#3、初始化cell，并返回cell高度" class="headerlink" title="3、初始化cell，并返回cell高度"></a>3、初始化cell，并返回cell高度</h4><blockquote>
+<p>a. 在<code>heightForRowAtIndexPath</code>方法里，进行cell的初始化<br>b. 使用<code>systemLayoutSizeFittingSize</code>方法获取cell的高度</p>
+</blockquote>
+<h4 id="4、cell赋值"><a href="#4、cell赋值" class="headerlink" title="4、cell赋值"></a>4、cell赋值</h4><blockquote>
+<p>在<code>cellForRowAtIndexPath</code>方法里，进行cell的赋值</p>
+</blockquote>
+<h4 id="5、使用autolayout对需要的控件进行布局"><a href="#5、使用autolayout对需要的控件进行布局" class="headerlink" title="5、使用autolayout对需要的控件进行布局"></a>5、使用<code>autolayout</code>对需要的控件进行布局</h4><blockquote>
+<p>有两种方式：<br>a. 使用xib<br>b. 重写自定义cell类里的<code>updateConstraints</code>方法，手动用代码进行布局</p>
+</blockquote>
+<p>注：本文使用<a href="https://github.com/Masonry/Masonry" target="_blank" rel="external">Masonry</a>进行布局</p>
+<h4 id="6、通知系统进行布局"><a href="#6、通知系统进行布局" class="headerlink" title="6、通知系统进行布局"></a>6、通知系统进行布局</h4><blockquote>
+<p>在自定义的cell类里的<code>layoutSubviews</code>方法，调用相关方法通知系统进行布局</p>
+</blockquote>
+<h2 id="二、关键点"><a href="#二、关键点" class="headerlink" title="二、关键点"></a>二、关键点</h2><p>1、autolayout要设置正确，如果不正确，<code>systemLayoutSizeFittingSize</code>方法计算出来的高度是0</p>
+<h2 id="三、示例代码"><a href="#三、示例代码" class="headerlink" title="三、示例代码"></a>三、示例代码</h2><blockquote>
+<p>假设有两种类型的cell，先自定义两个cell类<br>分别命名为<code>AutoResizeCell</code> <code>SecondResizeCell</code><br><code>reuse identify</code>分别为<code>autoResizeCellId</code> <code>secondResizeCellId</code></p>
+</blockquote>
+<p>1、在<code>controller</code>里的<code>viewDidLoad</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/////////////// step: 1 ///////////////</div><div class="line">self.offscreenCell = [NSMutableDictionary dictionary];</div><div class="line">/////////////// step: 1 ///////////////</div><div class="line"></div><div class="line">/////////////// step: 2 ///////////////</div><div class="line">[self.myTableView registerClass:[AutoResizeCell class] forCellReuseIdentifier:autoResizeCellId];</div><div class="line">[self.myTableView registerClass:[SecondResizeCell class] forCellReuseIdentifier:secondResizeCellId];</div><div class="line">// Setting the estimated row height prevents the table view from calling tableView:heightForRowAtIndexPath: for every row in the table on first load;</div><div class="line">// it will only be called as cells are about to scroll onscreen. This is a major performance optimization.self.myTableView.estimatedRowHeight = UITableViewAutomaticDimension; // iOS7+</div><div class="line">/////////////// step: 2 ///////////////</div></pre></td></tr></table></figure>
+<p>2、在<code>controller</code>里的<code>heightForRowAtIndexPath</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath &#123;</div><div class="line"></div><div class="line">    /////////////// step: 3 ///////////////</div><div class="line">    NSDictionary *aDict = [self getRowDataDictInSection:indexPath.section row:indexPath.row];</div><div class="line">    BOOL hasAvatar = [[aDict objectForKey:HAS_AVATAR] boolValue];</div><div class="line">    NSString *reuseIdentifier = (hasAvatar ? secondResizeCellId : autoResizeCellId);</div><div class="line">    UITableViewCell *cell = [self.offscreenCell objectForKey:reuseIdentifier];</div><div class="line">    if (!cell) &#123;</div><div class="line">        if (hasAvatar) &#123;</div><div class="line">            cell = [[SecondResizeCell alloc] init];</div><div class="line">        &#125; else &#123;</div><div class="line">            cell = [[AutoResizeCell alloc] init];</div><div class="line">        &#125;</div><div class="line">        [self.offscreenCell setObject:cell forKey:reuseIdentifier];</div><div class="line">    &#125;</div><div class="line">    if (hasAvatar) &#123;</div><div class="line">        [(SecondResizeCell*)cell initModel:aDict];</div><div class="line">    &#125; else &#123;</div><div class="line">        [(AutoResizeCell*)cell initModel:aDict];</div><div class="line">    &#125;</div><div class="line">    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));</div><div class="line">    [cell setNeedsLayout];</div><div class="line">    [cell layoutIfNeeded];</div><div class="line"></div><div class="line">    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;</div><div class="line">    height += 1;</div><div class="line">    /////////////// step: 3 ///////////////</div><div class="line"></div><div class="line">    return height;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3、在<code>controller</code>里的<code>cellForRowAtIndexPath</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath &#123;</div><div class="line"></div><div class="line">    /////////////// step: 4 ///////////////</div><div class="line">    NSDictionary *aDict = [self getRowDataDictInSection:indexPath.section row:indexPath.row];</div><div class="line">    BOOL hasAvatar = [[aDict objectForKey:HAS_AVATAR] boolValue];</div><div class="line">    NSString *reuseIdentifier = (hasAvatar ? secondResizeCellId : autoResizeCellId);</div><div class="line">    AutoResizeCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];</div><div class="line">    if (hasAvatar) &#123;</div><div class="line">        [(SecondResizeCell*)cell initModel:aDict];</div><div class="line">    &#125; else &#123;</div><div class="line">        [(AutoResizeCell*)cell initModel:aDict];</div><div class="line">    &#125;</div><div class="line">    /////////////// step: 4 ///////////////</div><div class="line">    return cell;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>4、在自定义cell类的<code>initModel</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (void)initModel:(id)model &#123;</div><div class="line"></div><div class="line">    self.titleLabel.text = [model objectForKey:@&quot;title&quot;];</div><div class="line">    self.bodyLabel.text = [model objectForKey:@&quot;content&quot;];</div><div class="line"></div><div class="line">    // Make sure the constraints have been added to this cell, since it may have just been created from scratch</div><div class="line">    /////////////// step: 4 ///////////////</div><div class="line">    [self setNeedsUpdateConstraints];</div><div class="line">    [self updateConstraintsIfNeeded];</div><div class="line">    /////////////// step: 4 ///////////////</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>5、在自定义cell类的<code>updateConstraints</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">- (void)updateConstraints &#123;</div><div class="line"></div><div class="line">    /////////////// step: 5 ///////////////</div><div class="line">    if (!self.didSetupConstraints) &#123;</div><div class="line"></div><div class="line">        // titleLabel</div><div class="line">        [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">            make.top.mas_equalTo(kLabelVerticalInsets);</div><div class="line">            make.left.mas_equalTo(kLabelHorizontalInsets);</div><div class="line">            make.right.mas_equalTo(-kLabelHorizontalInsets); // need</div><div class="line">        &#125;];</div><div class="line">        // bodyLabel</div><div class="line">        [_bodyLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">            make.top.mas_equalTo(_titleLabel.mas_bottom).with.offset(kLabelVerticalInsets);</div><div class="line">            make.left.mas_equalTo(_titleLabel.mas_left);</div><div class="line">            make.bottom.mas_equalTo(-kLabelVerticalInsets); // need</div><div class="line">            make.right.mas_equalTo(_titleLabel.mas_right);</div><div class="line">        &#125;];</div><div class="line">        self.didSetupConstraints = YES;</div><div class="line">    &#125;</div><div class="line">    [super updateConstraints];</div><div class="line">    /////////////// step: 5 ///////////////</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>6、在自定义cell类的<code>layoutSubviews</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (void)layoutSubviews &#123;</div><div class="line">    [super layoutSubviews];</div><div class="line"></div><div class="line">    /////////////// step: 6 ///////////////</div><div class="line">    [self.contentView setNeedsLayout];</div><div class="line">    [self.contentView layoutIfNeeded];</div><div class="line"></div><div class="line">    _titleLabel.preferredMaxLayoutWidth = CGRectGetWidth(_titleLabel.frame);</div><div class="line">    _bodyLabel.preferredMaxLayoutWidth = CGRectGetWidth(_bodyLabel.frame);</div><div class="line">    /////////////// step: 6 ///////////////</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="四、完整demo代码"><a href="#四、完整demo代码" class="headerlink" title="四、完整demo代码"></a>四、完整demo代码</h2><p><a href="https://github.com/Aevit/SCAutoResizeCellDemo" target="_blank" rel="external">点击跳转到github</a></p>
+<h2 id="五、autolayout相关资料"><a href="#五、autolayout相关资料" class="headerlink" title="五、autolayout相关资料"></a>五、autolayout相关资料</h2><p>1）开始iOS 7中自动布局教程（上下部分）<br>1、<a href="http://www.cocoachina.com/industry/20131203/7462.html" target="_blank" rel="external">http://www.cocoachina.com/industry/20131203/7462.html</a><br>2、<a href="http://www.cnblogs.com/zer0Black/p/3977288.html" target="_blank" rel="external">http://www.cnblogs.com/zer0Black/p/3977288.html</a></p>
+<p>2）Masonry说明：<br>官方：<a href="https://github.com/Masonry/Masonry" target="_blank" rel="external">https://github.com/Masonry/Masonry</a><br>第三方：<a href="http://adad184.com/2014/09/28/use-masonry-to-quick-solve-autolayout/" target="_blank" rel="external">http://adad184.com/2014/09/28/use-masonry-to-quick-solve-autolayout/</a></p>
+<p>3）tableview动态计算cell高度<br>1、 <a href="http://www.ifun.cc/blog/2014/02/21/dong-tai-ji-suan-uitableviewcellgao-du-xiang-jie/" target="_blank" rel="external">http://www.ifun.cc/blog/2014/02/21/dong-tai-ji-suan-uitableviewcellgao-du-xiang-jie/</a><br>2、<a href="http://www.devdiv.com/autolayout_uitableviewcell_-blog-21666-52543.html" target="_blank" rel="external">http://www.devdiv.com/autolayout<em>uitableviewcell</em>-blog-21666-52543.html</a><br>3、<a href="http://www.tuicool.com/articles/FZN3q2" target="_blank" rel="external">http://www.tuicool.com/articles/FZN3q2</a><br>4、<a href="http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights" target="_blank" rel="external">http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights</a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/比特海/">比特海</a>
+            
+              <a href="/tags/iOS/">iOS</a>
+            
+              <a href="/tags/教程/">教程</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2015/04/04/github-PanCellDemo/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">PanCellDemo</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2015/02/10/qian-yu-qian-xun-Epic-Tribute-Medley/">
+        <span class="next-text nav-default">千与千寻配乐MV：Epic Tribute Medley</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:aevit@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2014 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aevit</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://aevit.xyz/2015/03/10/ios-use-autolayout-in-tableview/';
+        this.page.identifier = '2015/03/10/ios-use-autolayout-in-tableview/';
+        this.page.title = 'autolayout在tableview中的使用';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//aevit.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/coding_splash.js?v=2.5.0"></script>
+  </body>
+</html>
