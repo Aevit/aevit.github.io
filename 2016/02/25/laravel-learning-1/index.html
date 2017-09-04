@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Laravel学习笔记（一）"/>
+
+
+
+
+  <meta name="keywords" content="比特海, PHP, Laravel, Aevit" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Aevit">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://aevit.xyz/2016/02/25/laravel-learning-1/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?27c09d216f39fb173da80070c4219fb8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> Laravel学习笔记（一） - Aevit </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Aevit</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Aevit</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Laravel学习笔记（一）
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-02-25
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境要求"><span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装方法1"><span class="toc-text">安装方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装方法2"><span class="toc-text">安装方法2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本配置"><span class="toc-text">基本配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态文件版本控制"><span class="toc-text">静态文件版本控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐式控制器"><span class="toc-text">隐式控制器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#公用函数"><span class="toc-text">公用函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过ServiceProvider"><span class="toc-text">通过ServiceProvider</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用autoload方法"><span class="toc-text">使用autoload方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#composer"><span class="toc-text">composer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Guzzle"><span class="toc-text">Guzzle</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CDN"><span class="toc-text">CDN</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>公司业务需要，现在需要弄一些前端的东西，最终选用的是<a href="https://laravel.com/" target="_blank" rel="external">Laravel</a>做为PHP框架。<br>在此记录下一些学习笔记。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Laravel版本: 5.2.21</p>
+<h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
+<li>PHP &gt;= 5.5.9</li>
+<li>OpenSSL PHP扩展</li>
+<li>PDO PHP扩展</li>
+<li>Mbstring PHP扩展</li>
+<li>Tokenizer PHP扩展</li>
+</ul>
+<a id="more"></a>
+<h3 id="安装方法1"><a href="#安装方法1" class="headerlink" title="安装方法1"></a>安装方法1</h3><p>此命令会通过<code>composer</code>下载需要的依赖，如果网络不好，可以使用方法2的离线包<br><code>laravel new [your-project-name]</code></p>
+<p>具体安装方法详见<a href="https://laravel.com/docs/5.2" target="_blank" rel="external">官方文档</a></p>
+<h3 id="安装方法2"><a href="#安装方法2" class="headerlink" title="安装方法2"></a>安装方法2</h3><p>国内离线包: <a href="http://www.golaravel.com/download/" target="_blank" rel="external">http://www.golaravel.com/download/</a></p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><ul>
+<li><code>./storage</code>目录要有写权限</li>
+<li><code>./config/app.php</code>修改时区为<code>Asia/Shanghai</code></li>
+<li>因为使用了<code>codekit</code>来自动编辑<code>sass</code>文件，所以还要一下修改<code>.gitignore</code>文件</li>
+<li><code>nginx</code>加上优雅链接:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">location / &#123;</div><div class="line">    try_files $uri $uri/ /index.php?$query_string;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>记得配置生产环境的<code>.env</code>文件</p>
+</li>
+<li><p>生成生产环境的<code>cache</code>: <code>php artisan config:cache</code></p>
+</li>
+<li>路由缓存说明可参考这篇<a href="http://ofcss.com/2015/02/12/laravel-6-route-caching.html" target="_blank" rel="external">文章</a></li>
+<li>相关优化，可参考这篇<a href="http://www.jianshu.com/p/1d5fa4696ca9" target="_blank" rel="external">文章</a></li>
+</ul>
+<hr>
+<h2 id="静态文件版本控制"><a href="#静态文件版本控制" class="headerlink" title="静态文件版本控制"></a>静态文件版本控制</h2><p>假设<code>nginx</code>（或其他反向代理软件）开启了静态文件缓存，当我们修改了如<code>main.css</code>的文件时，用户那边就不能及时更新了。所以一般都会对这些静态文件做版本控制。</p>
+<p>有两种方式，一种是在<code>main.css</code>后面加上时间戳（或其他唯一标识）的参数，如<code>main.css?v=1463046958</code>，这种可以使用下面提到的<code>auto_version</code>公用函数即可。不过这种方法有时会因为运营商方面强制忽略后面参数部分，就导致不能及时更新了。</p>
+<p>另一种是直接修改<code>main.css</code>的名字，如<code>main-b8dd972f43.css</code>，这种就比较保险。<br><code>laravel</code>自带的<code>elixir</code>里面就有<code>version</code>方法可以进行版本控制，使用步骤如下：</p>
+<blockquote>
+<p>注意如果使用<code>gulp watch</code>，首次使用<code>version</code>方法，一定要严格按照以下顺序来，不然会报类似这样的错误</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">file_get_contents(xxx/public/build/rev-manifest.json): failed to open stream: No such file or directory</div></pre></td></tr></table></figure>
+<ol>
+<li>在<code>gulpfile.js</code>里写好<code>version</code>相关代码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">elixir(function(mix) &#123;</div><div class="line">    // 具体路径及名字自行更改  </div><div class="line">    mix.version([&apos;css/main.css&apos;, &apos;js/main.js&apos;]); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>执行命令</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp watch</div></pre></td></tr></table></figure>
+<ol>
+<li>随便修改一个<code>sass</code>文件，保存，接下来会自动在<code>public</code>下生成以下<code>build</code>目录，里面就包含了带名字的文件及<code>rev-manifest.json</code>文件：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public/build/xxx</div></pre></td></tr></table></figure>
+<ol>
+<li>去使用到的<code>blade</code>模版文件里添加以下类似代码即可：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;&#123;&#123; elixir(&apos;css/main.css&apos;) &#125;&#125;&quot;&gt;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="隐式控制器"><a href="#隐式控制器" class="headerlink" title="隐式控制器"></a>隐式控制器</h2><p><a href="http://laravelacademy.org/post/60.html" target="_blank" rel="external">控制器相关文档</a></p>
+<p>使用<code>隐式控制器</code>可以不用再给控制器的每一个方法定义一个路由，只需给控制器定义一个路由即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># 创建控制器，如`HomeController`  </div><div class="line">php artisan make:controller HomeController  </div><div class="line"></div><div class="line"># 编辑路由文件  </div><div class="line">vim ./app/Http/routes.php  </div><div class="line"></div><div class="line"># 添加路由  </div><div class="line">Route::controller(&apos;/&apos;, &apos;HomeController&apos;);  </div><div class="line"></div><div class="line"># 编辑`Controller`文件  </div><div class="line">vim ./app/Http/Controllers/HomeController  </div><div class="line"></div><div class="line"># 增加方法（如果要使用`post`方式，则将方法名里的`get`改为`post`）</div><div class="line">public function getFoo() &#123;</div><div class="line">    // 最终链接示例: http://your-domain.com/foo</div><div class="line">    // 注: 如果方法名里有多个驼峰，如`getFooBar`，则为: http://your-domain.com/foo-bar</div><div class="line">    return view(&apos;foo&apos;);</div><div class="line">&#125;</div><div class="line"># 增加blade模版视图</div><div class="line">vim ./resources/views/foo.blade.php  </div><div class="line"></div><div class="line"># 去浏览器访问看看 http://your-domain.com/foo</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="公用函数"><a href="#公用函数" class="headerlink" title="公用函数"></a>公用函数</h2><p>有些辅助函数需要弄为全局的，这样方便进行调用，如对项目的<code>main.css</code>地址后面加上<code>?v=[最后修改的时间戳]</code>，防止css文件因为缓存等原因不能及时更新。</p>
+<p>公用函数主要有两种方法<br><a href="http://stackoverflow.com/questions/28290332/best-practices-for-custom-helpers-on-laravel-5/28360186#28360186" target="_blank" rel="external">参考资料</a></p>
+<h3 id="通过ServiceProvider"><a href="#通过ServiceProvider" class="headerlink" title="通过ServiceProvider"></a>通过<code>ServiceProvider</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"># 在 ./app 目录下新建文件夹，如`Helpers`</div><div class="line">mkdir ./app/Helpers  </div><div class="line"></div><div class="line"># 新建一个ServiceProvider，如`HelperServiceProvider`  </div><div class="line">php artisan make:provider HelperServiceProvider  </div><div class="line"></div><div class="line"># 编辑刚创建的`provider`  </div><div class="line">vim ./app/Providers/HelperServiceProvider  </div><div class="line"></div><div class="line"># 在provider的注册(register)方法里引进`Helpers`文件夹里的所有php文件  </div><div class="line">public function register()</div><div class="line">&#123;</div><div class="line">    foreach (glob(app_path().&apos;/Helpers/*.php&apos;) as $filename) &#123;</div><div class="line">        require_once($filename);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 去`./config/app.php`里注册`HelperServiceProvider`  </div><div class="line">vim ./config/app.php  </div><div class="line"></div><div class="line"># 在`providers`这数组里添加:  </div><div class="line">&apos;providers&apos; =&gt; [</div><div class="line">	App\Providers\HelperServiceProvider::class,</div><div class="line">]</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</div><div class="line"></div><div class="line"># 使用示例</div><div class="line">vim ./app/Helpers/functions.php  </div><div class="line"></div><div class="line"># 添加如下公共函数:</div><div class="line"></div><div class="line">if (!function_exists(&apos;auto_version&apos;)) &#123;</div><div class="line">     function auto_version($url) &#123;</div><div class="line">        return $url . &apos;?v=&apos; . filemtime(&apos;.&apos; . $url);</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 在`blade`里使用示例:   </div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;&#123;&#123; auto_version(&apos;/css/main.css&apos;) &#125;&#125;&quot;&gt;</div><div class="line"># 实际效果示例:  </div><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css?v=1456370892&quot;&gt;</div><div class="line"></div><div class="line"># 在其他文件（如`Controller`等）里也可直接使用`auto_version`这样的函数</div></pre></td></tr></table></figure>
+<blockquote>
+<p>关于如何使用<code>ServiceProvider</code>来写自己的一个组件的，可参考这篇<a href="http://rrylee.github.io/2015/08/26/laravel-create-facade/" target="_blank" rel="external">教程</a></p>
+</blockquote>
+<h3 id="使用autoload方法"><a href="#使用autoload方法" class="headerlink" title="使用autoload方法"></a>使用<code>autoload</code>方法</h3><p>这种方法需要使用<code>composer</code>配合，个人感觉不是属于<code>laravel</code>本身的核心框架，所以本人不太喜欢这样用。<br>而且当我去一台没有安装<code>composer</code>的电脑将代码<code>clone</code>下来后，也就无法使用此种方法了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 在自己喜欢的地方新建文件，如`./app/helpers.php`  </div><div class="line"></div><div class="line"># 在`./composer.json`里的`autoload`里添加`files`</div><div class="line">&quot;autoload&quot;: &#123;</div><div class="line">    &quot;classmap&quot;: [</div><div class="line">        &quot;database&quot;</div><div class="line">    ],</div><div class="line">    &quot;psr-4&quot;: &#123;</div><div class="line">        &quot;App\\&quot;: &quot;app/&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;files&quot;: [</div><div class="line">        &quot;app/helpers.php&quot; // &lt;---- ADD THIS</div><div class="line">    ]</div><div class="line">&#125;,</div><div class="line"></div><div class="line"># 最后跑一下这条`composer`命令即可  </div><div class="line">composer dump-autoload</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="composer"><a href="#composer" class="headerlink" title="composer"></a>composer</h2><h3 id="Guzzle"><a href="#Guzzle" class="headerlink" title="Guzzle"></a>Guzzle</h3><p>添加<code>Guzzle</code>进行外部api的网络请求</p>
+<p><a href="http://guzzlephp.org/" target="_blank" rel="external">官网地址</a> <a href="https://github.com/guzzle/guzzle" target="_blank" rel="external">github地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># 编辑composer.json文件  </div><div class="line">vim ./composer.json  </div><div class="line"></div><div class="line"># 在json文件里添加guzzle  </div><div class="line">&quot;require&quot;: &#123;</div><div class="line">    &quot;guzzlehttp/guzzle&quot;: &quot;~5.3|~6.0&quot;</div><div class="line">&#125;</div><div class="line"></div><div class="line"># 保存json文件，更新composer即可    </div><div class="line">composer update</div><div class="line"></div><div class="line"># 使用方法详见上面的官网地址、github地址</div></pre></td></tr></table></figure>
+<blockquote>
+<p>PS: Laravel内置方法也可进行外部api的请求，<a href="https://blog.antoine-augusti.fr/2014/04/laravel-calling-your-api/" target="_blank" rel="external">参考资料</a></p>
+</blockquote>
+<hr>
+<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p>将用到CDN的统一放到一个位置，方便以后统一处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir ./public/common/js</div><div class="line">mkdir ./public/common/css</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">vim ./resources/views/home/common/cdn.blade.php</div><div class="line"></div><div class="line"># 以下是`cdn.blade.php`的内容  </div><div class="line"></div><div class="line">@if ($type == &apos;jQuery&apos;)</div><div class="line">    &lt;!-- jQuery文件。务必在bootstrap.min.js 之前引入 --&gt;</div><div class="line">    &lt;script src=&quot;//cdn.bootcss.com/jquery/2.2.1/jquery.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt;window.jQuery || document.write(&apos;&lt;script src=&quot;/common/js/jquery-2.2.1.min.js&quot;&gt;&lt;\/script&gt;&apos;)&lt;/script&gt;</div><div class="line"></div><div class="line">@elseif ($type == &apos;bootstrap&apos;)</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css&quot;&gt;</div><div class="line"></div><div class="line">    &lt;!-- BOOTSTRAP JS WITH LOCAL FALLBACK--&gt;</div><div class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script&gt; if(typeof($.fn.modal) === &apos;undefined&apos;) &#123;document.write(&apos;&lt;script src=&quot;/common/js/bootstrap-3.3.6.min.js&quot;&gt;&lt;\/script&gt;&apos;)&#125;&lt;/script&gt;</div><div class="line"></div><div class="line">    &lt;!-- BOOTSTRAP CDN FALLBACK CSS--&gt;</div><div class="line">    &lt;script&gt;$(document).ready(function() &#123;</div><div class="line">        var bodyColor = $(&apos;body&apos;).css(&quot;color&quot;); if(bodyColor != &apos;rgb(51, 51, 51)&apos;) &#123;$(&quot;head&quot;).prepend(&quot;&lt;link rel=&apos;stylesheet&apos;   href=&apos;/common/css/bootstrap-3.3.6.min.css&apos; type=&apos;text/css&apos; media=&apos;screen&apos;&gt;&quot;);&#125;&#125;);</div><div class="line">    &lt;/script&gt;</div><div class="line">@endif</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 使用示例:  </div><div class="line">vim app.blade.php  </div><div class="line"></div><div class="line"># 内容  </div><div class="line">@include(&apos;home.common.cdn&apos;, [&apos;type&apos; =&gt; &apos;jQuery&apos;])</div><div class="line">@include(&apos;home.common.cdn&apos;, [&apos;type&apos; =&gt; &apos;bootstrap&apos;])</div></pre></td></tr></table></figure>
+<hr>
+<p>2016.02.25 23:28<br>Aevit<br>华师</p>
+<p><a href="http://aevit.qiniudn.com/moon-from-650d.jpg" title="楼顶月" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/moon-from-650d.jpg" alt=""></a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/比特海/">比特海</a>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/Laravel/">Laravel</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/02/28/PhalApi-π-schedule-task/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">PhalApi(π)接口框架-计划任务开发</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2015/12/16/CentOS-upgrade-php7/">
+        <span class="next-text nav-default">CentOS升级php7</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:aevit@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2014 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aevit</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://aevit.xyz/2016/02/25/laravel-learning-1/';
+        this.page.identifier = '2016/02/25/laravel-learning-1/';
+        this.page.title = 'Laravel学习笔记（一）';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//aevit.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

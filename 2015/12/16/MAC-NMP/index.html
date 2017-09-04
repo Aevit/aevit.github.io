@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Mac下NMP环境的搭建(MNMP)"/>
+
+
+
+
+  <meta name="keywords" content="比特海, 后台, PHP, 服务器, Aevit" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Aevit">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://aevit.xyz/2015/12/16/MAC-NMP/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?27c09d216f39fb173da80070c4219fb8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> Mac下NMP环境的搭建(MNMP) - Aevit </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Aevit</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Aevit</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Mac下NMP环境的搭建(MNMP)
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-12-16
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Homebrew"><span class="toc-text">Homebrew</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx"><span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mysql"><span class="toc-text">Mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP7"><span class="toc-text">PHP7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷命令"><span class="toc-text">快捷命令</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 本文内容：  </div><div class="line">  MAC OS X EI Capitan (10.11.2)：重装`Nginx Mysql PHP`环境   </div><div class="line">&gt; 可在PC端的文章详情页，点击右下角的`汉堡按钮`展开菜单栏快速查看</div></pre></td></tr></table></figure>
+<blockquote>
+<p>PS: 如果要跟其他开发人员保持开发环境的统一，可以考虑<code>VirtualBox + Vagrant</code>的方式，这里不再详述，可参考以下教程：<br><a href="http://segmentfault.com/a/1190000000264347" target="_blank" rel="external">使用 Vagrant 打造跨平台开发环境</a><br><a href="https://github.com/astaxie/Go-in-Action/blob/master/ebook/zh/01.2.md" target="_blank" rel="external">Vgrant安装配置</a></p>
+</blockquote>
+<p>今天打算把本机环境升级到<code>php 7.0</code>，中间遇到了各种莫名其妙的问题，后来索性将<code>LNMP</code>环境重装一遍。</p>
+<p>还好之前是用<a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a>安装的，只要卸载掉<code>Homebrew</code>就能把<code>LNMP</code>环境也一起卸载掉</p>
+<a id="more"></a>
+<blockquote>
+<p>(L)系统: MAC OS X EI Capitan （10.11.2）<br>(N)nginx: 1.8<br>(M)mysql: 5.7.10<br>(P)php: 7.0.1</p>
+</blockquote>
+<h2 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># 卸载Homebrew  </div><div class="line"># ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;</div><div class="line"></div><div class="line"># 安装Homebrew</div><div class="line"># PS: homebrew-cask从2015年12月开始会跟Homebrew同步更新，后面不用再装了；  </div><div class="line"># 如果没有，可以使用brew uninstall --force brew-cask; brew update 更新一下</div><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div><div class="line"></div><div class="line"># 更新</div><div class="line">brew update</div><div class="line"># 自检  </div><div class="line">brew doctor</div><div class="line"># 查看系统通过 brew 安装的服务</div><div class="line">brew services list</div><div class="line"># 清除已卸载无用的启动配置文件</div><div class="line">brew services cleanup</div><div class="line"></div><div class="line"></div><div class="line"># 注意［重要］：下面环境的搭建需要`Command Line Tools`  </div><div class="line"># 如果没有安装`Command Line Tools`，自检时会提示  </div><div class="line"># 或者手动用此命令安装`xcode-select --install`</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 注意：由于 OS X 10.11 使用了`rootless`的东西（具体这里不再详述）；</div><div class="line"># 而 Homebrew 安装的东西都是在`/usr/local`里的，所以要改一下权限先；</div><div class="line"># 以前的系统就不用更改</div><div class="line">sudo chown -R $(whoami) /usr/local</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>执行以下安装前，最好先<code>brew update</code>更新一下</p>
+</blockquote>
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"># 安装</div><div class="line">brew install nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_geoip_module</div><div class="line"></div><div class="line"></div><div class="line"># Nginx开机启动</div><div class="line">ln -sfv /usr/local/opt/nginx/*.plist ~/Library/LaunchAgents</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist</div><div class="line"></div><div class="line"># 注意：还需要执行以下命令，才可在开机时启动</div><div class="line"># 更新：不一定需要，因为我是从以前的旧系统升级到`OS X 10.11`的，就有这问题  </div><div class="line"># 现在测试过直接格盘重装`10.11`，不能执行以下命令也可以</div><div class="line"># 看需要，如果有权限问题，再执行下面三条命令  </div><div class="line"># sudo chown root:wheel /usr/local/Cellar/nginx/1.8.0/bin/nginx</div><div class="line"># sudo chmod u+s  /usr/local/Cellar/nginx/1.8.0/bin/nginx</div><div class="line"># sudo chown -R $(whoami) /usr/local/var/log/nginx/</div><div class="line"></div><div class="line"># 使用Mac的launchctl来启动|停止</div><div class="line">launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist</div><div class="line">launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist</div><div class="line"></div><div class="line"></div><div class="line"># 测试配置是否有语法错误</div><div class="line">sudo nginx -t</div><div class="line"></div><div class="line"># 打开 nginx</div><div class="line">sudo nginx</div><div class="line"></div><div class="line"># 重新加载配置|重启|停止|退出 nginx</div><div class="line">sudo nginx -s reload|reopen|stop|quit</div><div class="line"></div><div class="line"># 开启nginx后，测试能不能正常运行（nginx默认监听8080端口）</div><div class="line">curl -v http://127.0.0.1:8080</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">mkdir /usr/local/etc/nginx/vhosts</div><div class="line"></div><div class="line"># 修改nginx配置文件</div><div class="line">vim /usr/local/etc/nginx/nginx.conf</div></pre></td></tr></table></figure>
+<p>修改nginx配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 修改pid文件路径，如果前面有注释，请去掉</div><div class="line">pid /usr/local/var/run/nginx.pid;</div><div class="line"></div><div class="line"># 在http段内添加虚拟主机</div><div class="line">include vhosts/*.conf;</div><div class="line"></div><div class="line"># nginx其他配置这里不再详述</div></pre></td></tr></table></figure>
+<p>如果修改<code>nginx.conf</code>配置文件，重启<code>nginx</code>时报以下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nginx: [error] invalid PID number &quot;&quot; in &quot;/usr/local/var/run/nginx.pid&quot;</div></pre></td></tr></table></figure>
+<p>可这样解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo nginx -c /usr/local/etc/nginx/nginx.conf</div><div class="line">sudo nginx -t</div><div class="line">sudo nginx -s reload</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># 如果以前安装过mysql，建议先卸载掉，不然可能会有一些奇怪的问题  </div><div class="line"># 像我本机用`navicat`连接后，只看到`infomation_schema`这个数据库，但是用命令行又可以全部看到  </div><div class="line"># 卸载方法如下:  </div><div class="line">brew remove mysql</div><div class="line">brew cleanup</div><div class="line">launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line">rm ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line">sudo rm -rf /usr/local/var/mysql</div><div class="line"></div><div class="line"></div><div class="line"># 安装</div><div class="line">brew install mysql</div><div class="line"></div><div class="line">#开机启动</div><div class="line">ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</div><div class="line"></div><div class="line">#开启MySQL安全机制，根据提示，输入root密码，然后依次确认一些安全选项</div><div class="line">/usr/local/opt/mysql/bin/mysql_secure_installation</div><div class="line"></div><div class="line"># 查看MySQL运行情况</div><div class="line">ps aux | grep mysql</div><div class="line"></div><div class="line"># 测试连接MySQL</div><div class="line">mysql -uroot -p</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="PHP7"><a href="#PHP7" class="headerlink" title="PHP7"></a>PHP7</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew tap homebrew/dupes</div><div class="line">brew tap homebrew/versions</div><div class="line">brew tap homebrew/homebrew-php</div></pre></td></tr></table></figure>
+<blockquote>
+<p><em>注意:</em><br>由于mac系统限制，在<code>php</code>开发中，只能<code>curl</code>在本机<code>keychain</code>里有证书的，不能使用<code>curl</code>来调用任意的<code>https</code>；<br>如果<code>php</code>需要用<code>curl</code>调用<code>https</code>接口，需要使用其他SSL版本的<code>curl</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">＃ 查看当前curl的ssl版本  </div><div class="line">php -i | grep &quot;SSL Version&quot;</div><div class="line"># 如果返回 `SSL Version =&gt; SecureTransport`，则需要更换版本</div><div class="line"># 如果返回类似 `SSL Version =&gt; OpenSSL/1.0.2e`的，则不用更换</div><div class="line"></div><div class="line"># 更换curl</div><div class="line">brew rm curl</div><div class="line">brew install curl --with-libssh2 --with-openssl</div><div class="line"></div><div class="line"># 之后在下面编译php时，加入`--with-homebrew-curl --with-homebrew-openssl --without-snmp`参数即可  </div><div class="line"># 如果本机已经编译过`php`，下面使用`brew reintall php70 --xxxxxx（参数）`重装即可  </div><div class="line"># 如果已经装过`php`，只是为了解决这个`https`的问题，也得重装`php`  </div><div class="line"></div><div class="line"># 如果重装php成功后，`php -i | grep &quot;SSL Version&quot;` 显示的还是旧的，或是已经是新的，但是仍不能访问`https`，请重启试试＝。＝  </div><div class="line"></div><div class="line"># 参考资料:   </div><div class="line">http://rockybean.info/2014/04/08/mavericks_curl_bug/</div><div class="line">http://www.farces.com/wikis/naked-server/php/php-openssl/</div></pre></td></tr></table></figure>
+<p><em>开始安装</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 如果使用默认的Homebrew被墙了，可以去这里手动下载，再拷贝到本机的Homebrew缓存里先</div><div class="line"># wget https://homebrew.bintray.com/bottles-php/php70-7.0.1.el_capitan.bottle.9.tar.gz</div><div class="line"># cp php70-7.0.1.el_capitan.bottle.9.tar.gz /Library/Caches/Homebrew/</div><div class="line"></div><div class="line">#注意：如果你希望以mac下的apache作为web server，编译时要加 -with-apache；如果你的web server 是 nginx这类，就需要加上 -with-fpm</div><div class="line">brew install php70 --with-fpm --with-gmp --with-imap --with-tidy --with-debug --with-homebrew-curl --with-homebrew-openssl --without-snmp</div><div class="line"></div><div class="line"># PHP编译过程中如果遇到configure: error: Cannot find OpenSSL&apos;s &lt;evp.h&gt;错误，</div><div class="line"># 执行 xcode-select --install 重新安装一下Xcode Command Line Tools</div><div class="line"></div><div class="line"># PHP-FPM开机启动</div><div class="line">ln -sfv /usr/local/opt/php70/*.plist ~/Library/LaunchAgents</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php70.plist</div></pre></td></tr></table></figure>
+<blockquote>
+<p>安装扩展</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># 根据自己需要安装  </div><div class="line">brew install memcached</div><div class="line">brew install --HEAD php70-memcached</div><div class="line">brew install mcrypt</div><div class="line">brew install php70-mcrypt</div><div class="line">brew install redis</div><div class="line">brew install --HEAD php70-redis</div><div class="line">brew install phpunit</div><div class="line">brew install php70-xdebug</div><div class="line"></div><div class="line"></div><div class="line"># `redis`的开机启动和关闭</div><div class="line">ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents/  </div><div class="line"># 启动</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist</div><div class="line"># 关闭  </div><div class="line">launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist</div><div class="line"></div><div class="line"># 跨平台可视化redis工具: [redis desktop manager](http://redisdesktop.com/)</div><div class="line"></div><div class="line"># `memcached`等其他扩展的开机启动和关闭都类似，只要将上述软链命令里的`redis`换成相应的`memcached`等即可  </div><div class="line">ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents/</div></pre></td></tr></table></figure>
+<blockquote>
+<p>以下是<code>php</code>遇到的几个问题</p>
+</blockquote>
+<ul>
+<li>问题1：如果 php -v 后，mcrypt会有这样的问题</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">PHP Warning:  PHP Startup: mcrypt: Unable to initialize module</div><div class="line">Module compiled with build ID=API20151012,NTS</div><div class="line">PHP    compiled with build ID=API20151012,NTS,debug</div><div class="line">These options need to match</div><div class="line"> in Unknown on line 0</div></pre></td></tr></table></figure>
+<p>则用此命令重装一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew reinstall mcrypt --build-from-source php70-mcrypt --build-from-source</div></pre></td></tr></table></figure>
+<ul>
+<li>问题2：如果 php -v 后，memcached 有这样的问题：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PHP Deprecated: PHP Startup: memcached.sess_lock_wait and memcached.sess_lock_max_wait are deprecated. Please update your configuration to use memcached.sess_lock_wait_min, memcached.sess_lock_wait_max and memcached.sess_lock_retries in Unknown on line 0Deprecated: PHP Startup: memcached.sess_lock_wait and memcached.sess_lock_max_wait are deprecated. Please update your configuration to use memcached.sess_lock_wait_min, memcached.sess_lock_wait_max and memcached.sess_lock_retries in Unknown on line 0PHP Deprecated: PHP Startup: memcached.sess_lock_wait and memcached.sess_lock_max_wait are deprecated. Please update your configuration to use memcached.sess_lock_wait_min, memcached.sess_lock_wait_max and memcached.sess_lock_retries in Unknown on line 0Deprecated: PHP Startup: memcached.sess_lock_wait and memcached.sess_lock_max_wait are deprecated. Please update your configuration to use memcached.sess_lock_wait_min, memcached.sess_lock_wait_max and memcached.sess_lock_retries in Unknown on line 0PHP 7.0.2 (cli) (built: Jan 7 2016 10:40:26) ( NTS )Copyright (c) 1997-2015 The PHP GroupZend Engine v3.0.0, Copyright (c) 1998-2015 Zend Technologies with Xdebug v2.4.0RC3, Copyright (c) 2002-2015, by Derick Rethans</div></pre></td></tr></table></figure>
+<p>则需要修改一下配置文件<code>/usr/local/etc/php/7.0/conf.d/ext-memcached.ini</code>，将以下两句注释:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">;memcached.sess_lock_wait = 150000</div><div class="line">;memcached.sess_lock_max_wait = 0</div></pre></td></tr></table></figure>
+<ul>
+<li>问题3：如果 php -v 有以下问题：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cannot load Xdebug - it was built with configuration API320151012,NTS, whereas running engine is API320151012,NTS,debug</div></pre></td></tr></table></figure>
+<p>则用此命令重装一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install php70-xdebug --build-from-source</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>替代系统自带php</p>
+</blockquote>
+<p>由于Mac自带了php和php-fpm，因此需要添加系统环境变量PATH来替代自带PHP版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">echo &apos;export PATH=&quot;$(brew --prefix php70)/bin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile  #for php</div><div class="line">echo &apos;export PATH=&quot;$(brew --prefix php70)/sbin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile  #for php-fpm</div><div class="line">echo &apos;export PATH=&quot;/usr/local/bin:/usr/local/sbib:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile #for other brew install soft</div><div class="line">source ~/.bash_profile</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>php-fpm相关</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">vim /usr/local/etc/php/7.0/php-fpm.conf</div><div class="line"></div><div class="line"># 修改pid文件的路径；记得去掉前面的注释</div><div class="line">pid = /usr/local/var/run/php-fpm.pid</div><div class="line"># 保存并退出  </div><div class="line"></div><div class="line">#测试php-fpm配置</div><div class="line">php-fpm -t</div><div class="line">php-fpm -c /usr/local/etc/php/7.0/php.ini -y /usr/local/etc/php/7.0/php-fpm.conf -t</div><div class="line"></div><div class="line">#启动php-fpm</div><div class="line">php-fpm -D</div><div class="line">php-fpm -c /usr/local/etc/php/7.0/php.ini -y /usr/local/etc/php/7.0/php-fpm.conf -D</div><div class="line"></div><div class="line"># 方法1: 关闭php-fpm</div><div class="line">kill -INT `cat /usr/local/var/run/php-fpm.pid`</div><div class="line"># 方法1: 重启php-fpm</div><div class="line">kill -USR2 `cat /usr/local/var/run/php-fpm.pid`</div><div class="line"></div><div class="line"># 方法2: 关闭php</div><div class="line">launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php70.plist</div><div class="line"># 方法2: 启动php</div><div class="line">launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php70.plist</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 安装php composer</div><div class="line">brew install composer</div><div class="line"></div><div class="line">#检查一下版本</div><div class="line">composer --version</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>查看版本</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#brew安装的php，在/usr/local/opt/php70/bin/php</div><div class="line">php -v    </div><div class="line"></div><div class="line">#Mac自带的PHP</div><div class="line">/usr/bin/php -v</div><div class="line"></div><div class="line">#brew安装的php-fpm，在/usr/local/opt/php70/sbin/php-fpm</div><div class="line">php-fpm -v</div><div class="line"></div><div class="line">#Mac自带的php-fpm</div><div class="line">/usr/sbin/php-fpm -v</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>写好一个站点的<code>nginx</code>配置文件后，访问后出现502错误</p>
+</blockquote>
+<p>查看<code>该站点</code>的<code>nginx</code>的<code>error log</code>后，发现此错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*32 connect() to unix:/dev/shm/php-cgi.sock failed (2: No such file or directory) while connecting to upstream, client: 127.0.0.1, server: kkd.cn, request: &quot;GET / HTTP/1.1&quot;, upstream: &quot;fastcgi://unix:/dev/shm/php-cgi.sock:&quot;</div></pre></td></tr></table></figure>
+<p>原因是<code>该站点</code>的<code>nginx</code>的配置文件使用了以下配置，使用的是sock监听：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastcgi_pass unix:/dev/shm/php-cgi.sock;</div></pre></td></tr></table></figure>
+<p>而<code>php-fpm</code>的配置文件（位于<code>/usr/local/etc/php/7.0/php-fpm.d/www.conf</code>），里面配置的是使用tcp监听：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">listen = 127.0.0.1:9000</div></pre></td></tr></table></figure>
+<p>简单的解决方法是将<code>该站点</code>的<code>nginx</code>配置文件修改为<code>tcp</code>监听即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fastcgi_pass 127.0.0.1:9000;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="快捷命令"><a href="#快捷命令" class="headerlink" title="快捷命令"></a>快捷命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_aliases</div><div class="line"></div><div class="line"># 添加以下东西</div><div class="line">alias nginx.start=&apos;launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist&apos;</div><div class="line">alias nginx.stop=&apos;launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist&apos;</div><div class="line">alias nginx.restart=&apos;nginx.stop &amp;&amp; nginx.start&apos;</div><div class="line"></div><div class="line">alias php-fpm.start=&apos;launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php70.plist&apos;</div><div class="line">alias php-fpm.stop=&apos;launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php70.plist&apos;</div><div class="line">alias php-fpm.restart=&apos;php-fpm.stop &amp;&amp; php-fpm.start&apos;</div><div class="line"></div><div class="line">alias memcached.start=&apos;launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist&apos;</div><div class="line">alias memcached.stop=&apos;launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist&apos;</div><div class="line">alias memcached.restart=&apos;memcached.stop &amp;&amp; memcached.start&apos;</div><div class="line"></div><div class="line">alias redis.start=&apos;launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist&apos;</div><div class="line">alias redis.stop=&apos;launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist&apos;</div><div class="line">alias redis.restart=&apos;redis.stop &amp;&amp; redis.start&apos;</div><div class="line"></div><div class="line">alias mysql.start=&quot;launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist&quot;</div><div class="line">alias mysql.stop=&quot;launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist&quot;</div><div class="line">alias mysql.restart=&apos;mysql.stop &amp;&amp; mysql.start&apos;</div><div class="line"></div><div class="line">alias web.start=&apos;nginx.start &amp;&amp; php-fpm.start &amp;&amp; memcached.start &amp;&amp; redis.start &amp;&amp; mysql.start&apos;</div><div class="line">alias web.stop=&apos;nginx.stop &amp;&amp; php-fpm.stop &amp;&amp; memcached.stop &amp;&amp; redis.stop &amp;&amp; mysql.stop&apos;</div><div class="line"></div><div class="line">alias lal=&apos;ls -al&apos;</div><div class="line">alias ll=&apos;ls -l&apos;</div><div class="line"></div><div class="line"># 保存并退出</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 让快捷命令生效</div><div class="line">echo &quot;[[ -f ~/.bash_aliases ]] &amp;&amp; . ~/.bash_aliases&quot; &gt;&gt; ~/.bash_profile     </div><div class="line">source ~/.bash_profile</div><div class="line"></div><div class="line"># 体验一下</div><div class="line">web.stop</div><div class="line">web.start</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考资料:<br><a href="http://segmentfault.com/a/1190000000606752" target="_blank" rel="external">Mac OS X 10.9安装LNMP环境</a><br><a href="https://www.zhihu.com/question/31116473" target="_blank" rel="external">rootless相关</a><br><a href="http://www.opsers.org/server/rpm-packages-installed-mysql-you-set-up-safe.html" target="_blank" rel="external">mysql安全设置</a></p>
+</blockquote>
+<hr>
+<p>2015.12.24 01:04<br>Aevit<br>华师</p>
+<p><a href="http://aevit.qiniudn.com/moon-from-650d.jpg" title="楼顶月" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/moon-from-650d.jpg" alt=""></a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/比特海/">比特海</a>
+            
+              <a href="/tags/后台/">后台</a>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/服务器/">服务器</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2015/12/16/CentOS-upgrade-php7/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">CentOS升级php7</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2015/11/23/to-tibet-one/">
+        <span class="next-text nav-default">去西藏(上篇)-草稿</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:aevit@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2014 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aevit</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://aevit.xyz/2015/12/16/MAC-NMP/';
+        this.page.identifier = '2015/12/16/MAC-NMP/';
+        this.page.title = 'Mac下NMP环境的搭建(MNMP)';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//aevit.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>
