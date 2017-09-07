@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="iOS实现水波动画"/>
+
+
+
+
+  <meta name="keywords" content="比特海, 开源, iOS, 动画, Aevit" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aevit">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://aevit.xyz/2016/08/04/github-wave-animation/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?27c09d216f39fb173da80070c4219fb8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> iOS实现水波动画 - Aevit </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Aevit</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Aevit</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          iOS实现水波动画
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-08-04
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正弦函数"><span class="toc-text">正弦函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动画解析"><span class="toc-text">动画解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#蓝白颜色交替"><span class="toc-text">蓝白颜色交替</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>iOS下实现水波动画，动画曲线使用的是<code>正弦型函数解析式</code>。<br>效果图如下（图在最后有点卡顿的感觉，是因为gif重新开始播放了）</p>
+<blockquote>
+<p>PS：gif图中下面的<code>Water</code>，在水波动画的基础上，使用遮罩实现了<code>Water</code>字体的<code>蓝白颜色交替</code></p>
+</blockquote>
+<p><img src="http://aevit.qiniudn.com/6d34efef07654d9ac80ca3cafe89c9931470240534.gif" alt="image"></p>
+<a id="more"></a>
+<h2 id="正弦函数"><a href="#正弦函数" class="headerlink" title="正弦函数"></a>正弦函数</h2><p>正弦函数是高中学过的知识，这里不再做详细介绍，具体可以查看<a href="http://baike.baidu.com/view/536305.htm" target="_blank" rel="external">百科</a>。</p>
+<p>我们主要使用到的是正弦函数的几个性质：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">正弦型函数解析式：y = a * sin（ωx+φ）+ h</div><div class="line"></div><div class="line">各常数值对函数图像的影响：</div><div class="line">φ（初相位）：决定波形与X轴位置关系或横向移动距离（左加右减）</div><div class="line">ω：决定周期（最小正周期 T = 2π/|ω|）</div><div class="line">A：决定峰值（即纵向拉伸压缩的倍数）</div><div class="line">h：表示波形在Y轴的位置关系或纵向移动距离（上加下减）</div></pre></td></tr></table></figure>
+<h2 id="动画解析"><a href="#动画解析" class="headerlink" title="动画解析"></a>动画解析</h2><p>我们先来看上面方形的水波，主要就是利用<code>正弦函数</code>绘制出路径即可，如图：</p>
+<p><img src="http://aevit.qiniudn.com/2c388de0cc44042fab9f85237ccaed881470240674.jpeg" alt="image"></p>
+<p>我们知道，虽然我们肉眼看到的曲线是连续的，但是实际将曲线放大到一定程度，看到的是栅格的像素点。<br>所以我们只要计算出上图中的4个<code>蓝色点</code>，以及弧线上的所有点，再将之全部连成线，即可形成我们需要的水波形状。</p>
+<p>我们从左上角的点开始，依次计算弧线上的点，以及之后的3个<code>蓝色点</code>即可，这里我们使用<code>UIBezierPath</code>来进行绘制（当然也可以使用<code>CGMutablePathRef</code>等），关键代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">UIBezierPath *path = [UIBezierPath bezierPath];</div><div class="line">path.lineWidth = 1;</div><div class="line">[path moveToPoint:CGPointMake(0, leftUpPointY)];</div><div class="line">for (CGFloat x = 0.0; x &lt; waveWidth; x++) &#123;</div><div class="line">    CGFloat y = 2 * a * sin(2.5 * M_PI / waveWidth * x + offset * M_PI / waveWidth) + leftUpPointY;</div><div class="line">    [path addLineToPoint:CGPointMake(x, y)];</div><div class="line">&#125;</div><div class="line">[path addLineToPoint:CGPointMake(waveWidth, self.frame.size.height)];</div><div class="line">[path addLineToPoint:CGPointMake(0, self.frame.size.height)];</div><div class="line">[path closePath];</div></pre></td></tr></table></figure>
+<hr>
+<p>这里对使用到的<code>正弦函数</code>相关参数进行一下说明：</p>
+<p>回顾一下正弦函数解析式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">y = a * sin（ωx+φ）+ h</div></pre></td></tr></table></figure>
+<p>各参数值说明：</p>
+<blockquote>
+<p>下面的<code>waveWidth</code>为容器的宽度</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">`a`：峰值，值越大，峰越陡，我们可以通过调节该值，来实现水波波动的视觉效果；  </div><div class="line"></div><div class="line">`ω`：周期，这里我们设定为`2.5`个周期（具体可以根据需要自行调整），则值为`2.5 * M_PI / waveWidth`；  </div><div class="line"></div><div class="line">`φ`：横向移动距离，调节该值，实现水波左右滑动的视觉效果（不是必须，设置为0也可以，根据需要自行调节即可）；  </div><div class="line"></div><div class="line">`h`：纵向距离，即在容器中的一个位置，这里我们固定设置为左上角的`蓝色点`的`leftUpPointY `这个值即可；</div></pre></td></tr></table></figure>
+<p>经过多次调试后，我使用了以下参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CGFloat y = 2 * a * sin(2.5 * M_PI / waveWidth * x + offset * M_PI / waveWidth) + leftUpPointY;</div></pre></td></tr></table></figure>
+<hr>
+<p>以上就可以绘制出一段水波曲线了，不过还只是静态的，我们需要让水波连续地波动，就需要重复地进行绘制，并且在绘制过程中通过改变<code>a</code>值/<code>φ</code>值，来形成高低错落有致的视觉效果。</p>
+<p>最开始我使用的是<code>CADisplayLink</code>来进行重复绘制，但是发现<code>60帧/秒</code>的频率，即<code>1/60 = 0.017秒</code>就重新进行一次绘制，速度有点快，导致CPU会上升得比较多。所以现在改用<code>NSTimer</code>，每<code>0.05秒</code>才进行一次绘制。</p>
+<p>其中在<code>NSTimer</code>的每次回调里改变<code>a</code>值/<code>φ</code>值后再进行新的绘制：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a = (toAdd ? a + 0.01 : a - 0.01);</div><div class="line">toAdd = (a &lt;= 1 ? YES : (a &gt;= 2.5 ? NO : toAdd));</div><div class="line">    </div><div class="line">offset = (offset &lt; MAXFLOAT ? offset + _speed : offset - _speed);</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="蓝白颜色交替"><a href="#蓝白颜色交替" class="headerlink" title="蓝白颜色交替"></a>蓝白颜色交替</h2><p>之前无意中看到网上有人弄了水波动画（详见<a href="https://github.com/summertian4/CFWaterWave" target="_blank" rel="external">这里</a>），就想着自己研究实现一下。</p>
+<p>把水波的绘制动画研究出来后，发现那个<code>demo</code>里还有个<code>颜色交替</code>的效果，刚好以前弄过类似的，看了下源码，实现思路基本差不多：</p>
+<p>使用2张图片，如图：</p>
+<p><img src="http://aevit.qiniudn.com/aa77a113b063da8da06ff517f68340461470243553.jpeg" alt="image"></p>
+<p>使用2个<code>UIImageView</code>分别放置2张图片，<code>白色底</code>的放下面，<code>蓝色底</code>的放上面，然后再在<code>蓝色底</code>的<code>upImageView.layer</code>上加一层<code>mask</code>遮罩。</p>
+<p>遮罩的路径也就是上面绘制水波的路径，只是不将路径绘制好后的<code>CAShapeLayer</code>加到<code>容器的layer</code>上去，而是设置为<code>upImageView.layer</code>的<code>mask</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.upImgView.layer.mask = self.waveLayer;</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这里主要使用到的是<code>正弦函数</code>，正好复习了一下，能够应用到实际开发中去是挺有成就感的一件事。<br>这个动画的难点主要是弧线上的点的计算，不过只要多花点时间就可以得到一个满意的结果了。</p>
+<p>代码已上传至<code>github</code>，需要可以去查看：<a href="https://github.com/Aevit/SCWaterWave" target="_blank" rel="external">水波动画源码</a></p>
+<hr>
+<p>2016-08-04 01:42<br>Aevit<br>华师</p>
+<hr>
+<p><a class="http://aevit.qiniudn.com/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg" title="海边日出"><img src="http://aevit.qiniudn.com/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg" alt=""></a><br>摄影：Aevit 2016年7月 阳江闸坡 十里银滩</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/比特海/">比特海</a>
+            
+              <a href="/tags/开源/">开源</a>
+            
+              <a href="/tags/iOS/">iOS</a>
+            
+              <a href="/tags/动画/">动画</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/08/30/iOS-trivia/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">iOS冷知识汇总</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/06/30/vue-in-laravel-2/">
+        <span class="next-text nav-default">在Laravel中使用Vue.js（下）</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:aevit@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2014 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aevit</span>
+  </span>
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://aevit.xyz/2016/08/04/github-wave-animation/';
+        this.page.identifier = '2016/08/04/github-wave-animation/';
+        this.page.title = 'iOS实现水波动画';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//aevit.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+  </body>
+</html>
