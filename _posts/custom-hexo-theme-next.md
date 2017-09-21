@@ -19,7 +19,8 @@ layout: post
 强烈建议备份 markdown 的源文件，有多种方案：  
 
 * 使用 [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)，但是发现这种貌似每次提交都会清除原本所有 html 文件，导致 .git 越来越大，使用方法可以参照文档或这篇[文章](http://www.leyar.me/backup-your-blog-to-github/)  
-* 在这篇文章 [使用hexo，如果换了电脑怎么更新博客？](https://www.zhihu.com/question/21193762)，看到有人用 
+* 在这篇文章 [使用hexo，如果换了电脑怎么更新博客？](https://www.zhihu.com/question/21193762)，看到有人写了个 [工具](https://link.zhihu.com/?target=https%3A//github.com/coneycode/hexo-git-backup) 
+* 或者在自己 `./souce` 目录下建个仓库  
 
 ## 二、简介
 
