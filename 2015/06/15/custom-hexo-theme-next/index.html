@@ -252,6 +252,12 @@
         <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>之前的博客用的是<code>jekyll</code>(基于<code>ruby</code>)建的，但是后来发现有时有点问题。<br>查资料对比了一下，最终决定使用<code>hexo</code>来重新搭建博客。</p>
 <p>具体的搭建过程这里不再赘述，网上已有很多详细的资料。</p>
 <a id="more"></a>
+<p>强烈建议备份 markdown 的源文件，有多种方案：  </p>
+<ul>
+<li>使用 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a>，但是发现这种貌似每次提交都会清除原本所有 html 文件，导致 .git 越来越大，使用方法可以参照文档或这篇<a href="http://www.leyar.me/backup-your-blog-to-github/" target="_blank" rel="external">文章</a>  </li>
+<li>在这篇文章 <a href="https://www.zhihu.com/question/21193762" target="_blank" rel="external">使用hexo，如果换了电脑怎么更新博客？</a>，看到有人写了个 <a href="https://link.zhihu.com/?target=https%3A//github.com/coneycode/hexo-git-backup" target="_blank" rel="external">工具</a> </li>
+<li>或者在自己 <code>./souce</code> 目录下建个仓库  </li>
+</ul>
 <h2 id="二、简介"><a href="#二、简介" class="headerlink" title="二、简介"></a>二、简介</h2><p>这里简单介绍一下整个博客使用的东西：</p>
 <ul>
 <li>使用基于<code>node.js</code>的<code>hexo</code>来搭建静态博客</li>
