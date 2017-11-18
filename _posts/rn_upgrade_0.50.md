@@ -577,7 +577,7 @@ view.inputView = customView;
 
 ## android 编译
 
-## createJSModules
+### createJSModules
 
 ![](http://aevit.qiniudn.com/82a0a827e888527f0e5ce1ca011f15f51510996245.png)
 
@@ -596,7 +596,7 @@ public List<Class<? extends JavaScriptModule>> createJSModules() {
 
 解决方法是将前面的 `@Override` 去掉  
 
-## InnerClass
+### InnerClass
 
 ```
 Warning:Ignoring InnerClasses attribute for an anonymous inner class
@@ -622,7 +622,7 @@ and without specifying any "-target" type options.
 参考：  
 [https://stackoverflow.com/questions/35796144/progaurd-issue-warningignoring-innerclasses-attribute-for-an-anonymous-inner-c](https://stackoverflow.com/questions/35796144/progaurd-issue-warningignoring-innerclasses-attribute-for-an-anonymous-inner-c)
 
-## react-native-splash-screen
+### react-native-splash-screen
 使用[这个库](https://github.com/crazycodeboy/react-native-splash-screen)（3.0.6 版本），在启动时会报错 `Can't convert to color: type=0x1`：  
 
 ```
