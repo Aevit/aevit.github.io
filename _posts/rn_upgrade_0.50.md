@@ -29,6 +29,8 @@ Node: 8.1.2
 Yarn: 1.0.1  
 ```
 
+> 下面的 `VSCode 不能 Debug` 这一点真是费了好大功夫，最后看了一点源码才最终解决，一把心酸泪...详情下面会说到...
+
 ## 第三方编译库  
 由于 `RN 0.45.0` 后，需要依赖一些第三方库，这些库通过 `npm` 或 `yarn` 下载非常慢，所以可以先手动下载，放到此文件夹： `~/.rncache`（如果路径不存在就手动创建一个）
 
@@ -105,6 +107,13 @@ Applied patch ios/xxx/Images.xcassets/Contents.json cleanly.
 Applied patch package.json cleanly.
 Applied patch yarn.lock cleanly.
 ```
+
+之后会产生一些 `.rej` 后缀的文件，使用 `vim`（带颜色插件），可以看到有哪些改动，再手动去解决一下：  
+
+如我这个文件 `project.pbxproj.rej`，查看了下里面主要有两个变化：  
+
+* 添加一个 RCTBlob 库，手动将 `node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj` 拖到 Xcode 工程的 Libraries 文件夹即可  
+* 修改打包脚本路径为：`shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";`，这个后面会说到
 
 参考：  
 [https://github.com/facebook/react-native/issues/12112#issuecomment-284491701](https://github.com/facebook/react-native/issues/12112#issuecomment-284491701)
@@ -281,7 +290,18 @@ export NODE_BINARY=node
 ```
 
 
-> PS: 如果在升级前开了 `Debug JS Remotely`，可能会看不到具体在哪个文件报错，这时候只能先卸载掉桌面的 app 重新安装一次了
+> PS: 如果在升级前开了 `Debug JS Remotely`，可能会看不到具体在哪个文件报错，这时候只能先卸载掉桌面的 app 重新安装一次了  
+
+### index.js
+以前入口文件是使用两个文件来区分 ios 跟 android:  
+
+```
+index.ios.js  /  index.android.js
+```
+
+现在统一使用一个 `index.js` 文件了，如果项目根目录没有这个，需要手动创建一下，再整合一下以前两个文件的内容。  
+
+使用 index.js 后，`AppDelegate.m` 里如果有用了 `index.ios.bundle`，也改为 `index.bundle`。  
 
 ### 图片
 由于历史原因，少部分图片引用时将 `@2x` 或是 `@3x` 或是 `.ios` 这个后缀也写进去了，现在这样会报错了：  
@@ -528,9 +548,59 @@ render() {
 [Error] Error: Error while executing command 'react-native run-ios --simulator --no-packager': Error while executing command 'react-native run-ios --simulator --no-packager'
 ```
 
-这种错误有点莫名其妙，没有详细的报错信息，试了下新建一个 RN 0.50.3 的工程也是不能 Debug，估计是 VSCode 或 react-native-tool 本身的问题，只能等其更新了，暂时使用 [react-native-debugger](https://github.com/jhen0409/react-native-debugger) 代替来 Debug 了。  
+试了下新建一个 RN 0.50.3 的工程也是不能 Debug，估计是 VSCode 或 react-native-tool 本身的问题，只能等其更新了，暂时使用 [react-native-debugger](https://github.com/jhen0409/react-native-debugger) 来 Debug 了。  
 
 > 以前也遇过升级版本后，VSCode 的调试用不了，真是心酸  
+
+**更新**：  
+看了下有人提了 issue 了：[https://github.com/Microsoft/vscode-react-native/issues/586#issuecomment-343918763](https://github.com/Microsoft/vscode-react-native/issues/586#issuecomment-343918763)，只要更新插件版本为 `0.5.3` 就行了。不过发现新建的工程可以了，自己的项目还是不行，还得继续探索。  
+
+在 VSCode 里点击菜单栏的 "查看-输出"，打开一个窗口后，在该窗口右上角，选择 `React Native: Run ios`（注意这里默认是 `React Native`，要手动选择一下），这里会列出一些详细信息，在这里看到了具体的错误信息：  
+
+```
+> Linking xxx
+/Users/aevit/.rvm/gems/ruby-2.4.0@global/gems/xcpretty-0.2.8/lib/xcpretty/parser.rb:429:in `===': invalid byte sequence in US-ASCII (ArgumentError)
+	from /Users/aevit/.rvm/gems/ruby-2.4.0@global/gems/xcpretty-0.2.8/lib/xcpretty/parser.rb:429:in `update_test_state'
+	from /Users/aevit/.rvm/gems/ruby-2.4.0@global/gems/xcpretty-0.2.8/lib/xcpretty/parser.rb:304:in `parse'
+	from /Users/aevit/.rvm/gems/ruby-2.4.0@global/gems/xcpretty-0.2.8/lib/xcpretty/formatters/formatter.rb:87:in `pretty_format'
+	from /Users/aevit/.rvm/gems/ruby-2.4.0@global/gems/xcpretty-0.2.8/lib/xcpretty/printer.rb:19:in `pretty_print'
+	from /Users/aevit/.rvm/gems/ruby-2.4.0@global/gems/xcpretty-0.2.8/bin/xcpretty:84:in `block in <top (required)>'
+	from /Users/aevit/.rvm/gems/ruby-2.4.0@global/gems/xcpretty-0.2.8/bin/xcpretty:83:in `each_line'
+	from /Users/aevit/.rvm/gems/ruby-2.4.0@global/gems/xcpretty-0.2.8/bin/xcpretty:83:in `<top (required)>'
+	from /usr/local/bin/xcpretty:23:in `load'
+	from /usr/local/bin/xcpretty:23:in `<main>'
+	from /Users/aevit/.rvm/gems/ruby-2.4.0/bin/ruby_executable_hooks:15:in `eval'
+	from /Users/aevit/.rvm/gems/ruby-2.4.0/bin/ruby_executable_hooks:15:in `<main>'
+events.js:182
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: This socket has been ended by the other party
+    at Socket.writeAfterFIN [as write] (net.js:355:12)
+    at Socket.<anonymous> (/Users/aevit/projects/ReactNative/xxx/node_modules/react-native/local-cli/runIOS/runIOS.js:182:24)
+    at emitOne (events.js:115:13)
+    at Socket.emit (events.js:210:7)
+    at addChunk (_stream_readable.js:252:12)
+    at readableAddChunk (_stream_readable.js:239:11)
+    at Socket.Readable.push (_stream_readable.js:197:10)
+    at Pipe.onread (net.js:588:20)
+```
+
+查了下最上面一句的错误 `invalid byte sequence in US-ASCII`，网上说是编码问题，要加上 utf8，但是这里不是自己的代码，有点不明所以，继续看下面的 error，报错在这一行：  
+
+```
+/Users/aevit/projects/ReactNative/xxx/node_modules/react-native/local-cli/runIOS/runIOS.js:182:24
+```
+
+这一句报错了 `xcpretty.stdin.write(data);`，打印了一下 data：  
+
+```
+console.log(data.toString());
+```
+
+结果发现这里面的内容有中文，怀疑是中文导致的，试了下把中文换掉，成功了！感动。  
+
+至此，终于又可以使用 VSCode 调试了...
 
 ### RCTTextField
 iOS 里以前这个控件是继承自 `UITextField`，现在是继承自 `RCTTextInput`，里面 .m 文件里包含这一个输入控件：  
@@ -668,7 +738,7 @@ at com.facebook.imagepipeline.animated.factory.AnimatedImageFactoryImpl.decodeGi
 
 at com.facebook.imagepipeline.decoder.DefaultImageDecoder.decodeGif(DefaultImageDecoder.java:145)
 
-Caused by: java.lang.ClassNotFoundException: Didn't find class "com.facebook.imagepipeline.memory.PooledByteBuffer" on path: DexPathList[[zip file "/data/app/cn.touna.touna-1/base.apk"],nativeLibraryDirectories=[/data/app/cn.touna.touna-1/lib/arm, /system/lib, /vendor/lib, system/vendor/lib, system/vendor/lib/egl, system/lib/hw]]
+Caused by: java.lang.ClassNotFoundException: Didn't find class "com.facebook.imagepipeline.memory.PooledByteBuffer" on path: DexPathList[[zip file "/data/app/cn.xxxbundle.id-1/base.apk"],nativeLibraryDirectories=[/data/app/cn.xxxbundle.id-1/lib/arm, /system/lib, /vendor/lib, system/vendor/lib, system/vendor/lib/egl, system/lib/hw]]
 ```
 
 从上面看是 gif 相关的错误，看到 `build.gradle` 里有引进 gif:  
