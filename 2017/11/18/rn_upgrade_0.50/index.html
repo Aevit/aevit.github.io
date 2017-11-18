@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="ReactNative升级至0.50.3"/>
+
+
+
+
+  <meta name="keywords" content="比特海, ReactNative, 升级, Aevit" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aevit">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://aevit.xyz/2017/11/18/rn_upgrade_0.50/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?27c09d216f39fb173da80070c4219fb8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> ReactNative升级至0.50.3 - Aevit </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Aevit</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Aevit</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          ReactNative升级至0.50.3
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-11-18
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方编译库"><span class="toc-text">第三方编译库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-natvei-git-upgrade"><span class="toc-text">react-natvei-git-upgrade</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iOS-编译"><span class="toc-text">iOS 编译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-natvei-git-upgrade-报错"><span class="toc-text">react-natvei-git-upgrade 报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pod-错误"><span class="toc-text">pod 错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用-RCTBridgeModule-h-错误-Redefinition"><span class="toc-text">引用 RCTBridgeModule.h 错误 (Redefinition)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UMMobClick"><span class="toc-text">UMMobClick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#env-json"><span class="toc-text">env.json</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-native-xcode-sh"><span class="toc-text">react-native-xcode.sh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iOS-运行"><span class="toc-text">iOS 运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EventEmitter-引用错误"><span class="toc-text">EventEmitter 引用错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PropTypes"><span class="toc-text">PropTypes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React-createClass"><span class="toc-text">React.createClass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Image-作为背景"><span class="toc-text">Image 作为背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VSCode-不能-Debug"><span class="toc-text">VSCode 不能 Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RCTTextField"><span class="toc-text">RCTTextField</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#android-编译"><span class="toc-text">android 编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#createJSModules"><span class="toc-text">createJSModules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InnerClass"><span class="toc-text">InnerClass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react-native-splash-screen"><span class="toc-text">react-native-splash-screen</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gif-播放报错"><span class="toc-text">Gif 播放报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要记录升级项目的 <code>ReactNative</code> 框架版本（<code>0.44</code> 升到 <code>0.50</code>）过程中遇到的一些问题，主要包含三部分：  </p>
+<ul>
+<li>iOS 编译  </li>
+<li>运行 JS  </li>
+<li>android 编译  </li>
+</ul>
+<p>这次框架升级变动比较大，下面我们一步一步来解决。  </p>
+<a id="more"></a>
+<p>以下是我使用的环境：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">操作系统: OS X 10.13.1  </div><div class="line">Xcode: 9.1  </div><div class="line">Android Studio: 2.3  </div><div class="line">NVM: 0.33.2  </div><div class="line">Node: 8.1.2  </div><div class="line">Yarn: 1.0.1</div></pre></td></tr></table></figure>
+<h2 id="第三方编译库"><a href="#第三方编译库" class="headerlink" title="第三方编译库"></a>第三方编译库</h2><p>由于 <code>RN 0.45.0</code> 后，需要依赖一些第三方库，这些库通过 <code>npm</code> 或 <code>yarn</code> 下载非常慢，所以可以先手动下载，放到此文件夹： <code>~/.rncache</code>（如果路径不存在就手动创建一个）</p>
+<p>以下是我用到的几个库（版本可能会有更新），如果手动下载有困难，可以找已经下载好的同学拿一下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">boost_1_63_0.tar.gz</div><div class="line">double-conversion-1.1.5.tar.gz</div><div class="line">folly-2016.09.26.00.tar.gz</div><div class="line">glog-0.3.4.tar.gz</div></pre></td></tr></table></figure>
+<p>这里面也有人分享了下载链接到百度网盘：<br><a href="http://reactnative.cn/post/4301" target="_blank" rel="external">iOS RN 0.45以上版本所需的第三方编译库(boost等)</a></p>
+<h2 id="react-natvei-git-upgrade"><a href="#react-natvei-git-upgrade" class="headerlink" title="react-natvei-git-upgrade"></a>react-natvei-git-upgrade</h2><p>RN 的版本升级，以前都要手动去改 pacakge.json 里的版本号，现在使用 react-native-git-upgrade 这个工具来进行，可以省掉很多工作。  </p>
+<p><a href="https://facebook.github.io/react-native/docs/upgrading.html" target="_blank" rel="external">react-native-git-upgrade 安装方法</a>  </p>
+<p>接下来主要分为两部分来解决，一部分是编译报错，一部分是运行 JS 报错（红屏错误），以下是我的相关记录。  </p>
+<h2 id="iOS-编译"><a href="#iOS-编译" class="headerlink" title="iOS 编译"></a>iOS 编译</h2><p>首先执行一遍 <code>yarn</code> 命令，然后执行 <code>react-native-git-upgrade</code>  </p>
+<blockquote>
+<p>PS: 涉及到公司项目，下面关于目录的路径会以 xxx 等来代替</p>
+</blockquote>
+<p>接下来会一个又一个的问题，下面会列出我遇到的问题，解决完一个后就用 Xcode 重新 run 一下</p>
+<h3 id="react-natvei-git-upgrade-报错"><a href="#react-natvei-git-upgrade-报错" class="headerlink" title="react-natvei-git-upgrade 报错"></a>react-natvei-git-upgrade 报错</h3><p>如果执行 <code>react-native-git-upgrade</code> 后报以下错误：  </p>
+<p><img src="http://aevit.qiniudn.com/5d8d2ef6ac7d007a766c6f58e250f8d81510995990.png" alt=""></p>
+<p>解决方法：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 先找到刚才执行 `react-native-git-upgrade` 命令后产生的一个 patch 文件</div><div class="line">$ ls $TMPDIR/react-native-git-upgrade</div><div class="line"></div><div class="line"># 结果类似如下：  </div><div class="line">upgrade_0.44.0_0.50.3.patch</div><div class="line"></div><div class="line"># 然后在项目根目录执行以下命令：  </div><div class="line">$ git apply $TMPDIR/react-native-git-upgrade/upgrade_0.44.0_0.50.3.patch --reject</div></pre></td></tr></table></figure>
+<p>下面是我执行命令后截取产生的部分内容：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">Checking patch ios/xxx/Images.xcassets/Contents.json...</div><div class="line">Checking patch package.json...</div><div class="line">Checking patch yarn.lock...</div><div class="line">Applying patch .gitignore with 1 reject...</div><div class="line">Rejected hunk #1.</div><div class="line">Applied patch android/app/build.gradle cleanly.</div><div class="line">Applying patch ios/xxx.xcodeproj/project.pbxproj with 13 rejects...</div><div class="line">Rejected hunk #1.</div><div class="line">Rejected hunk #2.</div><div class="line">Rejected hunk #3.</div><div class="line">Rejected hunk #4.</div><div class="line">Rejected hunk #5.</div><div class="line">Rejected hunk #6.</div><div class="line">Rejected hunk #7.</div><div class="line">Rejected hunk #8.</div><div class="line">Rejected hunk #9.</div><div class="line">Rejected hunk #10.</div><div class="line">Rejected hunk #11.</div><div class="line">Rejected hunk #12.</div><div class="line">Rejected hunk #13.</div><div class="line">Applying patch ios/xxx/AppDelegate.m with 1 reject...</div><div class="line">Rejected hunk #1.</div><div class="line">Applied patch ios/xxx/Images.xcassets/Contents.json cleanly.</div><div class="line">Applied patch package.json cleanly.</div><div class="line">Applied patch yarn.lock cleanly.</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="https://github.com/facebook/react-native/issues/12112#issuecomment-284491701" target="_blank" rel="external">https://github.com/facebook/react-native/issues/12112#issuecomment-284491701</a></p>
+<blockquote>
+<p>看了官方的 <code>.gitignore</code> 文件，里面是没有忽略 <code>.flowconfig</code> 的，所以也建议不要忽略掉了  </p>
+</blockquote>
+<h3 id="pod-错误"><a href="#pod-错误" class="headerlink" title="pod 错误"></a>pod 错误</h3><p>由于项目中 iOS 用了 CocoaPods，所以可能会报这个错（没用 CocoaPods 的可以忽略）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;path_to_your_project&#125;/ios/Pods/Pods.xcodeproj Couldn&apos;t load project</div></pre></td></tr></table></figure>
+<p>只要重新安装一遍 pod 依赖就行：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd &#123;path_to_your_project&#125;/ios</div><div class="line">$ pod install</div></pre></td></tr></table></figure>
+<h3 id="引用-RCTBridgeModule-h-错误-Redefinition"><a href="#引用-RCTBridgeModule-h-错误-Redefinition" class="headerlink" title="引用 RCTBridgeModule.h 错误 (Redefinition)"></a>引用 RCTBridgeModule.h 错误 (Redefinition)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/xxx/projects/ReactNative/xxx/node_modules/react-native/React/Base/RCTBridgeModule.h:54:16: Redefinition of &apos;RCTMethodInfo&apos;</div></pre></td></tr></table></figure>
+<p>如果报以上 Redefinition 的错误，是因为以前使用了这样的方式来引进 RCTBridgeModule.h：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &quot;RCTBridgeModule.h&quot;</div></pre></td></tr></table></figure>
+<p><code>RN 0.48</code> 后一定要使用以下方式引进了：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#import &lt;React/RCTBridgeModule.h&gt;</div></pre></td></tr></table></figure>
+<p>如果为了兼容旧版本，可以用宏来判断一下（<strong>注意</strong>一定要把 <code>&lt;React/RCTBridgeModule.h&gt;</code> 的判断放在前面）：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#if __has_include(&lt;React/RCTBridgeModule.h&gt;)</div><div class="line">#import &lt;React/RCTBridgeModule.h&gt;</div><div class="line">#elif __has_include(&quot;RCTBridgeModule.h&quot;)</div><div class="line">#import &quot;RCTBridgeModule.h&quot;</div><div class="line">#endif</div></pre></td></tr></table></figure>
+<p>如果是我们自己写的文件就直接改就行了，如果是第三方库的，就先去看下该库最新版有没适配了，有的话直接更新该库就行，没有的话就只能 fork 该项目后自己改了。  </p>
+<p>如我遇到的这个 RCTBEEPickerManager，去 github 看了下有适配了，所以直接升级就好了：  </p>
+<p><img src="http://aevit.qiniudn.com/f28f12a3bfebfab6f495bb7f22ca1eb61510996056.png" alt=""></p>
+<p>参考：<br><a href="https://github.com/facebook/react-native/issues/15775" target="_blank" rel="external">https://github.com/facebook/react-native/issues/15775</a></p>
+<h3 id="UMMobClick"><a href="#UMMobClick" class="headerlink" title="UMMobClick"></a>UMMobClick</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/xxx/projects/ReactNative/xxx/node_modules/rn-umeng/ios/RCTUmeng/RCTUmeng/RCTUmeng.m:11:9: &apos;UMMobClick/MobClick.h&apos; file not found</div></pre></td></tr></table></figure>
+<p>因为友盟是通过软链把 framework 链接过去的，不知道为啥有时 <code>yarn install</code> 或 <code>npm install</code> 后，那个软链接不见了，所以只能手动重新做一下软链接：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd ./node_modules/rn-umeng/ios/RCTUmeng/RCTUmeng/UMAnalytics_Sdk/UMMobClick.framework/Versions/ &amp;&amp; ln -s A Current &amp;&amp; cd .. &amp;&amp; ln -s Versions/Current/Headers/ Headers &amp;&amp; ln -s Versions/Current/UMMobClick UMMobClick &amp;&amp; cd ../../../../../../../</div></pre></td></tr></table></figure>
+<h3 id="env-json"><a href="#env-json" class="headerlink" title="env.json"></a>env.json</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(null): error: /Users/xxx/projects/ReactNative/xxx/ios/xxx/env.json: No such file or directory</div></pre></td></tr></table></figure>
+<p><code>env.json</code> 这是我用来做一些环境配置的东西，如果没用到的话可以忽略这条。  </p>
+<p>由于各人的环境（如 ip）是不一样的，为了避免冲突，所以将此文件放进了 <code>.gitignore</code> 里，这里就手动复制一下 <code>.env.json.example</code> 稍微改下后缀和里面内容就行了</p>
+<h3 id="react-native-xcode-sh"><a href="#react-native-xcode-sh" class="headerlink" title="react-native-xcode.sh"></a>react-native-xcode.sh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/xxx/Library/Developer/Xcode/DerivedData/xxx-bghjpnetkufdnqgonitwrdmmbxdw/Build/Intermediates.noindex/xxx.build/Debug-iphonesimulator/xxx.build/Script-00DD1BFF1BD5951E006B06BC.sh: line 3: ../node_modules/react-native/packager/react-native-xcode.sh: No such file or directory</div></pre></td></tr></table></figure>
+<p>看了下源码，现在用来打包 js 代码和图片的脚本的路径已经变了，以前是在这里：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export NODE_BINARY=node</div><div class="line">../node_modules/react-native/packager/react-native-xcode.sh</div></pre></td></tr></table></figure>
+<p>现在要换为以下路径（在 Xcode 的 <code>Build Phases</code> 里的 <code>Bundle React Native code and images</code> 里改）：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export NODE_BINARY=node</div><div class="line">../node_modules/react-native/scripts/react-native-xcode.sh</div></pre></td></tr></table></figure>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>经过以上修改，我的项目就能编译成功了，你的项目可能还会遇到其它坑，这个就要自行挖掘善用 google 了。  </p>
+<p>接下来就看下跑起来后 js 报的一些错误</p>
+<h2 id="iOS-运行"><a href="#iOS-运行" class="headerlink" title="iOS 运行"></a>iOS 运行</h2><p>编译成功后，会遇到 js 报的错误，正常是会报红屏出来。<del>不过发现会因为有些错误，红屏不能在启动后自动出现，需要<strong>按 Home 键回到桌面再点击图标进入</strong>，才会显示红屏错误。</del></p>
+<p>后来发现是因为用了 <a href="https://github.com/crazycodeboy/react-native-splash-screen" target="_blank" rel="external">react-native-splash-screen</a> 这个库，这个库是用来解决 RN 启动时多次闪屏的问题，原理是让 mainRunloop 一直循环等待：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">+ (void)show &#123;</div><div class="line">    if (!addedJsLoadErrorObserver) &#123;</div><div class="line">        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jsLoadError:) name:RCTJavaScriptDidFailToLoadNotification object:nil];</div><div class="line">        addedJsLoadErrorObserver = true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    while (waiting) &#123;</div><div class="line">        NSDate* later = [NSDate dateWithTimeIntervalSinceNow:0.1];</div><div class="line">        [[NSRunLoop mainRunLoop] runUntilDate:later];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在 js 加载到自己的入口页面后，手动调用 hide 方法隐藏掉：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+ (void)hide &#123;</div><div class="line">    dispatch_async(dispatch_get_main_queue(),</div><div class="line">                   ^&#123;</div><div class="line">                       waiting = false;</div><div class="line">                   &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果 JS Bundle 没能正常加载，会导致我们自己设置的 hide 入口一直调用不到，所以闪屏页会一直卡在那里，看不到红屏错误。  </p>
+<p>其实上面的 <code>show</code> 方法里，有监听 js 加载错误的通知，在加载失败时会自动调用 <code>hide</code> 方法，以前版本是会 post 一个 <code>RCTJavaScriptDidFailToLoadNotification</code> 通知。  </p>
+<p>不过查看 <code>RN 0.50</code> 的源码后发现，在 JS 加载失败时（比如说编译到真机，设置的地址是 <code>http://127.0.0.1:8081/index.ios.bundle?platform=ios&amp;dev=true</code>，但是真机又没有设置代理，所以真机是访问不到 127.0.0.1 上的 JS Bundle），不会 post 一个 <code>RCTJavaScriptDidFailToLoadNotification</code> 的通知，跟踪代码到 <code>RCTCxxBridge.m</code> 里的这个方法：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (void)loadSource:(RCTSourceLoadBlock)_onSourceLoad onProgress:(RCTSourceLoadProgressBlock)onProgress &#123;</div><div class="line">	...</div><div class="line">	    [RCTJavaScriptLoader loadBundleAtURL:self.bundleURL onProgress:onProgress onComplete:^(NSError *error, RCTSource *source) &#123;</div><div class="line">      if (error) &#123;</div><div class="line">        RCTLogError(@&quot;Failed to load bundle(%@) with error:(%@ %@)&quot;, self.bundleURL, error.localizedDescription, error.localizedFailureReason);</div><div class="line">        return;</div><div class="line">      &#125;</div><div class="line">      onSourceLoad(error, source);</div><div class="line">    &#125;];</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面 <code>onComplete</code> 的 block 里，跑进 error 里就直接 return 了，正常来说应该要调用 <code>onSourceLoad(error, source)</code>，里面会判断 error 不为空，就调用 <code>handleError</code> 方法，发送 <code>RCTJavaScriptDidFailToLoadNotification</code> 的通知，不知道为什么在这里不调用了。  </p>
+<p>目前只能回到桌面再进来才能看到红屏页面了，不过下面的 <code>Reload JS</code> 按钮是点击不了的，或者是在 <code>AppDelegate.m</code> 里调用 show  方法后，定时一些时间后调用 hide 方法：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</div><div class="line">	...</div><div class="line">    [SplashScreen show];</div><div class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123;</div><div class="line">        [SplashScreen hide];</div><div class="line">    &#125;);</div><div class="line">	return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>PS: 如果在升级前开了 <code>Debug JS Remotely</code>，可能会看不到具体在哪个文件报错，这时候只能先卸载掉桌面的 app 重新安装一次了</p>
+</blockquote>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>由于历史原因，少部分图片引用时将 <code>@2x</code> 或是 <code>@3x</code> 或是 <code>.ios</code> 这个后缀也写进去了，现在这样会报错了：  </p>
+<p><img src="http://aevit.qiniudn.com/ae3b9757747a70e0e42a6399b9ba42ea1510996109.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">require(&apos;./pic@2x.png&apos;) 或 require(&apos;./pic.ios.png&apos;)</div><div class="line">要换为</div><div class="line">require(&apos;./pic.png&apos;)</div></pre></td></tr></table></figure>
+<p>全局搜索 <code>@2x.png</code> 及 <code>@3x.png</code> 将 <strong>js 文件里</strong> 用到的去掉就行了（注意非 js 文件就不要改了）  </p>
+<h3 id="EventEmitter-引用错误"><a href="#EventEmitter-引用错误" class="headerlink" title="EventEmitter 引用错误"></a>EventEmitter 引用错误</h3><p><img src="http://aevit.qiniudn.com/fcd0a0ff271d410e33aad35ff33429381510996136.png" alt=""></p>
+<p>根据上面报错路径: <code>./node_modules/react-native-root-siblings/lib/AppRegistryInjection.js</code>  </p>
+<p>查看源码发现是因为新版 RN 的 EventEmitter 的路径已经变了，看了下这个 <code>react-native-root-siblings</code> 是 <code>react-native-root-toast</code> 所依赖的一个库：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import EventEmitter from &apos;react-native/Libraries/EventEmitter/EventEmitter&apos;;</div></pre></td></tr></table></figure>
+<p>去 github 看了下这个库已经适配了，所以直接升级该库就行了</p>
+<h3 id="PropTypes"><a href="#PropTypes" class="headerlink" title="PropTypes"></a>PropTypes</h3><p><img src="http://aevit.qiniudn.com/28c5eded86160314ad2e3030213d72111510996158.png" alt=""></p>
+<p>以前引用 PropTypes 是从 React 里引：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import React, &#123; PropTypes &#125; from &apos;react&apos;;</div></pre></td></tr></table></figure>
+<p>现在已经完全废弃了，需要另外安装这个库: <a href="https://github.com/facebook/prop-types" target="_blank" rel="external">prop-types</a>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save prop-types</div></pre></td></tr></table></figure>
+<p>然后单独引进：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import PropTypes from &apos;prop-types&apos;; // ES6</div><div class="line">var PropTypes = require(&apos;prop-types&apos;); // ES5 with npm</div></pre></td></tr></table></figure>
+<p>如果是我们自己写的文件就直接改就行了，如果是第三方库的，就先去看下该库最新版有没适配了，有的话直接更新该库就行，没有的话就只能 fork 该项目后自己改了。 </p>
+<blockquote>
+<p>PS: 这里相当多地方要改，花了老多时间一个一个改…</p>
+</blockquote>
+<p>另外，以前使用 <code>View.proptypes</code> 的，要改用 <code>ViewProptypes</code>，如:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import &#123; ViewProptypes &#125; from &apos;react-native&apos;</div><div class="line"></div><div class="line">static proptypes = &#123;</div><div class="line">	style: ViewProptypes.style</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="React-createClass"><a href="#React-createClass" class="headerlink" title="React.createClass"></a>React.createClass</h3><p><img src="http://aevit.qiniudn.com/fed5c02ca363f1a4deab296f33466ca71510996192.png" alt=""></p>
+<p>ES5 可以使用以下来创建一个类：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var xxx = React.createClass(&#123;&#125;)</div></pre></td></tr></table></figure>
+<p>现在新版 RN 完全废弃这种写法了，要么单独引进 <a href="https://www.npmjs.com/package/create-react-class" target="_blank" rel="external">create-react-class</a> ，要么使用 ES6 的写法：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export default class xxx extends React.xxxyyy &#123;&#125;</div></pre></td></tr></table></figure>
+<p>其中还需要一起修改的写法包括属性、state、方法声明，去掉方法间逗号等，以下是 ES5 的写法：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var xxx = React.createClass(&#123;</div><div class="line">  propTypes: &#123;</div><div class="line">    color: PropTypes.string</div><div class="line">  &#125;,</div><div class="line">  getDefaultProps: function () &#123;</div><div class="line">    return &#123;</div><div class="line">      color: &apos;#8E91A8&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  getInitialState () &#123;</div><div class="line">    return &#123; test: 1 &#125;</div><div class="line">  &#125;,</div><div class="line">  render: function () &#123;</div><div class="line">  	return &lt;View /&gt;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">module.exports = xxx</div></pre></td></tr></table></figure>
+<p>要改为 ES6 的写法：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">export default class xxx extends React.xxxyyy &#123;</div><div class="line">  static propTypes = &#123;</div><div class="line">    color: PropTypes.string</div><div class="line">  &#125;;</div><div class="line">  static defaultProps = &#123;</div><div class="line">    color: &apos;#8E91A8&apos;</div><div class="line">  &#125;;</div><div class="line">  constructor (props) &#123;</div><div class="line">  	super(props)</div><div class="line">  	this.state = &#123; test: 1 &#125;</div><div class="line">  &#125;</div><div class="line">  render () &#123;</div><div class="line">  	return &lt;View /&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需要注意的是，使用 create-react-class 时，会自动绑定 this（<a href="https://reactjs.org/docs/react-without-es6.html" target="_blank" rel="external">https://reactjs.org/docs/react-without-es6.html</a>），所以修改为 ES6 写法，要注意 this 的绑定，像这次就遇到一个地方需要手动绑定一下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">export default class xxx extends React.Component &#123;</div><div class="line">	renderTab (xx, yy) &#123;</div><div class="line">		return &lt;View style=&#123;this.props.style&#125; /&gt;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	render () &#123;</div><div class="line">		&lt;View&gt;</div><div class="line">		&#123; this.props.tabs.map((name, page) =&gt; &#123;</div><div class="line">			const renderTab = this.props.renderTab || this.renderTab</div><div class="line">			// 原本是 return renderTab(xx, yy)，要换为以下：  </div><div class="line">			return renderTab.call(this, xx, yy)</div><div class="line">		&#125;)&#125;</div><div class="line">		&lt;/View&gt;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Image-作为背景"><a href="#Image-作为背景" class="headerlink" title="Image 作为背景"></a>Image 作为背景</h3><p><img src="http://aevit.qiniudn.com/106b2b06f8b5bba923663608c5b594521510996213.png" alt=""></p>
+<p>以前如果要用一张图片做背景，会在 Image 里包含内容：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;Image&gt;</div><div class="line">	&lt;View /&gt;</div><div class="line">&lt;/Image&gt;</div></pre></td></tr></table></figure>
+<p>现在已经废弃了，要么给 Image 使用绝对定位来布局，要么使用 <code>ImageBackground</code>:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import &#123; ImageBackground &#125; from &apos;react-native&apos;</div><div class="line"></div><div class="line">&lt;ImageBackground&gt;</div><div class="line">	&lt;View /&gt;</div><div class="line">&lt;/ImageBackground&gt;</div></pre></td></tr></table></figure>
+<p>查看 <code>&lt;ImageBackground&gt;</code> 的源码(此时查看的 RN 版本是 0.50.3)，发现内部是用一个 View 包住一个 Image 及其 children。看注释说里面的 Image 的宽高跟外面 ImageBackground 设置的宽高有冲突，所以目前只能在内部的 Image 里再重新设置了一下宽高，后面等有完美的方案后会移除掉这个。  </p>
+<p>值得一提的是，这次适配中，以前用 Image 时是直接写了 style，如果 style 里有 <code>resizeMode</code>，就会报警告了，因为 View 是没有 <code>resizeMode</code> 这个样式的，所以要把样式通过 <code>imageStyle</code> 属性传进去。  </p>
+<p><code>ImageBackground</code> 源码：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">render() &#123;</div><div class="line">    const &#123;children, style, imageStyle, imageRef, ...props&#125; = this.props;</div><div class="line"></div><div class="line">    return (</div><div class="line">      &lt;View style=&#123;style&#125; ref=&#123;this._captureRef&#125;&gt;</div><div class="line">        &lt;Image</div><div class="line">          &#123;...props&#125;</div><div class="line">          style=&#123;[</div><div class="line">            StyleSheet.absoluteFill,</div><div class="line">            &#123;</div><div class="line">              // Temporary Workaround:</div><div class="line">              // Current (imperfect yet) implementation of &lt;Image&gt; overwrites width and height styles</div><div class="line">              // (which is not quite correct), and these styles conflict with explicitly set styles</div><div class="line">              // of &lt;ImageBackground&gt; and with our internal layout model here.</div><div class="line">              // So, we have to proxy/reapply these styles explicitly for actual &lt;Image&gt; component.</div><div class="line">              // This workaround should be removed after implementing proper support of</div><div class="line">              // intrinsic content size of the &lt;Image&gt;.</div><div class="line">              width: style.width,</div><div class="line">              height: style.height,</div><div class="line">            &#125;,</div><div class="line">            imageStyle,</div><div class="line">          ]&#125;</div><div class="line">          ref=&#123;imageRef&#125;</div><div class="line">        /&gt;</div><div class="line">        &#123;children&#125;</div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>所以这次升级中，如果有用到 <code>&lt;Image&gt;</code> 包裹内容，需要改为 <code>&lt;ImageBackground&gt;</code>，并且如果原本的 style 里有用到 <code>resizeMode</code>，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;Image style=&#123;resizeMode:&apos;contain&apos;&#125;&gt;</div><div class="line">	&lt;View /&gt;</div><div class="line">&lt;/Image&gt;</div></pre></td></tr></table></figure></p>
+<p>要改为 imageStyle：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ImageBackground imageStyle=&#123; resizeMode: &apos;contain&apos; &#125;&gt;</div><div class="line">	&lt;View /&gt;</div><div class="line">&lt;/ImageBackground&gt;</div></pre></td></tr></table></figure>
+<p>或是干脆将 resizeMode 作为一个属性传过去（个人比较喜欢这种），当然如果是其它 Image 独有的 style，就只能通过 imageStyle 传过去了：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ImageBackground resizeMode=&#123;&apos;contain&apos;&#125;&gt;</div><div class="line">	&lt;View /&gt;</div><div class="line">&lt;/ImageBackground&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>换为 ImageBackground 后，布局可能会有点不一样，建议改完后实际看下效果再调整一下</p>
+</blockquote>
+<p>还需要<strong>特别注意</strong>的是，因为我最开始全局搜 <code>&lt;/Image&gt;</code> 来查找内部包含子控件的 Image，但是用到动画的就搜不出来了：<code>&lt;/Animatable.Image&gt;</code>，所以还需要搜索一下这个改改。  </p>
+<blockquote>
+<p>这个控件是在进入该页面时才会报错的，所以改好后最好都看下，全部测试一遍  </p>
+</blockquote>
+<h3 id="VSCode-不能-Debug"><a href="#VSCode-不能-Debug" class="headerlink" title="VSCode 不能 Debug"></a>VSCode 不能 Debug</h3><blockquote>
+<p>这是当时用的最新版本：<br>VSCode 版本: 1.18.0<br>react-native-tools 插件版本: 0.5.2</p>
+</blockquote>
+<p>点击 VSCode 的 Debug 按钮时，报了以下错误：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Error] Error: Error while executing command &apos;react-native run-ios --simulator --no-packager&apos;: Error while executing command &apos;react-native run-ios --simulator --no-packager&apos;</div></pre></td></tr></table></figure>
+<p>这种错误有点莫名其妙，没有详细的报错信息，试了下新建一个 RN 0.50.3 的工程也是不能 Debug，估计是 VSCode 或 react-native-tool 本身的问题，只能等其更新了，暂时使用 <a href="https://github.com/jhen0409/react-native-debugger" target="_blank" rel="external">react-native-debugger</a> 代替来 Debug 了。  </p>
+<blockquote>
+<p>以前也遇过升级版本后，VSCode 的调试用不了，真是心酸  </p>
+</blockquote>
+<h3 id="RCTTextField"><a href="#RCTTextField" class="headerlink" title="RCTTextField"></a>RCTTextField</h3><p>iOS 里以前这个控件是继承自 <code>UITextField</code>，现在是继承自 <code>RCTTextInput</code>，里面 .m 文件里包含这一个输入控件：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@property (nonatomic, readonly) UIView&lt;RCTBackedTextInputViewProtocol&gt; *backedTextInputView;</div></pre></td></tr></table></figure>
+<p>这个控件没有暴露在 .h 文件里，所以我们项目中如果用了自定义键盘（赋值给 inputView），以前是这样直接取：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UITextField *view = (UITextField*)[_bridge.uiManager viewForReactTag:reactTag];</div><div class="line">view.inputView = customView;</div></pre></td></tr></table></figure>
+<p>现在这样会报错了，需要自己手动去查找一下，先这样简单粗暴地处理了：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (UITextView*)getRealTextView:(UITextView*)reactView &#123;</div><div class="line">    if ([self canInputText:reactView]) &#123;</div><div class="line">        return reactView;</div><div class="line">    &#125;</div><div class="line">    // RN 0.50 后 RCTTextField 不是继承自 UITextField 了，多包了一层，这里遍历一下去查找</div><div class="line">    for (UITextView *aView in reactView.subviews) &#123;</div><div class="line">        if ([self canInputText:aView]) &#123;</div><div class="line">            return (UITextView*)aView;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return nil;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (BOOL)canInputText:(UIView*)view &#123;</div><div class="line">    return [view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后去调用一下方法：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UITextField *view = (UITextField*)[_bridge.uiManager viewForReactTag:reactTag];</div><div class="line">view = [self getRealTextView:view]; // 兼容 RN 0.50</div><div class="line">view.inputView = customView;</div></pre></td></tr></table></figure>
+<h2 id="android-编译"><a href="#android-编译" class="headerlink" title="android 编译"></a>android 编译</h2><h2 id="createJSModules"><a href="#createJSModules" class="headerlink" title="createJSModules"></a>createJSModules</h2><p><img src="http://aevit.qiniudn.com/82a0a827e888527f0e5ce1ca011f15f51510996245.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public List&lt;Class&lt;? extends JavaScriptModule&gt;&gt; createJSModules() &#123;</div><div class="line">	return Collections.emptyList();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从 RN 0.47 开始，以上写法会报错:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">错误: 方法不会覆盖或实现超类型的方法</div></pre></td></tr></table></figure>
+<p>解决方法是将前面的 <code>@Override</code> 去掉  </p>
+<h2 id="InnerClass"><a href="#InnerClass" class="headerlink" title="InnerClass"></a>InnerClass</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Warning:Ignoring InnerClasses attribute for an anonymous inner class</div><div class="line">associated EnclosingMethod attribute. This class was probably produced by a</div><div class="line">solution is to recompile the class from source, using an up-to-date compiler</div><div class="line">compiler that did not target the modern .class file format. The recommended</div><div class="line">compiler that did not target the modern .class file format. The recommended</div><div class="line">(android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat$1) that doesn&apos;t come with an</div><div class="line">indicate that it is *not* an inner class.</div><div class="line">this warning is that reflective operations on this class will incorrectly</div><div class="line">and without specifying any &quot;-target&quot; type options. The consequence of ignoring</div><div class="line">(android.support.v4.view.AccessibilityDelegateCompatIcs$1) that doesn&apos;t come with an</div><div class="line">solution is to recompile the class from source, using an up-to-date compiler</div><div class="line">and without specifying any &quot;-target&quot; type options.</div></pre></td></tr></table></figure>
+<p>报错类似如上，解决方法是在 <code>proguard-rules.pro</code> 文件加上：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-keepattributes InnerClasses</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="https://stackoverflow.com/questions/35796144/progaurd-issue-warningignoring-innerclasses-attribute-for-an-anonymous-inner-c" target="_blank" rel="external">https://stackoverflow.com/questions/35796144/progaurd-issue-warningignoring-innerclasses-attribute-for-an-anonymous-inner-c</a></p>
+<h2 id="react-native-splash-screen"><a href="#react-native-splash-screen" class="headerlink" title="react-native-splash-screen"></a>react-native-splash-screen</h2><p>使用<a href="https://github.com/crazycodeboy/react-native-splash-screen" target="_blank" rel="external">这个库</a>（3.0.6 版本），在启动时会报错 <code>Can&#39;t convert to color: type=0x1</code>：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">java.lang.UnsupportedOperationException: Can&apos;t convert to color: type=0x1</div><div class="line">2 android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2423)</div><div class="line">3 ......</div><div class="line">4 Caused by:</div><div class="line">5 java.lang.UnsupportedOperationException:Can&apos;t convert to color: type=0x1</div><div class="line">6 android.content.res.TypedArray.getColor(TypedArray.java:453)</div><div class="line">7 com.android.internal.policy.PhoneWindow.generateLayout(PhoneWindow.java:3779)</div><div class="line">8 com.android.internal.policy.PhoneWindow.installDecor(PhoneWindow.java:3983)</div><div class="line">9 com.android.internal.policy.PhoneWindow.setContentView(PhoneWindow.java:383)</div><div class="line">10 android.app.Dialog.setContentView(Dialog.java:515)</div><div class="line">11 org.devio.rn.splashscreen.SplashScreen$1.run(SplashScreen.java:32)</div><div class="line">12 android.app.Activity.runOnUiThread(Activity.java:5573)</div><div class="line">13 org.devio.rn.splashscreen.SplashScreen.show(SplashScreen.java:26)</div><div class="line">14 org.devio.rn.splashscreen.SplashScreen.show(SplashScreen.java:47)</div><div class="line">15 com.gf.mobile.clickeggs2.MainActivity.onCreate(MainActivity.java:27)</div></pre></td></tr></table></figure>
+<p>解决方法是在项目的 <code>xxx/android/app/src/main/res/values/color.xml</code> 里添加一个 <code>primary_dark</code>:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;resources&gt;</div><div class="line">    &lt;drawable name=&quot;translate&quot;&gt;#00000000&lt;/drawable&gt;</div><div class="line">    &lt;color name=&quot;primary_dark&quot;&gt;#000000&lt;/color&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="https://github.com/crazycodeboy/react-native-splash-screen/issues/123#issuecomment-342823345" target="_blank" rel="external">https://github.com/crazycodeboy/react-native-splash-screen/issues/123#issuecomment-342823345</a></p>
+<h3 id="Gif-播放报错"><a href="#Gif-播放报错" class="headerlink" title="Gif 播放报错"></a>Gif 播放报错</h3><p>报错内容太多，这里截取部分：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">java.lang.NoClassDefFoundError: Failed resolution of: Lcom/facebook/imagepipeline/memory/PooledByteBuffer;</div><div class="line"></div><div class="line">at com.facebook.imagepipeline.animated.factory.AnimatedImageFactoryImpl.decodeGif(AnimatedImageFactoryImpl.java:86)</div><div class="line"></div><div class="line">at com.facebook.imagepipeline.decoder.DefaultImageDecoder.decodeGif(DefaultImageDecoder.java:145)</div><div class="line"></div><div class="line">Caused by: java.lang.ClassNotFoundException: Didn&apos;t find class &quot;com.facebook.imagepipeline.memory.PooledByteBuffer&quot; on path: DexPathList[[zip file &quot;/data/app/cn.touna.touna-1/base.apk&quot;],nativeLibraryDirectories=[/data/app/cn.touna.touna-1/lib/arm, /system/lib, /vendor/lib, system/vendor/lib, system/vendor/lib/egl, system/lib/hw]]</div></pre></td></tr></table></figure>
+<p>从上面看是 gif 相关的错误，看到 <code>build.gradle</code> 里有引进 gif:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">	...</div><div class="line">	compile &apos;com.facebook.fresco:animated-gif:1.0.1&apos;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看了下是用到这个库：<br><a href="https://github.com/facebook/fresco" target="_blank" rel="external">https://github.com/facebook/fresco</a></p>
+<p>添加多一个东西，并且更新版本就解决了:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">	...</div><div class="line">	// 注意以下两者顺序最好不要换，之前试过顺序换过来，但是最后报错了</div><div class="line">    compile &apos;com.facebook.fresco:animated-gif:1.5.0&apos;</div><div class="line">    compile &apos;com.facebook.fresco:fresco:1.5.0&apos;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>至此升级完毕，项目能跑起来了，不过由于这次好多东西都废弃了，一些第三方库的 api 也可能做了修改，所以可能还有一些隐藏的 bug 存在，最好重新完整测试一遍。  </p>
+<p>建议不要在 dev 阶段关闭 RN 的警告(<code>console.disableYellowBox = false</code>)，这样能发现一些隐藏的 bug，或是一些以后将会被废弃的东西，及早修改。  </p>
+<hr>
+<p>2017-11-18 17:13<br>Aevit<br>深圳南山  </p>
+<hr>
+<p><img src="http://aevit.qiniudn.com/3ba1a7efb287ad0939e58729582e29251510996366.jpeg" alt=""></p>
+<p>摄影：Aevit 2015年8月 黄姚  </p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/比特海/">比特海</a>
+            
+              <a href="/tags/ReactNative/">ReactNative</a>
+            
+              <a href="/tags/升级/">升级</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/10/12/rn-custom-debug-address/">
+        <span class="next-text nav-default">ReactNative自定义地址调试</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:aevit@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2014 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Aevit</span>
+  </span>
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://aevit.xyz/2017/11/18/rn_upgrade_0.50/';
+        this.page.identifier = '2017/11/18/rn_upgrade_0.50/';
+        this.page.title = 'ReactNative升级至0.50.3';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//aevit.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+  </body>
+</html>

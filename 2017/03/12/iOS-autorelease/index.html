@@ -372,7 +372,7 @@
 </ol>
 <p>第一种比较原始；Cocoa Touch 的 Reference Counting 对比 Garbage Collection，有一个致命的弱点：无法释放循环引用的对象，所以要注意不要造成循环引用。</p>
 <blockquote>
-<p>PS: 维基百科上有说 Reference Couting 属于 GC 的一种方式：<br>Reference counting is a form of garbage collection whereby each object has a count of the number of references to it.<br>详见链接：<br><a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science" target="_blank" rel="external">https://en.wikipedia.org/wiki/Garbage<em>collection</em>(computer_science)#Reference_counting</a>#Reference_counting)</p>
+<p>PS: 维基百科上有说 Reference Couting 属于 GC 的一种方式：<br>Reference counting is a form of garbage collection whereby each object has a count of the number of references to it.<br>详见链接：<br><a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science" target="_blank" rel="external">Reference_counting</a>#Reference_counting)</p>
 <p>不过也有人说不是，没有定论，这里作一下简单说明。</p>
 </blockquote>
 <p>三、什么时候应该使用 @autoreleasepool</p>
@@ -380,7 +380,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">If you are writing a program that is not based on a UI framework, such as a command-line tool.  </div><div class="line"></div><div class="line">If you write a loop that creates many temporary objects.</div><div class="line">You may use an autorelease pool block inside the loop to dispose of those objects before the next iteration. Using an autorelease pool block in the loop helps to reduce the maximum memory footprint of the application.</div><div class="line"></div><div class="line">If you spawn a secondary thread.</div><div class="line">You must create your own autorelease pool block as soon as the thread begins executing; otherwise, your application will leak objects. (See Autorelease Pool Blocks and Threads for details.)</div></pre></td></tr></table></figure>
 <p>即：</p>
 <ol>
-<li>你的程序不是基于 UI 框架的，如命令行工个</li>
+<li>你的程序不是基于 UI 框架的，如命令行工具</li>
 <li>你编写的循环创建了大量的临时对象</li>
 <li>如果你创建了一个辅助线程</li>
 </ol>

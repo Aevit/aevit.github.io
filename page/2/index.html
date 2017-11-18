@@ -217,6 +217,59 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/08/04/github-wave-animation/">iOS实现水波动画</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-08-04
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>iOS下实现水波动画，动画曲线使用的是<code>正弦型函数解析式</code>。<br>效果图如下（图在最后有点卡顿的感觉，是因为gif重新开始播放了）</p>
+<blockquote>
+<p>PS：gif图中下面的<code>Water</code>，在水波动画的基础上，使用遮罩实现了<code>Water</code>字体的<code>蓝白颜色交替</code></p>
+</blockquote>
+<p><img src="http://aevit.qiniudn.com/6d34efef07654d9ac80ca3cafe89c9931470240534.gif" alt="image"></p>
+          <div class="read-more">
+            <a href="/2016/08/04/github-wave-animation/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/06/30/vue-in-laravel-2/">在Laravel中使用Vue.js（下）</a>
         
       </h1>
@@ -671,60 +724,6 @@
 <p><a href="http://aevit.qiniudn.com/sketch_2_1.png" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_2_1.png" alt=""></a></p>
           <div class="read-more">
             <a href="/2016/03/07/sketch-study-2/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/02/28/PhalApi-π-schedule-task/">PhalApi(π)接口框架-计划任务开发</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-02-28
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/比特海/">比特海</a>
-            
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><blockquote>
-<p><a href="http://phalapi.net/" target="_blank" rel="external">PhalApi</a>(读π框架)，是一个PHP轻量级开源接口框架，是专门为接口开发而设计的框架。<br>在这里先感谢作者@dogstar 提供了这么一个方便的php接口框架。</p>
-</blockquote>
-<p>本文主要记录下π框架下计划任务的相关开发教程。</p>
-<p>计划任务有两种情况：<br>1、MQ（Message Queue）－消息队列：<br>服务器<strong>被动</strong>触发（循环扫描消费）。<br>举个例子：当你群发一条消息给10000（假设你有朋友）个朋友，如果直接同步发送，可能对服务器的压力会比较大，这时应该使用MQ计划任务进行分布式处理。<br>MQ具体是什么，这里就不再详细阐述了，有兴趣的同学可以自行google。<br>π框架为MQ提供了三种类型：<code>Redis</code>/<code>文件</code>/<code>数据库</code></p>
-<p>2、全量：<br>服务器<strong>主动</strong>触发（定期全量执行）。<br>举个例子：假设你们有个智能产品是秤，用户通过app记录了体重，这时产品经理一拍脑袋说：“加个体重周报功能，统计一周秤重结果，分析分析你为什么这么肥，这样好不好？”。<br>这时开发人员内心当然是“你TM才肥，你全家都肥”，表面当然说“可以，使用全量计划任务，在每周一个固定时间进行统计就行了。”</p>
-          <div class="read-more">
-            <a href="/2016/02/28/PhalApi-π-schedule-task/" class="read-more-link">阅读更多</a>
           </div>
         
       
