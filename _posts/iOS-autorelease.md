@@ -446,7 +446,7 @@ void kill()
 > PS: 维基百科上有说 Reference Couting 属于 GC 的一种方式：  
 > Reference counting is a form of garbage collection whereby each object has a count of the number of references to it.  
 > 详见链接：  
-> [https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)#Reference_counting](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)#Reference_counting)
+> [Reference_counting](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)#Reference_counting)
 > 
 > 不过也有人说不是，没有定论，这里作一下简单说明。
 
@@ -468,7 +468,7 @@ You must create your own autorelease pool block as soon as the thread begins exe
 
 即：
 
-1.  你的程序不是基于 UI 框架的，如命令行工个
+1.  你的程序不是基于 UI 框架的，如命令行工具
 2.  你编写的循环创建了大量的临时对象
 3.  如果你创建了一个辅助线程
 
