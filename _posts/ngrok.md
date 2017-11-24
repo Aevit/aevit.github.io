@@ -287,6 +287,7 @@ vim ngrok.cfg
 
 内容如下:
 
+> 特别需要注意的是配置文件为 YAML 语法，所有缩进都要使用空格，不能够使用tab
 
 ```
 server_addr: "ngrok.your-domain.com:4443"
