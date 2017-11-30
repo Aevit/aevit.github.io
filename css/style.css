@@ -560,6 +560,12 @@ h6 {
         color: inherit; }
         .post .post-header .post-meta .post-category a:hover {
           color: #c05b4d; }
+    .post .post-header .post-meta .post-visits {
+      display: inline-block;
+      font-size: 14px;
+      color: #8a8a8a; }
+      .post .post-header .post-meta .post-visits::before {
+        content: '·'; }
   .post .post-toc {
     position: absolute;
     width: 200px;
@@ -641,6 +647,8 @@ h6 {
     margin: 10px 0;
     border-spacing: 0;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125); }
+    .post .post-content > table thead {
+      background: #f8f5ec; }
     .post .post-content > table th, .post .post-content > table td {
       padding: 5px 15px;
       border: 1px double #f4efe1; }
@@ -886,10 +894,8 @@ h6 {
     border-top: 1px dashed #e6e6e6; }
     .post .post-copyright .copyright-item {
       margin: 5px 0; }
-      .post .post-copyright .copyright-item.lincese {
-        font-weight: bold; }
       .post .post-copyright .copyright-item a {
-        text-decoration: underline; }
+        color: #c05b4d; }
   .post .post-reward {
     margin-top: 20px;
     padding-top: 10px;
@@ -1128,8 +1134,8 @@ h6 {
 @font-face {
   font-family: 'iconfont';
   /* project id 96542 */
-  src: url("//at.alicdn.com/t/font_96542_d5q5xyswt0kq33di.eot");
-  src: url("//at.alicdn.com/t/font_96542_d5q5xyswt0kq33di.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_96542_d5q5xyswt0kq33di.woff") format("woff"), url("//at.alicdn.com/t/font_96542_d5q5xyswt0kq33di.ttf") format("truetype"), url("//at.alicdn.com/t/font_96542_d5q5xyswt0kq33di.svg#iconfont") format("svg"); }
+  src: url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.eot");
+  src: url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.woff") format("woff"), url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.ttf") format("truetype"), url("//at.alicdn.com/t/font_96542_ixz9jngnf1sb57b9.svg#iconfont") format("svg"); }
 
 .iconfont {
   font-family: "iconfont" !important;
@@ -1138,6 +1144,12 @@ h6 {
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
   cursor: pointer; }
+
+.icon-instagram:before {
+  font-size: .95em;
+  content: "\e611";
+  position: relative;
+  top: -1px; }
 
 .icon-douban:before {
   content: "\e610"; }
