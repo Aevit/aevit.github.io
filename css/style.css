@@ -558,12 +558,17 @@ h6 {
         content: '·'; }
       .post .post-header .post-meta .post-category a {
         color: inherit; }
+        .post .post-header .post-meta .post-category a + a::before {
+          content: '/';
+          margin-right: 3px;
+          color: #8a8a8a !important; }
         .post .post-header .post-meta .post-category a:hover {
           color: #c05b4d; }
     .post .post-header .post-meta .post-visits {
       display: inline-block;
       font-size: 14px;
-      color: #8a8a8a; }
+      color: #8a8a8a;
+      visibility: hidden; }
       .post .post-header .post-meta .post-visits::before {
         content: '·'; }
   .post .post-toc {
