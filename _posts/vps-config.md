@@ -531,6 +531,117 @@ chmod +x unixbench.sh
 
 总分情况，低于400的就算性能低下；600-800是属于正常VPS水准；超过1000分性能就算给力 （PS：看的是12年的一篇文章，不知道现在的标准是多少）
 
+## mysql 手动安装相关
+update: 2017.12.16
+前阵子帮忙迁移公司一台服务器到另一台，同事是直接把旧服务器安装好的 mysql 复制到新服务器上，这时需要手动安装一下，以下是遇到的一些问题：  
+
+首先安装(在 mysql 目录执行)：    
+
+```
+sudo scripts/mysql_install_db --user=mysql
+```
+
+遇到这样的报错：  
+
+```
+Can't locate Data/Dumper.pm in @INC (@INC contains: /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at scripts/mysql_install_db line 42.
+BEGIN failed--compilation aborted at scripts/mysql_install_db line 42.
+```
+
+需要安装一个东西：  
+
+```
+sudo yum install 'perl(Data::Dumper)'
+```
+
+还有其它问题的话，编辑 `my.cnf` 里添加 error_log 去查看日志
+注：（`my.cnf` 有时指定了位置的话，在 `/etc/my.cnf` 不能再存在）  
+
+安装成功会有以下信息，包含设置 root 密码、启动等：  
+
+```
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:
+
+  /usr/local/webserver/mysql5.6//bin/mysqladmin -u root password 'new-password'
+  /usr/local/webserver/mysql5.6//bin/mysqladmin -u root -h 127.0.0.1 password 'new-password'
+
+Alternatively you can run:
+
+  /usr/local/webserver/mysql5.6//bin/mysql_secure_installation
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the manual for more instructions.
+
+You can start the MySQL daemon with:
+
+  cd . ; /usr/local/webserver/mysql5.6//bin/mysqld_safe &
+
+You can test the MySQL daemon with mysql-test-run.pl
+
+  cd mysql-test ; perl mysql-test-run.pl
+
+Please report any problems with the ./bin/mysqlbug script!
+
+The latest information about MySQL is available on the web at
+
+  http://www.mysql.com
+
+Support MySQL by buying support/licenses at http://shop.mysql.com
+
+WARNING: Found existing config file ./my.cnf on the system.
+Because this file might be in use, it was not replaced,
+but was used in bootstrap (unless you used --defaults-file)
+and when you later start the server.
+The new default config file was created as ./my-new.cnf,
+please compare it with your file and take the changes you need.
+```
+
+启动(在 mysql 目录执行)：  
+
+```
+bin/mysqld_safe &
+
+ln -s support/mysql.server /etc/init.d/mysql
+
+# 以后就可以这样启动：  
+/etc/init.d/mysql start
+
+# 看下有没启动
+ps aux | grep mysql
+```
+
+```
+# 进入数据库后重置密码
+update user set password=PASSWORD("newpassword") where user="root";
+
+# 添加新用户
+grant all on [dbname or *].[tablename or *] to [username]@"127.0.0.1" identified by "password";
+
+FLUSH PRIVILEGES;
+
+# 导出所有数据库数据
+mysqldump -uroot -p --all-databases > /tmp/all_data.sql
+
+# 导出指定数据库数据
+mysqldump -uroot -p dbname > /tmp/dbname_data.sql
+
+# 导入数据
+mysql -uroot -p dbname < /tmp/dbname_data.sql.sql
+```
+
+查看当前运行程序：  
+
+```
+sudo netstat -tplun
+```
+
 * * *
 
 2015.11.11 01:53  

@@ -12,8 +12,7 @@ layout: post
 今天遇到个问题，需要将和风天气接口 [城市列表](http://www.heweather.com/documents/cn-city-list) 转成JSON文件给客户端人员使用。  
 如果手动一个一个复制下来工作量巨大。
 
-我一直相信重复性劳动都是可以通过技术解决的。  
-google了下找到了方法，一种是纯js遍历实现，一种是通过jQuery。
+以前没怎么弄过前端，查了下有几种方法，一种是纯js遍历实现，一种是通过jQuery。
 
 <!--more-->
 
@@ -21,7 +20,8 @@ google了下找到了方法，一种是纯js遍历实现，一种是通过jQuery
 
 最终效果如下：
 
-Loading… Or See the Pen [gaBQrQ](http://codepen.io/Aevit/pen/gaBQrQ/) by Aevit ([@Aevit](http://codepen.io/Aevit)) on [CodePen](http://codepen.io).
+<p data-height="285" data-theme-id="0" data-slug-hash="gaBQrQ" data-default-tab="js,result" data-user="Aevit" data-embed-version="2" data-pen-title="gaBQrQ" class="codepen">See the Pen <a href="https://codepen.io/Aevit/pen/gaBQrQ/">gaBQrQ</a> by Aevit (<a href="https://codepen.io/Aevit">@Aevit</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 ### 说明
 

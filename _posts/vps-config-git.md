@@ -259,6 +259,30 @@ vim /home/git/.ssh/authorized_keys
 # 粘贴刚才复制的公钥文件的内容，追加在后面，保存退出即可
 ```
 
+ 
+> 使用 `ssh -vvv git@{your_ip} -p {your_port}` 测试不能正常连接的话，就使用下面方法检查一下
+
+* 打开远程主机的 `/etc/ssh/sshd_config` 这个文件，检查下面几行是否被注释了:  
+
+```
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+```
+
+然后重启下 ssh 服务:  
+
+```
+# CentOS 6:  
+service sshd restart
+
+# CentOS 7:  
+/bin/systemctl restart sshd.service
+```
+
+* 确认权限，`~/.ssh` 目录权限要求是 `700`，里面的 `~/.ssh/authorized_keys` 权限要求是 `600`
+
+
 
 ##### 禁用shell登录
 
@@ -375,12 +399,23 @@ if [ -z "$IS_BARE" ]; then
     exit 1
 fi
 
+# get the branch name when recived
+if ! [ -t 0 ]; then
+  read -a ref
+fi
+IFS='/' read -ra REF <<< "${ref[2]}"
+BRANCH="${REF[2]}"
+if [ "$BRANCH" == "" ]; then
+  BRANCH="develop"
+fi
+# echo >&2 $BRANCH
+
 # Get the latest commit subject
-# 注：默认是取master分支上的log，如果想要取其他分支的，请加上分支名字，如 git log develop -1
-SUBJECT=$(git log -1 --pretty=format:"%s")
+# 注：默认是取master分支上的log (git log -1)，如果想要取其他分支的，请加上分支名字，如 git log develop -1
+SUBJECT=$(git log $BRANCH -1 --pretty=format:"%s")
 
 # Deploy the HEAD sources to publish
-IS_PULL=$(echo "$SUBJECT" | grep "\[deploy\]")
+IS_PULL=$(echo "$SUBJECT" | grep "[deploy]")
 if [ -z "$IS_PULL" ]; then
     echo >&2 "tips: post-receive: IS_NOT_PULL"
     exit 1
