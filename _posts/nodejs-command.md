@@ -263,7 +263,7 @@ var child = exec('ls', function(err, stdout, stderr) {
 终于把 markdown 文件弄回来了，也好久没写文章了...
 
 以下是转 markdown 脚本的最终成果：  
-<video src="http://aevit.qiniudn.com/bee8ece7bc40ba4f2d7f256f188e8a8b1504621435.mp4" width=426 height=540 controls="controls" />  
+<video src="http://file.arvit.xyz/bee8ece7bc40ba4f2d7f256f188e8a8b1504621435.mp4" width=426 height=540 controls="controls" />  
 
 参考资料：  
 [【译】使用Node.js创建命令行脚本工具](https://aotu.io/notes/2015/12/23/building-command-line-tools-with-node-js/index.html)  
@@ -277,6 +277,6 @@ Aevit
 
 ---
 
-![](http://aevit.qiniudn.com/01506e0f5522f2102cb9b3f6b88597d81504792290.jpeg)
+![](http://file.arvit.xyz/01506e0f5522f2102cb9b3f6b88597d81504792290.jpeg)
 
 摄影：Aevit 2015年6月 阳江闸坡十里银滩  

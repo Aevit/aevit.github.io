@@ -7,7 +7,7 @@ layout: post
 
 ---
 
-[![](http://aevit.qiniudn.com/work_daily.png?imageView2/1/w/640/h/395)](http://aevit.qiniudn.com/work_daily.png "工作日常")
+[![](http://file.arvit.xyz/work_daily.png?imageView2/1/w/640/h/395)](http://file.arvit.xyz/work_daily.png "工作日常")
 
 上图为这阵子的工作日常
 

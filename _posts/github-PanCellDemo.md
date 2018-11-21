@@ -31,7 +31,7 @@ And you can inherite from the class `SCCellPanBaseGesture` to make your own type
 
 ### Display
 
-![preivew_gif](http://aevit.qiniudn.com/SCCellPanGestureDemo.gif)
+![preivew_gif](http://file.arvit.xyz/SCCellPanGestureDemo.gif)
 
 * * *
 

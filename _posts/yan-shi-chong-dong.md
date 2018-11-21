@@ -11,12 +11,12 @@ layout: post
 
 观看`延时虫洞`视频：
 
- <video controls="controls" poster="http://aevit.qiniudn.com/warmhole-poster.jpg" width="100%" height="100%"><source src="http://aevit.qiniudn.com/warmhole.mp4" type="video/mp4">  
+ <video controls="controls" poster="http://file.arvit.xyz/warmhole-poster.jpg" width="100%" height="100%"><source src="http://file.arvit.xyz/warmhole.mp4" type="video/mp4">  
  <object type="application/x-shockwave-flash" data="http://player.longtailvideo.com/player.swf" width="640" height="360"><param name="movie" value="http://player.longtailvideo.com/player.swf">  
 <param name="allowFullScreen" value="true">  
 <param name="wmode" value="transparent">  
 <param name="flashVars" value="controlbar=over&amp;image=http%3A%2F%2Faevit.qiniudn.com%2Fwarmhole-poster.jpg&amp;file=http%3A%2F%2Faevit.qiniudn.com%2Fwarmhole.mp4">  
-![](http://aevit.qiniudn.com/warmhole-poster.jpg "No video playback capabilities, please download the video below")</object></video> <!--more-->
+![](http://file.arvit.xyz/warmhole-poster.jpg "No video playback capabilities, please download the video below")</object></video> <!--more-->
 
 * * *
 

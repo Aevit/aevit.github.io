@@ -17,7 +17,7 @@ layout: post
 
 展示：
 
-![image](http://aevit.qiniudn.com/e209ef12cf7b513c883956a89aa6f3fd1472996709.gif)
+![image](http://file.arvit.xyz/e209ef12cf7b513c883956a89aa6f3fd1472996709.gif)
 
 <!--more-->
 
@@ -143,5 +143,5 @@ Aevit
 
 * * *
 
-<a class="http://aevit.qiniudn.com/e0397c118a4f02bc737dd7a8faebefad1472998832.jpeg" title="天空之镜">![](http://aevit.qiniudn.com/e0397c118a4f02bc737dd7a8faebefad1472998832.jpeg)</a>  
+<a class="http://file.arvit.xyz/e0397c118a4f02bc737dd7a8faebefad1472998832.jpeg" title="天空之镜">![](http://file.arvit.xyz/e0397c118a4f02bc737dd7a8faebefad1472998832.jpeg)</a>  
 摄影：Aevit 2016年8月 茶卡盐湖

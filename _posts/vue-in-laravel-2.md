@@ -21,7 +21,7 @@ layout: post
 
 在开发前，让我们看下我们将要实现的UI：
 
-![image](http://aevit.qiniudn.com/030694bde6c596bd6b95ef0a53d55a811467279357.jpeg)
+![image](http://file.arvit.xyz/030694bde6c596bd6b95ef0a53d55a811467279357.jpeg)
 
 上面有2级`tab`供切换显示，下面的图片内容根据`tab`的切换来显示不同内容。
 
@@ -372,7 +372,7 @@ Aevit
 
 * * *
 
-[![](http://aevit.qiniudn.com/241a8b0158abd0254451b2d938fe77f91467280783.jpeg)](http://aevit.qiniudn.com/241a8b0158abd0254451b2d938fe77f91467280783.jpeg "布达拉宫")  
+[![](http://file.arvit.xyz/241a8b0158abd0254451b2d938fe77f91467280783.jpeg)](http://file.arvit.xyz/241a8b0158abd0254451b2d938fe77f91467280783.jpeg "布达拉宫")  
 摄影：Aevit 2015年10月 布达拉宫
 
 ## 附录
@@ -391,13 +391,13 @@ return array(
       'name' => '厨房',
       'list' => array(
         array(
-          'pic_url' => 'http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
+          'pic_url' => 'http://file.arvit.xyz/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
         ),
         array(
-          'pic_url' => 'http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
+          'pic_url' => 'http://file.arvit.xyz/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
         ),
         array(
-          'pic_url' => 'http://aevit.qiniudn.com/a797f2435852b8471bf5a79342e4aee61460975212.png',
+          'pic_url' => 'http://file.arvit.xyz/a797f2435852b8471bf5a79342e4aee61460975212.png',
         ),
       )
     ),
@@ -405,10 +405,10 @@ return array(
       'name' => '卫浴',
       'list' => array(
         array(
-          'pic_url' => 'http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
+          'pic_url' => 'http://file.arvit.xyz/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
         ),
         array(
-          'pic_url' => 'http://aevit.qiniudn.com/5850d66f802feda8cb9b0963bfdd66f11460975212.png',
+          'pic_url' => 'http://file.arvit.xyz/5850d66f802feda8cb9b0963bfdd66f11460975212.png',
         ),
       )
     )
@@ -420,7 +420,7 @@ return array(
       'name' => '数码',
       'list' => array(
         array(
-          'pic_url' => 'http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
+          'pic_url' => 'http://file.arvit.xyz/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
         ),
       )
     ),
@@ -428,7 +428,7 @@ return array(
       'name' => '厨房',
       'list' => array(
         array(
-          'pic_url' => 'http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
+          'pic_url' => 'http://file.arvit.xyz/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
         ),
       )
     )
@@ -440,7 +440,7 @@ return array(
       'name' => '卫浴',
       'list' => array(
         array(
-          'pic_url' => 'http://aevit.qiniudn.com/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
+          'pic_url' => 'http://file.arvit.xyz/454c855115f16ad5e75869fc7e2bdb1f1460975212.png',
         ),
       )
     ),

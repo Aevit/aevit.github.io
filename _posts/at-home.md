@@ -53,4 +53,4 @@ Aevit
 * * *
 
 某天某地日出时刻：  
-[![](http://aevit.qiniudn.com/huang_yao_ri_chu.JPG)](http://aevit.qiniudn.com/huang_yao_ri_chu.JPG "黄姚日出")
+[![](http://file.arvit.xyz/huang_yao_ri_chu.JPG)](http://file.arvit.xyz/huang_yao_ri_chu.JPG "黄姚日出")

@@ -29,11 +29,11 @@ layout: post
 
 去找了运维同事看了后台配置，看起来是没问题，但是使用 Charles 抓包看的 `Keep-Alive`（又称持久连接、连接重用）就一直不生效：
 
-![image](http://aevit.qiniudn.com/8332f71e13336060218c2ba8bfe31b401490671091.png)
+![image](http://file.arvit.xyz/8332f71e13336060218c2ba8bfe31b401490671091.png)
 
 后来突然想到，android 上会不会有问题？抓包看了下，android 上的 `Keep-Alive` 是正常的：
 
-![image](http://aevit.qiniudn.com/1684ede887d1e83519d988c600b1bdf51490671159.png)
+![image](http://file.arvit.xyz/1684ede887d1e83519d988c600b1bdf51490671159.png)
 
 ### Wireshark
 
@@ -41,7 +41,7 @@ layout: post
 
 为了再次确认，开了个 demo，使用 Wireshark 来看报文，由于对这软件还不是很熟，先拿个 HTTP 的链接来试下，这是 `Keep-Alive` 不生效的情况（这里使用的是内网的服务器，其中 `10.1.17.81` 是我本机 IP，`10.0.3.150` 是我们内网服务器 IP）：
 
-![image](http://aevit.qiniudn.com/4766cc7f71cdd2286020e2855f053b431490671706.png)
+![image](http://file.arvit.xyz/4766cc7f71cdd2286020e2855f053b431490671706.png)
 
 > PS: 图中上面使用的 `ip.addr == 10.0.0.150` 是用来过滤查看这次接口相关的报文
 
@@ -49,13 +49,13 @@ layout: post
 
 接下来再请求一遍同个接口，使用 Charles 看到 `Keep-Alive` 是生效的，这是 Wireshark 上的情况：
 
-![image](http://aevit.qiniudn.com/c9c388932a70633c91455b2b8df5427b1490671765.png)
+![image](http://file.arvit.xyz/c9c388932a70633c91455b2b8df5427b1490671765.png)
 
 可以看到，这里已经少了几条报文，其中包括三次握手的报文，并且我本机的端口使用的还是 `58922`。
 
 当过了 `Keep-Alive` 有效期（这个时间是后台配置的），我再重新请求同个接口，这时端口已经变了：
 
-![image](http://aevit.qiniudn.com/b3a9e6de59cd45e9313c3ba19dacdb881490672948.png)
+![image](http://file.arvit.xyz/b3a9e6de59cd45e9313c3ba19dacdb881490672948.png)
 
 #### HTTPS
 
@@ -63,19 +63,19 @@ layout: post
 
 这是 `Keep-Alive` 不生效的情况：
 
-![image](http://aevit.qiniudn.com/a3779616da76eddc54347ad3ab6c293f1490673131.png)
+![image](http://file.arvit.xyz/a3779616da76eddc54347ad3ab6c293f1490673131.png)
 
 可以看到，本机端口使用的是 `58858`， 这次请求的报文比 HTTP 的请求多了好一些，主要都是用来建立 SSL 握手的。
 
 这是 `Keep-Alive` 生效的情况：
 
-![image](http://aevit.qiniudn.com/e002e1f0014272b51ffd3b8d29f0b0c71490673329.png)
+![image](http://file.arvit.xyz/e002e1f0014272b51ffd3b8d29f0b0c71490673329.png)
 
 省掉了 SSL 握手的操作，一下子就减少了很多报文。
 
 后面过了 `Keep-Alive` 有效期，再重新请求同个接口，端口变了，同时也要重新进行 SSL 握手了：
 
-![image](http://aevit.qiniudn.com/e8aa14c1c7157b9ac4a6d932bbce4ea81490673926.png)
+![image](http://file.arvit.xyz/e8aa14c1c7157b9ac4a6d932bbce4ea81490673926.png)
 
 #### 题外
 
@@ -111,7 +111,7 @@ TCP 报文格式如下图（图片来自此 [文章](https://zhangbinalan.gitboo
 
 再然后因为某个需求，需要对所有请求都统一做某些操作，前面接手的人为了方便，就注册了一个自定义 `NSURLProtocol` 来统一处理。最后排查到问题就是出在这里了，这是里面 `startLoading` 的写法：
 
-![image](http://aevit.qiniudn.com/a5dcdbaf28e2881699d3a1458fadc43e1490682717.png)
+![image](http://file.arvit.xyz/a5dcdbaf28e2881699d3a1458fadc43e1490682717.png)
 
 这里的写法有个问题，就是每次请求都重新创建了一个 `NSURLSession` 实例，所以就导致了上面的 `Keep-Alive` 不生效了，每次请求都要重新进行 DNS 解析、建立握手等操作。
 
@@ -143,5 +143,5 @@ Aevit
 
 * * *
 
-<a class="http://aevit.qiniudn.com/559196984c69340facb7eae40544b3b11490684514.jpeg" title="广州塔骑车">![](http://aevit.qiniudn.com/559196984c69340facb7eae40544b3b11490684514.jpeg)</a>  
+<a class="http://file.arvit.xyz/559196984c69340facb7eae40544b3b11490684514.jpeg" title="广州塔骑车">![](http://file.arvit.xyz/559196984c69340facb7eae40544b3b11490684514.jpeg)</a>  
 摄影：Aevit 2014年4月 广州塔

@@ -279,6 +279,6 @@ See the Pen [eZxOar](https://codepen.io/Aevit/pen/eZxOar/) by Aevit ([@Aevit](ht
 Aevit  
 华师
 
-[![](http://aevit.qiniudn.com/033db02f2426d7cff6ee6df084f820841462554475.jpeg)](http://aevit.qiniudn.com/033db02f2426d7cff6ee6df084f820841462554475.jpeg)  
+[![](http://file.arvit.xyz/033db02f2426d7cff6ee6df084f820841462554475.jpeg)](http://file.arvit.xyz/033db02f2426d7cff6ee6df084f820841462554475.jpeg)  
 被摄影：Aevit 2015年10月 西藏界  
 摄影：路上遇到的骑行朋友

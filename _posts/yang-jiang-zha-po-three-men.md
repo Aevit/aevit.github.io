@@ -25,10 +25,10 @@ layout: post
 
 看个蛋的海上日出哩
 
-[![](http://aevit.qiniudn.com/zhapo_0.jpg?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/zhapo_0.jpg "1/9")[![](http://aevit.qiniudn.com/zhapo_1.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/zhapo_1.JPG "2/9")[![](http://aevit.qiniudn.com/zhapo_2.jpg?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/zhapo_2.jpg "3/9")  
+[![](http://file.arvit.xyz/zhapo_0.jpg?imageView2/1/w/200/h/200)](http://file.arvit.xyz/zhapo_0.jpg "1/9")[![](http://file.arvit.xyz/zhapo_1.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/zhapo_1.JPG "2/9")[![](http://file.arvit.xyz/zhapo_2.jpg?imageView2/1/w/200/h/200)](http://file.arvit.xyz/zhapo_2.jpg "3/9")  
 <!--more-->  
-[![](http://aevit.qiniudn.com/zhapo_3.PNG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/zhapo_3.PNG "4/9")[![](http://aevit.qiniudn.com/zhapo_4.jpg?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/zhapo_4.jpg "5/9")[![](http://aevit.qiniudn.com/zhapo_5.jpg?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/zhapo_5.jpg "6/9")
+[![](http://file.arvit.xyz/zhapo_3.PNG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/zhapo_3.PNG "4/9")[![](http://file.arvit.xyz/zhapo_4.jpg?imageView2/1/w/200/h/200)](http://file.arvit.xyz/zhapo_4.jpg "5/9")[![](http://file.arvit.xyz/zhapo_5.jpg?imageView2/1/w/200/h/200)](http://file.arvit.xyz/zhapo_5.jpg "6/9")
 
-[![](http://aevit.qiniudn.com/zhapo_6.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/zhapo_6.JPG "7/9")[![](http://aevit.qiniudn.com/zhapo_7.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/zhapo_7.JPG "8/9")[![](http://aevit.qiniudn.com/zhapo_8.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/zhapo_8.JPG "9/9")
+[![](http://file.arvit.xyz/zhapo_6.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/zhapo_6.JPG "7/9")[![](http://file.arvit.xyz/zhapo_7.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/zhapo_7.JPG "8/9")[![](http://file.arvit.xyz/zhapo_8.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/zhapo_8.JPG "9/9")
 
 不过最后还是让我拍到了海上日出 —— 虽然是在那边的游客大厅的电视上

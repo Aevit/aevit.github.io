@@ -9,8 +9,8 @@ layout: post
 
 > 2012.5.20 11:35 宜家
 
-[![](http://aevit.qiniudn.com/ikea_0.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/ikea_0.JPG)[![](http://aevit.qiniudn.com/ikea_1.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/ikea_1.JPG)[![](http://aevit.qiniudn.com/ikea_2.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/ikea_2.JPG)  
+[![](http://file.arvit.xyz/ikea_0.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/ikea_0.JPG)[![](http://file.arvit.xyz/ikea_1.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/ikea_1.JPG)[![](http://file.arvit.xyz/ikea_2.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/ikea_2.JPG)  
 <!--more-->  
-[![](http://aevit.qiniudn.com/ikea_3.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/ikea_3.JPG)[![](http://aevit.qiniudn.com/ikea_4.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/ikea_4.JPG)[![](http://aevit.qiniudn.com/ikea_5.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/ikea_5.JPG)
+[![](http://file.arvit.xyz/ikea_3.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/ikea_3.JPG)[![](http://file.arvit.xyz/ikea_4.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/ikea_4.JPG)[![](http://file.arvit.xyz/ikea_5.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/ikea_5.JPG)
 
-[![](http://aevit.qiniudn.com/ikea_6.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/ikea_6.JPG)[![](http://aevit.qiniudn.com/ikea_7.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/ikea_7.JPG)[![](http://aevit.qiniudn.com/ikea_8.JPG?imageView2/1/w/200/h/200)](http://aevit.qiniudn.com/ikea_8.JPG)
+[![](http://file.arvit.xyz/ikea_6.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/ikea_6.JPG)[![](http://file.arvit.xyz/ikea_7.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/ikea_7.JPG)[![](http://file.arvit.xyz/ikea_8.JPG?imageView2/1/w/200/h/200)](http://file.arvit.xyz/ikea_8.JPG)

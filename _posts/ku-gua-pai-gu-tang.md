@@ -75,5 +75,5 @@ layout: post
 Aevit  
 华师
 
-[![](http://aevit.qiniudn.com/to_tibet_starry_sky_4.JPG)](http://aevit.qiniudn.com/to_tibet_starry_sky_4.JPG)  
+[![](http://file.arvit.xyz/to_tibet_starry_sky_4.JPG)](http://file.arvit.xyz/to_tibet_starry_sky_4.JPG)  
 摄影：Aevit 2015年10月 纳木错

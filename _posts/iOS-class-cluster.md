@@ -44,7 +44,7 @@ id obj4 = [NSNumber alloc];
 
 结果如下：
 
-![UIImage](http://aevit.qiniudn.com/5951492b5bde7d14464c9139252ef13c1477394040.jpeg)
+![UIImage](http://file.arvit.xyz/5951492b5bde7d14464c9139252ef13c1477394040.jpeg)
 
 可以看到，`alloc` 方法返回的是 `NSPlaceholderNumber` 对象，`init` 及 `numberWithInt` 返回的才是 `__NSCFNumber` 对象。
 
@@ -260,5 +260,5 @@ Aevit
 
 * * *
 
-<a class="http://aevit.qiniudn.com/af19262268ecba49a2a09c58b19873211477393690.jpeg" title="经幡">![](http://aevit.qiniudn.com/af19262268ecba49a2a09c58b19873211477393690.jpeg)</a>  
+<a class="http://file.arvit.xyz/af19262268ecba49a2a09c58b19873211477393690.jpeg" title="经幡">![](http://file.arvit.xyz/af19262268ecba49a2a09c58b19873211477393690.jpeg)</a>  
 摄影：Aevit 2016年8月 茶卡盐湖

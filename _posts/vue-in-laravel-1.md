@@ -373,5 +373,5 @@ Aevit
 
 * * *
 
-[![](http://aevit.qiniudn.com/639c5ff0802948b2ef468bc6c3b503ef1467203194.jpeg)](http://aevit.qiniudn.com/639c5ff0802948b2ef468bc6c3b503ef1467203194.jpeg "羊卓雍错")  
+[![](http://file.arvit.xyz/639c5ff0802948b2ef468bc6c3b503ef1467203194.jpeg)](http://file.arvit.xyz/639c5ff0802948b2ef468bc6c3b503ef1467203194.jpeg "羊卓雍错")  
 摄影：Aevit 2015年10月 西藏羊湖

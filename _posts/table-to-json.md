@@ -44,4 +44,4 @@ Aevit
 
 miao  
 米奥  
-[![](http://aevit.qiniudn.com/cat_priate_1.JPG)](http://aevit.qiniudn.com/cat_priate_1.JPG "杰克喵长")
+[![](http://file.arvit.xyz/cat_priate_1.JPG)](http://file.arvit.xyz/cat_priate_1.JPG "杰克喵长")

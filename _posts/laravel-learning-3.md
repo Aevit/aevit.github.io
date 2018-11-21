@@ -238,5 +238,5 @@ return view('your_view', ['jsData' => $yourData]);
 Aevit  
 华师
 
-[![](http://aevit.qiniudn.com/b54af9c751825a5e71890a12db380c131466242254.jpeg)](http://aevit.qiniudn.com/b54af9c751825a5e71890a12db380c131466242254.jpeg "海边")  
+[![](http://file.arvit.xyz/b54af9c751825a5e71890a12db380c131466242254.jpeg)](http://file.arvit.xyz/b54af9c751825a5e71890a12db380c131466242254.jpeg "海边")  
 摄影：Aevit 2015年6月 阳江闸坡 海边露营

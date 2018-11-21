@@ -32,7 +32,7 @@ layout: post
 明天或后天也许就能抵达拉萨了  
 我想着
 
-![image](http://aevit.qiniudn.com/to_tibet_mi_la_moutain.JPG)
+![image](http://file.arvit.xyz/to_tibet_mi_la_moutain.JPG)
 
 * * *
 
@@ -53,7 +53,7 @@ layout: post
 期待已久的目标终于达成  
 突然有点茫然
 
-![image](http://aevit.qiniudn.com/to_tibet_dong_cuo.JPG)
+![image](http://file.arvit.xyz/to_tibet_dong_cuo.JPG)
 
 * * *
 
@@ -73,7 +73,7 @@ layout: post
 
 今天是作者生日。
 
-![image](http://aevit.qiniudn.com/to_tibet_bu_da_la_gong.JPG)
+![image](http://file.arvit.xyz/to_tibet_bu_da_la_gong.JPG)
 
 * * *
 
@@ -86,7 +86,7 @@ layout: post
 
 在八廓街看到很多人对着大昭寺朝拜，印象最深的是一个双腿断了的人也一路拜过去
 
-![image](http://aevit.qiniudn.com/to_tibet_chao_bai.JPG)
+![image](http://file.arvit.xyz/to_tibet_chao_bai.JPG)
 
 * * *
 
@@ -101,7 +101,7 @@ layout: post
 
 有些事更迷糊了
 
-![image](http://aevit.qiniudn.com/to_tibet_se_la_si.JPG)
+![image](http://file.arvit.xyz/to_tibet_se_la_si.JPG)
 
 * * *
 
@@ -122,7 +122,7 @@ layout: post
 
 在拉萨的最后一晚。
 
-![image](http://aevit.qiniudn.com/to_tibet_yang_lake.JPG)
+![image](http://file.arvit.xyz/to_tibet_yang_lake.JPG)
 
 * * *
 
@@ -139,7 +139,7 @@ layout: post
 他在西宁下车后  
 没遇到什么有趣的人，就一路回到了广州
 
-![image](http://aevit.qiniudn.com/to_tibet_bomi.JPG)
+![image](http://file.arvit.xyz/to_tibet_bomi.JPG)
 
 * * *
 
@@ -167,7 +167,7 @@ layout: post
 
 stay hungry, stay foolish.
 
-![image](http://aevit.qiniudn.com/to_tibet_sky_xiaoxiao.JPG)
+![image](http://file.arvit.xyz/to_tibet_sky_xiaoxiao.JPG)
 
 * * *
 
@@ -175,7 +175,7 @@ stay hungry, stay foolish.
 
 “西藏是地球上最高的地区，也是最孤独的。”
 
-![image](http://aevit.qiniudn.com/seven-years-in-tibet_0.png)
+![image](http://file.arvit.xyz/seven-years-in-tibet_0.png)
 
 Aevit  
 2015.11.23 01:08 冬天  

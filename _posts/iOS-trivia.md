@@ -43,7 +43,7 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), qu
 
 > 环境：OS X 10.11.5 / Xcode 7.3.1 (7D1014) / iPhone Simulator iPhone 6s Plus
 
-![image](http://aevit.qiniudn.com/31735bc704b26f447f69bcbf583e7f641472558461.jpeg)
+![image](http://file.arvit.xyz/31735bc704b26f447f69bcbf583e7f641472558461.jpeg)
 
 * * *
 
@@ -264,5 +264,5 @@ NSArray *malesArr = [originArray filteredArrayUsingPredicate:[NSPredicate predic
 
 * * *
 
-<a class="http://aevit.qiniudn.com/9d8f73230a3cb6668f2f5c30a945b81a1472562023.jpeg" title="天空之镜">![](http://aevit.qiniudn.com/9d8f73230a3cb6668f2f5c30a945b81a1472562023.jpeg)</a>  
+<a class="http://file.arvit.xyz/9d8f73230a3cb6668f2f5c30a945b81a1472562023.jpeg" title="天空之镜">![](http://file.arvit.xyz/9d8f73230a3cb6668f2f5c30a945b81a1472562023.jpeg)</a>  
 摄影：Aevit 2016年8月 茶卡盐湖

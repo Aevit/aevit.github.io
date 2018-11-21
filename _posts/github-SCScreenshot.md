@@ -15,7 +15,7 @@ layout: post
 <!--more-->
 
 效果展示:  
-![image](http://aevit.qiniudn.com/scscreenshot-demo.gif)
+![image](http://file.arvit.xyz/scscreenshot-demo.gif)
 
 * * *
 
@@ -51,12 +51,12 @@ PS：苹果现在已开放了很多不错的API，果然学无止境…
 ### UI相关
 
 然后就先进行简单的设计——我的意思是，很粗糙的设计  
-[![](http://aevit.qiniudn.com/scscreenshot-ui.png)](http://aevit.qiniudn.com/scscreenshot-ui.png "UI")
+[![](http://file.arvit.xyz/scscreenshot-ui.png)](http://file.arvit.xyz/scscreenshot-ui.png "UI")
 
 顺便也画了个`icon`——一个与此主题完全无关的`icon`  
 （完全是因为我那天刚好在喝咖啡  
 （而咖啡有个最大的好处，就是有助失眠  
-[![](http://aevit.qiniudn.com/scscreenshot-icon.png)](http://aevit.qiniudn.com/scscreenshot-icon.png "icon")
+[![](http://file.arvit.xyz/scscreenshot-icon.png)](http://file.arvit.xyz/scscreenshot-icon.png "icon")
 
 * * *
 

@@ -14,7 +14,7 @@ layout: post
 
 <!--more-->
 
-![](http://aevit.qiniudn.com/81312535857674073f2557807c1fb4ba1506000875.gif)
+![](http://file.arvit.xyz/81312535857674073f2557807c1fb4ba1506000875.gif)
 
 <br>
 
@@ -277,6 +277,6 @@ Aevit
 
 ---
 
-![](http://aevit.qiniudn.com/68f824caee136382bd0f8bc73f390c571506000678.jpeg)
+![](http://file.arvit.xyz/68f824caee136382bd0f8bc73f390c571506000678.jpeg)
 
 摄影：Aevit 2015年11月 华师  

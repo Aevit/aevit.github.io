@@ -145,7 +145,7 @@ class AutoreleasePoolPage
 
 画个图看一下：
 
-![image](http://aevit.qiniudn.com/a98396bd64d1610f4889c42d2b76e32e1489222777.jpeg)
+![image](http://file.arvit.xyz/a98396bd64d1610f4889c42d2b76e32e1489222777.jpeg)
 
 *   `magic` 用来校验 `AutoreleasePoolPage` 的结构是否完整;
 *   `next` 指向最新添加的 `autoreleased` 对象的下一个位置，初始化时指向 `begin()`;
@@ -168,7 +168,7 @@ class AutoreleasePoolPage
 
 先上张图（红色部分表示 push 后会变化的东西），接着再详细说明其流程：
 
-![image](http://aevit.qiniudn.com/dd6c093b0b87c86ed7e16c1fe6ad2f0d1489502563.png)
+![image](http://file.arvit.xyz/dd6c093b0b87c86ed7e16c1fe6ad2f0d1489502563.png)
 
 上文已经提到，`objc_autoreleasePoolPush` 函数定义如下：
 
@@ -413,7 +413,7 @@ void kill()
 
 自动释放池会先调用 `objc_autoreleasePoolPush` 函数，这函数首先在当前 `next` 指向的位置存放一个 `POOL_BOUNDARY`，然后当向一个对象发送 `autorelease` 消息时，会在哨兵对象后面插入指向该对象的指针，之后把 `next` 指向刚插入的位置的下一个内存地址，如图所示：
 
-![image](http://aevit.qiniudn.com/dd6c093b0b87c86ed7e16c1fe6ad2f0d1489502563.png)
+![image](http://file.arvit.xyz/dd6c093b0b87c86ed7e16c1fe6ad2f0d1489502563.png)
 
 当这一页 page 快满时（即 `next` 即将指向栈顶——end() 位置），说明这一页 page 快满了。这时如果再加入一个对象，会先建立下一页 page，双向链表建立完成后，新的 page 的 `next` 指向该页的栈底——begin() 位置，之后继续向栈顶添加新的指针。
 
@@ -484,5 +484,5 @@ Aevit
 
 * * *
 
-<a class="http://aevit.qiniudn.com/8a7fb3f261eec1bc75d194981555c7291489325426.jpeg" title="黄姚日出">![](http://aevit.qiniudn.com/8a7fb3f261eec1bc75d194981555c7291489325426.jpeg)</a>  
+<a class="http://file.arvit.xyz/8a7fb3f261eec1bc75d194981555c7291489325426.jpeg" title="黄姚日出">![](http://file.arvit.xyz/8a7fb3f261eec1bc75d194981555c7291489325426.jpeg)</a>  
 摄影：Aevit 2015年8月 黄姚

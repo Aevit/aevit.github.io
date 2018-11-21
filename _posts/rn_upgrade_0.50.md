@@ -63,7 +63,7 @@ RN 的版本升级，以前都要手动去改 pacakge.json 里的版本号，现
 ### react-natvei-git-upgrade 报错  
 如果执行 `react-native-git-upgrade` 后报以下错误：  
 
-![](http://aevit.qiniudn.com/5d8d2ef6ac7d007a766c6f58e250f8d81510995990.png)
+![](http://file.arvit.xyz/5d8d2ef6ac7d007a766c6f58e250f8d81510995990.png)
 
 解决方法：  
 
@@ -168,7 +168,7 @@ $ pod install
 
 如我遇到的这个 RCTBEEPickerManager，去 github 看了下有适配了，所以直接升级就好了：  
 
-![](http://aevit.qiniudn.com/f28f12a3bfebfab6f495bb7f22ca1eb61510996056.png)
+![](http://file.arvit.xyz/f28f12a3bfebfab6f495bb7f22ca1eb61510996056.png)
 
 参考：  
 [https://github.com/facebook/react-native/issues/15775](https://github.com/facebook/react-native/issues/15775)
@@ -306,7 +306,7 @@ index.ios.js  /  index.android.js
 ### 图片
 由于历史原因，少部分图片引用时将 `@2x` 或是 `@3x` 或是 `.ios` 这个后缀也写进去了，现在这样会报错了：  
 
-![](http://aevit.qiniudn.com/ae3b9757747a70e0e42a6399b9ba42ea1510996109.png)
+![](http://file.arvit.xyz/ae3b9757747a70e0e42a6399b9ba42ea1510996109.png)
 
 ```
 如：
@@ -320,7 +320,7 @@ require('./pic.png')
 
 ### EventEmitter 引用错误
 
-![](http://aevit.qiniudn.com/fcd0a0ff271d410e33aad35ff33429381510996136.png)
+![](http://file.arvit.xyz/fcd0a0ff271d410e33aad35ff33429381510996136.png)
 
 根据上面报错路径: `./node_modules/react-native-root-siblings/lib/AppRegistryInjection.js`  
 
@@ -335,7 +335,7 @@ import EventEmitter from 'react-native/Libraries/EventEmitter/EventEmitter';
 
 ### PropTypes
 
-![](http://aevit.qiniudn.com/28c5eded86160314ad2e3030213d72111510996158.png)
+![](http://file.arvit.xyz/28c5eded86160314ad2e3030213d72111510996158.png)
 
 以前引用 PropTypes 是从 React 里引：  
 
@@ -371,7 +371,7 @@ static proptypes = {
 ```
 
 ### React.createClass
-![](http://aevit.qiniudn.com/fed5c02ca363f1a4deab296f33466ca71510996192.png)
+![](http://file.arvit.xyz/fed5c02ca363f1a4deab296f33466ca71510996192.png)
 
 ES5 可以使用以下来创建一个类：  
 
@@ -449,7 +449,7 @@ export default class xxx extends React.Component {
 ```
 
 ### Image 作为背景  
-![](http://aevit.qiniudn.com/106b2b06f8b5bba923663608c5b594521510996213.png)
+![](http://file.arvit.xyz/106b2b06f8b5bba923663608c5b594521510996213.png)
 
 以前如果要用一张图片做背景，会在 Image 里包含内容：  
 
@@ -649,7 +649,7 @@ view.inputView = customView;
 
 ### createJSModules
 
-![](http://aevit.qiniudn.com/82a0a827e888527f0e5ce1ca011f15f51510996245.png)
+![](http://file.arvit.xyz/82a0a827e888527f0e5ce1ca011f15f51510996245.png)
 
 ```
 @Override
@@ -779,6 +779,6 @@ Aevit
 
 ---
 
-![](http://aevit.qiniudn.com/3ba1a7efb287ad0939e58729582e29251510996366.jpeg)
+![](http://file.arvit.xyz/3ba1a7efb287ad0939e58729582e29251510996366.jpeg)
 
 摄影：Aevit 2015年8月 黄姚  

@@ -220,7 +220,7 @@ b. [linuxeye的脚本](https://blog.linuxeye.com/423.html) —— 此脚本已�
 
 windows及mac都有图形化的客户端，以下为mac的界面，设置好即可进行科学上网
 
-![image](http://aevit.qiniudn.com/shadowsocks-mac-config.png)
+![image](http://file.arvit.xyz/shadowsocks-mac-config.png)
 
 ### 全局科学上网
 
@@ -648,4 +648,4 @@ sudo netstat -tplun
 Aevit  
 华师
 
-[![](http://aevit.qiniudn.com/moon-from-650d.jpg)](http://aevit.qiniudn.com/moon-from-650d.jpg "楼顶月")
+[![](http://file.arvit.xyz/moon-from-650d.jpg)](http://file.arvit.xyz/moon-from-650d.jpg "楼顶月")

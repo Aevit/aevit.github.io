@@ -460,5 +460,5 @@ go version
 Aevit  
 华师一课
 
-[![](http://aevit.qiniudn.com/b2b2face1d613264cc7ad65a874fa4df1459405671.jpeg)](http://aevit.qiniudn.com/b2b2face1d613264cc7ad65a874fa4df1459405671.jpeg "厦门曾厝垵")  
+[![](http://file.arvit.xyz/b2b2face1d613264cc7ad65a874fa4df1459405671.jpeg)](http://file.arvit.xyz/b2b2face1d613264cc7ad65a874fa4df1459405671.jpeg "厦门曾厝垵")  
 摄影：Aevit 2014年4月 厦门曾厝垵

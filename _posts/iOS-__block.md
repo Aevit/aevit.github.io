@@ -101,7 +101,7 @@ int main(int argc, char * argv[]) {
 
 
 看 `main` 函数里面的代码：  
-![image](http://aevit.qiniudn.com/71dc6fd24fd4df90c1a91b2bb7d3b5b01483953745.jpeg)
+![image](http://file.arvit.xyz/71dc6fd24fd4df90c1a91b2bb7d3b5b01483953745.jpeg)
 
 可以看到，`block` 被转化成了一个 `__main_block_impl_0` 结构体对象；
 
@@ -160,13 +160,13 @@ block();
 
 首先，让我们看一下转换后的 `main 方法相关代码`：
 
-![image](http://aevit.qiniudn.com/05f4245c2d974ef16e6a1adbc36fab9b1484020226.png)
+![image](http://file.arvit.xyz/05f4245c2d974ef16e6a1adbc36fab9b1484020226.png)
 
 可以看到，调用构造函数时，第三个参数是直接使用 `valA` 的值的。
 
 再看结构体的声明及其 `block` 里的实现
 
-![image](http://aevit.qiniudn.com/141de79f08494688cf0ffb0fc3eaca4b1483953997.jpeg)
+![image](http://file.arvit.xyz/141de79f08494688cf0ffb0fc3eaca4b1483953997.jpeg)
 
 看图中上面的箭头处，构造函数初始化参数时，是直接使用 `val` 的值；
 
@@ -174,7 +174,7 @@ block();
 
 此时 `block 函数` 及 `main 函数` 在内存中的分布大致如下：
 
-![image](http://aevit.qiniudn.com/909bc774cc7f9dabaec21a300c6329831483955235.jpeg)
+![image](http://file.arvit.xyz/909bc774cc7f9dabaec21a300c6329831483955235.jpeg)
 
 可以看到，`valA` 是在不同作用域的，这一点很关键。
 
@@ -190,7 +190,7 @@ block();
 
 值得一提的是，我们上面举的例子是 `基本类型 int`，当换成 `对象类型`（如 `NSString`）时，转换后是 `const` 类型的，这是为什么？
 
-![image](http://aevit.qiniudn.com/48610aa1b83836e1feea9dca0ce1e0db1483956237.png)
+![image](http://file.arvit.xyz/48610aa1b83836e1feea9dca0ce1e0db1483956237.png)
 
 > 因为结构体的构造函数，只是把调用者（如上面的 `main函数` ）在栈上的 `valStr` 的 `指针地址` 传给了被调用者（如上面的 `block函数`）；
 > 
@@ -231,7 +231,7 @@ foo();
 
 为了验证 `block` 里的 `valB` 到底是不是在堆里了，可以打印出地址算一下：
 
-![image](http://aevit.qiniudn.com/acbac0f5084114ab374d66fa403ee2931484039915.png)
+![image](http://file.arvit.xyz/acbac0f5084114ab374d66fa403ee2931484039915.png)
 
 定义前的地址（`16fd77a68`）转成十进制： `6171359848`  
 block 内的地址（`170220bb8`）转成十进制： `6176246712`
@@ -263,10 +263,10 @@ block();
 
 
 看下图，可以发现 `__block int valB = 11` 转换成了一个结构体 `__Block_byref_valB_0`，注意下图中上面的箭头，构造函数里传递的第二个参数是 `&valB`（即 `valB` 变量的首地址）：  
-![image](http://aevit.qiniudn.com/8dd1d76676d2755f77b507351a93f9781484029267.png)
+![image](http://file.arvit.xyz/8dd1d76676d2755f77b507351a93f9781484029267.png)
 
 再看其它部分代码：  
-![image](http://aevit.qiniudn.com/609c7734152c10ac49f87302cbbd2d841483965263.jpeg)
+![image](http://file.arvit.xyz/609c7734152c10ac49f87302cbbd2d841483965263.jpeg)
 
 `__Block_byref_valB_0` 结构体声明如下：
 
@@ -284,11 +284,11 @@ __Block_byref_valB_0 *__forwarding;
 
 可以看到第二个参数是 `__Block_byref_valB_0 *__forwarding`，而刚才已经说了 `main` 函数里 `valB` 的构造函数里传递的第二个参数是 `&valB`，所以 `__forwarding` 这是该实例自身的引用，内存结构大致如下：
 
-![image](http://aevit.qiniudn.com/308cc2d566a87ed0b8c1f12d565a21731484032183.jpeg)
+![image](http://file.arvit.xyz/308cc2d566a87ed0b8c1f12d565a21731484032183.jpeg)
 
 根据我们之前的分析，经过 `block` 后，编译器会将 `valB` 拷贝至**堆**中，这时内存结构大致如下：
 
-![image](http://aevit.qiniudn.com/0e1aaf58c44ca69abb63bb77f8dd65981483967160.jpeg)
+![image](http://file.arvit.xyz/0e1aaf58c44ca69abb63bb77f8dd65981483967160.jpeg)
 
 其中栈中（包括 `block` 及 `main` ）的 `__forwarding` 指向堆中 `valB 实例` 首地址，堆中的 `valB 实例` 的 `__forwarding` 指向自身首地址。
 
@@ -312,7 +312,7 @@ static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
 
 看下图，可以看到 `clang -rewrite-objc` 后生成的是 `_NSConcreteStackBlock` 类型的，是存在栈上的，而最终我们打断点会发现类型变成了 `_NSConcreteMallocBlock` ，这是因为在 `ARC` 环境下，编译器会自动将 `block` `copy` 到堆里，所以变量也会随之 `copy` 到堆里；如果是 `MRC` 环境，就需要手动 `copy` 了。
 
-![image](http://aevit.qiniudn.com/44793bb2dbf77f118b4a6a9076ffab721484104519.png)
+![image](http://file.arvit.xyz/44793bb2dbf77f118b4a6a9076ffab721484104519.png)
 
 ### 小结
 
@@ -349,7 +349,7 @@ int main(int argc, const char * argv[]) {
 |使用外部变量|_NSConcreteMallocBlock|_NSConcreteStackBlock|  
 |无外部变量|_NSConcreteGlobalBlock|_NSConcreteGlobalBlock|  
 
-![image](http://aevit.qiniudn.com/4dc76a9bf32d5c181b3a3c8c1537ed4b1484106867.png)
+![image](http://file.arvit.xyz/4dc76a9bf32d5c181b3a3c8c1537ed4b1484106867.png)
 
 即：  
 `block` 内没有使用到外部变量，生成的是 `_NSConcreteGlobalBlock`；  
@@ -387,5 +387,5 @@ Aevit
 
 * * *
 
-<a class="http://aevit.qiniudn.com/1993ab9d9d77c4eabfb9a84b599f149c1483968843.jpeg" title="茶卡盐湖">![](http://aevit.qiniudn.com/1993ab9d9d77c4eabfb9a84b599f149c1483968843.jpeg)</a>  
+<a class="http://file.arvit.xyz/1993ab9d9d77c4eabfb9a84b599f149c1483968843.jpeg" title="茶卡盐湖">![](http://file.arvit.xyz/1993ab9d9d77c4eabfb9a84b599f149c1483968843.jpeg)</a>  
 摄影：Aevit 2016年8月 茶卡盐湖

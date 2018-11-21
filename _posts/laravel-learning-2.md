@@ -158,7 +158,7 @@ php artisan route:list
 ```
 
 
-![image](http://aevit.qiniudn.com/482167b8e90566dc8d63275c2106ad581462951315.jpeg)
+![image](http://file.arvit.xyz/482167b8e90566dc8d63275c2106ad581462951315.jpeg)
 
 我们发现里面有`login`这条路由了。
 
@@ -425,5 +425,5 @@ protected $registerView = 'admin.auth.register';
 Aevit  
 华师
 
-[![](http://aevit.qiniudn.com/moon-from-650d.jpg)](http://aevit.qiniudn.com/moon-from-650d.jpg "楼顶月")  
+[![](http://file.arvit.xyz/moon-from-650d.jpg)](http://file.arvit.xyz/moon-from-650d.jpg "楼顶月")  
 摄影：Aevit 2015年 32楼顶

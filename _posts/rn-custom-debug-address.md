@@ -10,7 +10,7 @@ layout: post
 ## 前言
 ReactNative 在 android 上开发时摇一摇选择 `Debug server host & port for device` 即可 让真机访问指定 ip 及 端口上的 js bundle 文件，如下图：  
 
-![](http://aevit.qiniudn.com/1c7580a83ebca1cf079500233937e7641507740235.jpeg)
+![](http://file.arvit.xyz/1c7580a83ebca1cf079500233937e7641507740235.jpeg)
 
 但是 iOS 默认没有这个功能，初始化一个项目后（截止本文，最新版本为 0.48.0），默认使用的是 `localhost:8081`，所以真机调试要么设置代理，要么手动更改 `AppDelegate.m` 里代码（这样每次改完都得重新编译一遍）。  
 
@@ -296,6 +296,6 @@ Aevit
 
 ---
 
-![](http://aevit.qiniudn.com/93a4e2ed1fac2576c509536ac4c1b8a41507739768.jpeg)
+![](http://file.arvit.xyz/93a4e2ed1fac2576c509536ac4c1b8a41507739768.jpeg)
 
 摄影：Aevit 2013年4月 丽江  

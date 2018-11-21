@@ -26,7 +26,7 @@ layout: post
 50块钱办了张国际青旅的会员卡。  
 住了一个六人间，35块，只有我一个人，感觉略宽敞。
 
-![image](http://aevit.qiniudn.com/to_tibet_destinations.JPG)
+![image](http://file.arvit.xyz/to_tibet_destinations.JPG)
 
 * * *
 
@@ -44,7 +44,7 @@ layout: post
 
 在成都休整一天。
 
-![image](http://aevit.qiniudn.com/to_tibet_panda.JPG)
+![image](http://file.arvit.xyz/to_tibet_panda.JPG)
 
 * * *
 
@@ -66,7 +66,7 @@ layout: post
 
 中秋快乐。
 
-![image](http://aevit.qiniudn.com/to_tibet_attic.JPG)
+![image](http://file.arvit.xyz/to_tibet_attic.JPG)
 
 * * *
 
@@ -110,7 +110,7 @@ layout: post
 
 一个人的旅行，或许是孤独的。
 
-![image](http://aevit.qiniudn.com/to_tibet_first_day.JPG)
+![image](http://file.arvit.xyz/to_tibet_first_day.JPG)
 
 * * *
 
@@ -133,7 +133,7 @@ layout: post
 看了半个多钟的广场舞  
 然后带着耳机，走在这座陌生的县城
 
-![image](http://aevit.qiniudn.com/to_tibet_good_man.JPG)
+![image](http://file.arvit.xyz/to_tibet_good_man.JPG)
 
 * * *
 
@@ -144,7 +144,7 @@ layout: post
 桥中间就是西藏的交界处  
 遇到两个骑行的，跟他们互相拍了下照
 
-![image](http://aevit.qiniudn.com/to_tibet_border.JPG)
+![image](http://file.arvit.xyz/to_tibet_border.JPG)
 
 继续徒步半个钟，搭到一辆上海的车  
 到芒康
@@ -162,7 +162,7 @@ layout: post
 大饼的温度感觉可以温暖饥肠辘辘的肚子一整个黑夜  
 有些人也许再难见到，有些路终于在走
 
-![image](http://aevit.qiniudn.com/sunset_9.JPG?imageView2/1/w/800/h/600)
+![image](http://file.arvit.xyz/sunset_9.JPG?imageView2/1/w/800/h/600)
 
 * * *
 
@@ -207,7 +207,7 @@ layout: post
 路上有人问我一个人上路不怕死吗？  
 我怕啊，我不想死，所以我在努力地活着，活着本身即是对死亡的战胜  
 
-![image](http://aevit.qiniudn.com/to_tibet_zuogong.JPG)  
+![image](http://file.arvit.xyz/to_tibet_zuogong.JPG)  
 
 —  
 
@@ -236,7 +236,7 @@ layout: post
 晚上住的是16人间，我睡的是中间的床位  
 当晚，四周打呼声，此起彼伏，连绵不绝  
 
-![image](http://aevit.qiniudn.com/to_tibet_72_turning.JPG)  
+![image](http://file.arvit.xyz/to_tibet_72_turning.JPG)  
 
 —  
 

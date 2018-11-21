@@ -14,7 +14,7 @@ iOS下实现水波动画，动画曲线使用的是`正弦型函数解析式`。
 
 > PS：gif图中下面的`Water`，在水波动画的基础上，使用遮罩实现了`Water`字体的`蓝白颜色交替`
 
-![image](http://aevit.qiniudn.com/6d34efef07654d9ac80ca3cafe89c9931470240534.gif)
+![image](http://file.arvit.xyz/6d34efef07654d9ac80ca3cafe89c9931470240534.gif)
 
 <!--more-->
 
@@ -40,7 +40,7 @@ h：表示波形在Y轴的位置关系或纵向移动距离（上加下减）
 
 我们先来看上面方形的水波，主要就是利用`正弦函数`绘制出路径即可，如图：
 
-![image](http://aevit.qiniudn.com/2c388de0cc44042fab9f85237ccaed881470240674.jpeg)
+![image](http://file.arvit.xyz/2c388de0cc44042fab9f85237ccaed881470240674.jpeg)
 
 我们知道，虽然我们肉眼看到的曲线是连续的，但是实际将曲线放大到一定程度，看到的是栅格的像素点。  
 所以我们只要计算出上图中的4个`蓝色点`，以及弧线上的所有点，再将之全部连成线，即可形成我们需要的水波形状。
@@ -125,7 +125,7 @@ offset = (offset < MAXFLOAT ? offset + _speed : offset - _speed);
 
 使用2张图片，如图：
 
-![image](http://aevit.qiniudn.com/aa77a113b063da8da06ff517f68340461470243553.jpeg)
+![image](http://file.arvit.xyz/aa77a113b063da8da06ff517f68340461470243553.jpeg)
 
 使用2个`UIImageView`分别放置2张图片，`白色底`的放下面，`蓝色底`的放上面，然后再在`蓝色底`的`upImageView.layer`上加一层`mask`遮罩。
 
@@ -152,5 +152,5 @@ Aevit
 
 * * *
 
-<a class="http://aevit.qiniudn.com/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg" title="海边日出">![](http://aevit.qiniudn.com/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg)</a>  
+<a class="http://file.arvit.xyz/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg" title="海边日出">![](http://file.arvit.xyz/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg)</a>  
 摄影：Aevit 2016年7月 阳江闸坡 十里银滩
