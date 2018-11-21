@@ -297,7 +297,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/iptables  </div><div class="line"></div><div class="line"># 编辑内容，添加以下两句  </div><div class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport your_port_1 -j ACCEPT</div><div class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport your_port_2 -j ACCEPT</div><div class="line"></div><div class="line"># 保存并退出后，再使用以下命令重启iptables  </div><div class="line">/bin/systemctl restart iptables.service</div></pre></td></tr></table></figure>
 <p>再注: 如果不喜欢上面的方法，可使用网上众大神提供的一键安装脚本<br>a. <a href="https://teddysun.com/342.html" target="_blank" rel="external">teddysun的脚本</a><br>b. <a href="https://blog.linuxeye.com/423.html" target="_blank" rel="external">linuxeye的脚本</a> —— 此脚本已集成到<code>oneinstack</code>（见下面<code>3-2</code>说明）</p>
 <h3 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h3><p>windows及mac都有图形化的客户端，以下为mac的界面，设置好即可进行科学上网</p>
-<p><img src="http://aevit.qiniudn.com/shadowsocks-mac-config.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/shadowsocks-mac-config.png" alt="image"></p>
 <h3 id="全局科学上网"><a href="#全局科学上网" class="headerlink" title="全局科学上网"></a>全局科学上网</h3><p>只使用<code>shadowsocks</code>的话，只能让浏览器科学上网，如果需要 全部或部分 软件也能科学上网，可以搭配<a href="http://www.proxifier.com/" target="_blank" rel="external">Proxifier</a> 这个东西。这是个收费软件，使用起来挺简单的，这里不再赘述。</p>
 <h3 id="优化加速"><a href="#优化加速" class="headerlink" title="优化加速"></a>优化加速</h3><h4 id="锐速"><a href="#锐速" class="headerlink" title="锐速"></a>锐速</h4><p>推荐使用<a href="http://www.serverspeeder.com/" target="_blank" rel="external">锐速</a><br>锐速是一款专业的TCP加速引擎，一种只需单边部署就可以起到显著加速效果的TCP加速技术</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http://my.serverspeeder.com/d/ls/serverSpeederInstaller.tar.gz</div><div class="line">tar xzvf serverSpeederInstaller.tar.gz</div><div class="line">bash serverSpeederInstaller.sh</div></pre></td></tr></table></figure>
@@ -373,7 +373,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo netstat -tplun</div></pre></td></tr></table></figure>
 <hr>
 <p>2015.11.11 01:53<br>Aevit<br>华师</p>
-<p><a href="http://aevit.qiniudn.com/moon-from-650d.jpg" title="楼顶月" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/moon-from-650d.jpg" alt=""></a></p>
+<p><a href="http://file.arvit.xyz/moon-from-650d.jpg" title="楼顶月" target="_blank" rel="external"><img src="http://file.arvit.xyz/moon-from-650d.jpg" alt=""></a></p>
 
       
     </div>
@@ -513,6 +513,11 @@
     </span>
     <span class="author">Aevit</span>
   </span>
+
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a href="javascript:void(0)" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18142108号</p></a>
+  </div>
+    
 </div>
 
       </footer>

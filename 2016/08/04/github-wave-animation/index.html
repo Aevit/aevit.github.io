@@ -260,13 +260,13 @@
 <blockquote>
 <p>PS：gif图中下面的<code>Water</code>，在水波动画的基础上，使用遮罩实现了<code>Water</code>字体的<code>蓝白颜色交替</code></p>
 </blockquote>
-<p><img src="http://aevit.qiniudn.com/6d34efef07654d9ac80ca3cafe89c9931470240534.gif" alt="image"></p>
+<p><img src="http://file.arvit.xyz/6d34efef07654d9ac80ca3cafe89c9931470240534.gif" alt="image"></p>
 <a id="more"></a>
 <h2 id="正弦函数"><a href="#正弦函数" class="headerlink" title="正弦函数"></a>正弦函数</h2><p>正弦函数是高中学过的知识，这里不再做详细介绍，具体可以查看<a href="http://baike.baidu.com/view/536305.htm" target="_blank" rel="external">百科</a>。</p>
 <p>我们主要使用到的是正弦函数的几个性质：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">正弦型函数解析式：y = a * sin（ωx+φ）+ h</div><div class="line"></div><div class="line">各常数值对函数图像的影响：</div><div class="line">φ（初相位）：决定波形与X轴位置关系或横向移动距离（左加右减）</div><div class="line">ω：决定周期（最小正周期 T = 2π/|ω|）</div><div class="line">A：决定峰值（即纵向拉伸压缩的倍数）</div><div class="line">h：表示波形在Y轴的位置关系或纵向移动距离（上加下减）</div></pre></td></tr></table></figure>
 <h2 id="动画解析"><a href="#动画解析" class="headerlink" title="动画解析"></a>动画解析</h2><p>我们先来看上面方形的水波，主要就是利用<code>正弦函数</code>绘制出路径即可，如图：</p>
-<p><img src="http://aevit.qiniudn.com/2c388de0cc44042fab9f85237ccaed881470240674.jpeg" alt="image"></p>
+<p><img src="http://file.arvit.xyz/2c388de0cc44042fab9f85237ccaed881470240674.jpeg" alt="image"></p>
 <p>我们知道，虽然我们肉眼看到的曲线是连续的，但是实际将曲线放大到一定程度，看到的是栅格的像素点。<br>所以我们只要计算出上图中的4个<code>蓝色点</code>，以及弧线上的所有点，再将之全部连成线，即可形成我们需要的水波形状。</p>
 <p>我们从左上角的点开始，依次计算弧线上的点，以及之后的3个<code>蓝色点</code>即可，这里我们使用<code>UIBezierPath</code>来进行绘制（当然也可以使用<code>CGMutablePathRef</code>等），关键代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">UIBezierPath *path = [UIBezierPath bezierPath];</div><div class="line">path.lineWidth = 1;</div><div class="line">[path moveToPoint:CGPointMake(0, leftUpPointY)];</div><div class="line">for (CGFloat x = 0.0; x &lt; waveWidth; x++) &#123;</div><div class="line">    CGFloat y = 2 * a * sin(2.5 * M_PI / waveWidth * x + offset * M_PI / waveWidth) + leftUpPointY;</div><div class="line">    [path addLineToPoint:CGPointMake(x, y)];</div><div class="line">&#125;</div><div class="line">[path addLineToPoint:CGPointMake(waveWidth, self.frame.size.height)];</div><div class="line">[path addLineToPoint:CGPointMake(0, self.frame.size.height)];</div><div class="line">[path closePath];</div></pre></td></tr></table></figure>
@@ -290,7 +290,7 @@
 <h2 id="蓝白颜色交替"><a href="#蓝白颜色交替" class="headerlink" title="蓝白颜色交替"></a>蓝白颜色交替</h2><p>之前无意中看到网上有人弄了水波动画（详见<a href="https://github.com/summertian4/CFWaterWave" target="_blank" rel="external">这里</a>），就想着自己研究实现一下。</p>
 <p>把水波的绘制动画研究出来后，发现那个<code>demo</code>里还有个<code>颜色交替</code>的效果，刚好以前弄过类似的，看了下源码，实现思路基本差不多：</p>
 <p>使用2张图片，如图：</p>
-<p><img src="http://aevit.qiniudn.com/aa77a113b063da8da06ff517f68340461470243553.jpeg" alt="image"></p>
+<p><img src="http://file.arvit.xyz/aa77a113b063da8da06ff517f68340461470243553.jpeg" alt="image"></p>
 <p>使用2个<code>UIImageView</code>分别放置2张图片，<code>白色底</code>的放下面，<code>蓝色底</code>的放上面，然后再在<code>蓝色底</code>的<code>upImageView.layer</code>上加一层<code>mask</code>遮罩。</p>
 <p>遮罩的路径也就是上面绘制水波的路径，只是不将路径绘制好后的<code>CAShapeLayer</code>加到<code>容器的layer</code>上去，而是设置为<code>upImageView.layer</code>的<code>mask</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.upImgView.layer.mask = self.waveLayer;</div></pre></td></tr></table></figure>
@@ -299,7 +299,7 @@
 <hr>
 <p>2016-08-04 01:42<br>Aevit<br>华师</p>
 <hr>
-<p><a class="http://aevit.qiniudn.com/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg" title="海边日出"><img src="http://aevit.qiniudn.com/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg" alt=""></a><br>摄影：Aevit 2016年7月 阳江闸坡 十里银滩</p>
+<p><a class="http://file.arvit.xyz/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg" title="海边日出"><img src="http://file.arvit.xyz/3b486e12becac3aa4c6c7e8bafbe38eb1470245690.jpeg" alt=""></a><br>摄影：Aevit 2016年7月 阳江闸坡 十里银滩</p>
 
       
     </div>
@@ -441,6 +441,11 @@
     </span>
     <span class="author">Aevit</span>
   </span>
+
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a href="javascript:void(0)" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18142108号</p></a>
+  </div>
+    
 </div>
 
       </footer>

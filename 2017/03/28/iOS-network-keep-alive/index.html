@@ -264,29 +264,29 @@
 <p>那应该如何解决呢？</p>
 <a id="more"></a>
 <h2 id="确认问题"><a href="#确认问题" class="headerlink" title="确认问题"></a>确认问题</h2><h3 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a>Charles</h3><p>去找了运维同事看了后台配置，看起来是没问题，但是使用 Charles 抓包看的 <code>Keep-Alive</code>（又称持久连接、连接重用）就一直不生效：</p>
-<p><img src="http://aevit.qiniudn.com/8332f71e13336060218c2ba8bfe31b401490671091.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/8332f71e13336060218c2ba8bfe31b401490671091.png" alt="image"></p>
 <p>后来突然想到，android 上会不会有问题？抓包看了下，android 上的 <code>Keep-Alive</code> 是正常的：</p>
-<p><img src="http://aevit.qiniudn.com/1684ede887d1e83519d988c600b1bdf51490671159.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/1684ede887d1e83519d988c600b1bdf51490671159.png" alt="image"></p>
 <h3 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h3><h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><p>为了再次确认，开了个 demo，使用 Wireshark 来看报文，由于对这软件还不是很熟，先拿个 HTTP 的链接来试下，这是 <code>Keep-Alive</code> 不生效的情况（这里使用的是内网的服务器，其中 <code>10.1.17.81</code> 是我本机 IP，<code>10.0.3.150</code> 是我们内网服务器 IP）：</p>
-<p><img src="http://aevit.qiniudn.com/4766cc7f71cdd2286020e2855f053b431490671706.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/4766cc7f71cdd2286020e2855f053b431490671706.png" alt="image"></p>
 <blockquote>
 <p>PS: 图中上面使用的 <code>ip.addr == 10.0.0.150</code> 是用来过滤查看这次接口相关的报文</p>
 </blockquote>
 <p>从上图我们也可以直观地看到，前三条报文是用来建立 TCP 握手连接的（这里先注意上图箭头处的端口 <code>58922</code>，这是我本机使用的端口，是由系统动态创建的端口，用来跟服务器通信的）。</p>
 <p>接下来再请求一遍同个接口，使用 Charles 看到 <code>Keep-Alive</code> 是生效的，这是 Wireshark 上的情况：</p>
-<p><img src="http://aevit.qiniudn.com/c9c388932a70633c91455b2b8df5427b1490671765.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/c9c388932a70633c91455b2b8df5427b1490671765.png" alt="image"></p>
 <p>可以看到，这里已经少了几条报文，其中包括三次握手的报文，并且我本机的端口使用的还是 <code>58922</code>。</p>
 <p>当过了 <code>Keep-Alive</code> 有效期（这个时间是后台配置的），我再重新请求同个接口，这时端口已经变了：</p>
-<p><img src="http://aevit.qiniudn.com/b3a9e6de59cd45e9313c3ba19dacdb881490672948.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/b3a9e6de59cd45e9313c3ba19dacdb881490672948.png" alt="image"></p>
 <h4 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h4><p>接下来看一下 HTTPS 相关的报文（这里我还是使用同个接口，不过使用的是生产环境的，所以下面的图会将我们服务器的 IP 打码）</p>
 <p>这是 <code>Keep-Alive</code> 不生效的情况：</p>
-<p><img src="http://aevit.qiniudn.com/a3779616da76eddc54347ad3ab6c293f1490673131.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/a3779616da76eddc54347ad3ab6c293f1490673131.png" alt="image"></p>
 <p>可以看到，本机端口使用的是 <code>58858</code>， 这次请求的报文比 HTTP 的请求多了好一些，主要都是用来建立 SSL 握手的。</p>
 <p>这是 <code>Keep-Alive</code> 生效的情况：</p>
-<p><img src="http://aevit.qiniudn.com/e002e1f0014272b51ffd3b8d29f0b0c71490673329.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/e002e1f0014272b51ffd3b8d29f0b0c71490673329.png" alt="image"></p>
 <p>省掉了 SSL 握手的操作，一下子就减少了很多报文。</p>
 <p>后面过了 <code>Keep-Alive</code> 有效期，再重新请求同个接口，端口变了，同时也要重新进行 SSL 握手了：</p>
-<p><img src="http://aevit.qiniudn.com/e8aa14c1c7157b9ac4a6d932bbce4ea81490673926.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/e8aa14c1c7157b9ac4a6d932bbce4ea81490673926.png" alt="image"></p>
 <h4 id="题外"><a href="#题外" class="headerlink" title="题外"></a>题外</h4><p>这里简单介绍一下下面那几行分别表示的意思：</p>
 <ul>
 <li><p>Frame: 物理层的数据帧概况</p>
@@ -308,7 +308,7 @@
 <p>之前刚接手这项目时，就有人说这个项目代码也有点历史了，经过了很多人的手，其中封装的网络模块可能有两三种。结果这一排查，了不得啊……</p>
 <p>使用的是 <code>AFNetworking</code>，对这个的封装就有三种方式，然后在某些地方还零星隐藏着第四种方式——直接使用 <code>AFNetwroking</code> 提供的方法。</p>
 <p>再然后因为某个需求，需要对所有请求都统一做某些操作，前面接手的人为了方便，就注册了一个自定义 <code>NSURLProtocol</code> 来统一处理。最后排查到问题就是出在这里了，这是里面 <code>startLoading</code> 的写法：</p>
-<p><img src="http://aevit.qiniudn.com/a5dcdbaf28e2881699d3a1458fadc43e1490682717.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/a5dcdbaf28e2881699d3a1458fadc43e1490682717.png" alt="image"></p>
 <p>这里的写法有个问题，就是每次请求都重新创建了一个 <code>NSURLSession</code> 实例，所以就导致了上面的 <code>Keep-Alive</code> 不生效了，每次请求都要重新进行 DNS 解析、建立握手等操作。</p>
 <p>没有特殊需求的情况下，<code>NSURLSession</code> 应该是只创建一个实例就够了，然后通过创建多个 <code>NSURLSessionTask</code> 实例去进行请求。</p>
 <p>不过这个自定义的 <code>NSURLProtocol</code> 需要实现的需求其实没有必要这样做，这样还会有点性能问题，趁着新需求还没来，所以花了两天时间对网络模块做了以下优化改造：</p>
@@ -327,7 +327,7 @@
 <hr>
 <p>2017-03-28 00:26<br>Aevit<br>深圳南山</p>
 <hr>
-<p><a class="http://aevit.qiniudn.com/559196984c69340facb7eae40544b3b11490684514.jpeg" title="广州塔骑车"><img src="http://aevit.qiniudn.com/559196984c69340facb7eae40544b3b11490684514.jpeg" alt=""></a><br>摄影：Aevit 2014年4月 广州塔</p>
+<p><a class="http://file.arvit.xyz/559196984c69340facb7eae40544b3b11490684514.jpeg" title="广州塔骑车"><img src="http://file.arvit.xyz/559196984c69340facb7eae40544b3b11490684514.jpeg" alt=""></a><br>摄影：Aevit 2014年4月 广州塔</p>
 
       
     </div>
@@ -473,6 +473,11 @@
     </span>
     <span class="author">Aevit</span>
   </span>
+
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a href="javascript:void(0)" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18142108号</p></a>
+  </div>
+    
 </div>
 
       </footer>

@@ -268,7 +268,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">int main(int argc, char * argv[]) &#123;</div><div class="line">    @autoreleasepool &#123;</div><div class="line">        int valA = 1;</div><div class="line">        __block int valB = 11;</div><div class="line">        void (^block)(void) = ^&#123;</div><div class="line">//            valA = 2;</div><div class="line">            valB = 22;</div><div class="line">            NSLog(@&quot;%d, %d&quot;, valA, valB);</div><div class="line">        &#125;;</div><div class="line">        block();</div><div class="line">        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>使用 <code>clang -rewrite-objc</code> 重写后，得到以下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">struct __Block_byref_valB_0 &#123;</div><div class="line">  void *__isa;</div><div class="line">__Block_byref_valB_0 *__forwarding;</div><div class="line"> int __flags;</div><div class="line"> int __size;</div><div class="line"> int valB;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">struct __main_block_impl_0 &#123;</div><div class="line">  struct __block_impl impl;</div><div class="line">  struct __main_block_desc_0* Desc;</div><div class="line">  int valA;</div><div class="line">  __Block_byref_valB_0 *valB; // by ref</div><div class="line">  __main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, int _valA, __Block_byref_valB_0 *_valB, int flags=0) : valA(_valA), valB(_valB-&gt;__forwarding) &#123;</div><div class="line">    impl.isa = &amp;_NSConcreteStackBlock;</div><div class="line">    impl.Flags = flags;</div><div class="line">    impl.FuncPtr = fp;</div><div class="line">    Desc = desc;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line">static void __main_block_func_0(struct __main_block_impl_0 *__cself) &#123;</div><div class="line">  __Block_byref_valB_0 *valB = __cself-&gt;valB; // bound by ref</div><div class="line">  int valA = __cself-&gt;valA; // bound by copy</div><div class="line"></div><div class="line"></div><div class="line">            (valB-&gt;__forwarding-&gt;valB) = 22;</div><div class="line">            NSLog((NSString *)&amp;__NSConstantStringImpl__var_folders_6p_1hbzwy3900vd5kkrph4hz29w0000gn_T_main_9fdbf1_mi_0, valA, (valB-&gt;__forwarding-&gt;valB));</div><div class="line">        &#125;</div><div class="line">static void __main_block_copy_0(struct __main_block_impl_0*dst, struct __main_block_impl_0*src) &#123;_Block_object_assign((void*)&amp;dst-&gt;valB, (void*)src-&gt;valB, 8/*BLOCK_FIELD_IS_BYREF*/);&#125;</div><div class="line"></div><div class="line">static void __main_block_dispose_0(struct __main_block_impl_0*src) &#123;_Block_object_dispose((void*)src-&gt;valB, 8/*BLOCK_FIELD_IS_BYREF*/);&#125;</div><div class="line"></div><div class="line">static struct __main_block_desc_0 &#123;</div><div class="line">  size_t reserved;</div><div class="line">  size_t Block_size;</div><div class="line">  void (*copy)(struct __main_block_impl_0*, struct __main_block_impl_0*);</div><div class="line">  void (*dispose)(struct __main_block_impl_0*);</div><div class="line">&#125; __main_block_desc_0_DATA = &#123; 0, sizeof(struct __main_block_impl_0), __main_block_copy_0, __main_block_dispose_0&#125;;</div><div class="line">int main(int argc, char * argv[]) &#123;</div><div class="line">    /* @autoreleasepool */ &#123; __AtAutoreleasePool __autoreleasepool; </div><div class="line"></div><div class="line">        int valA = 1;</div><div class="line">        __attribute__((__blocks__(byref))) __Block_byref_valB_0 valB = &#123;(void*)0,(__Block_byref_valB_0 *)&amp;valB, 0, sizeof(__Block_byref_valB_0), 11&#125;;</div><div class="line">        void (*block)(void) = ((void (*)())&amp;__main_block_impl_0((void *)__main_block_func_0, &amp;__main_block_desc_0_DATA, valA, (__Block_byref_valB_0 *)&amp;valB, 570425344));</div><div class="line">        ((void (*)(__block_impl *))((__block_impl *)block)-&gt;FuncPtr)((__block_impl *)block);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        return UIApplicationMain(argc, argv, __null, NSStringFromClass(((Class (*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass(&quot;AppDelegate&quot;), sel_registerName(&quot;class&quot;))));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>看 <code>main</code> 函数里面的代码：<br><img src="http://aevit.qiniudn.com/71dc6fd24fd4df90c1a91b2bb7d3b5b01483953745.jpeg" alt="image"></p>
+<p>看 <code>main</code> 函数里面的代码：<br><img src="http://file.arvit.xyz/71dc6fd24fd4df90c1a91b2bb7d3b5b01483953745.jpeg" alt="image"></p>
 <p>可以看到，<code>block</code> 被转化成了一个 <code>__main_block_impl_0</code> 结构体对象；</p>
 <p>上图中，调用该结构体的构造函数时，传入的第一个参数是一个 <code>__main_block_func_0</code> 类型的变量（这个 <code>__main_block_func_0</code> 是最终 <code>block</code> 里要执行的代码）将会由结构体里的 <code>FuncPtr</code> 成员接收，可以看到这是一个 <code>函数指针</code>；</p>
 <p>看上图箭头处，之后 <code>调用 block</code> 就是通过这个 <code>函数指针</code> 去调用的，并且也会传入这个结构体对象：</p>
@@ -281,14 +281,14 @@
 <h2 id="不加-block-修饰符"><a href="#不加-block-修饰符" class="headerlink" title="不加 __block 修饰符"></a>不加 __block 修饰符</h2><p>让我们先将之前 <code>main</code> 方法里的 <code>valB</code> 去掉：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int valA = 1;</div><div class="line">void (^block)(void) = ^&#123;</div><div class="line">    NSLog(@&quot;%d&quot;, valA);</div><div class="line">&#125;;</div><div class="line">block();</div></pre></td></tr></table></figure>
 <p>首先，让我们看一下转换后的 <code>main 方法相关代码</code>：</p>
-<p><img src="http://aevit.qiniudn.com/05f4245c2d974ef16e6a1adbc36fab9b1484020226.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/05f4245c2d974ef16e6a1adbc36fab9b1484020226.png" alt="image"></p>
 <p>可以看到，调用构造函数时，第三个参数是直接使用 <code>valA</code> 的值的。</p>
 <p>再看结构体的声明及其 <code>block</code> 里的实现</p>
-<p><img src="http://aevit.qiniudn.com/141de79f08494688cf0ffb0fc3eaca4b1483953997.jpeg" alt="image"></p>
+<p><img src="http://file.arvit.xyz/141de79f08494688cf0ffb0fc3eaca4b1483953997.jpeg" alt="image"></p>
 <p>看图中上面的箭头处，构造函数初始化参数时，是直接使用 <code>val</code> 的值；</p>
 <p>我们将 <code>block</code> 看做一个函数，看上图中下面的箭头处，<code>valA</code> 在 <code>block 函数</code> 里也有定义，其值跟 <code>外部的 valA</code> 一样；</p>
 <p>此时 <code>block 函数</code> 及 <code>main 函数</code> 在内存中的分布大致如下：</p>
-<p><img src="http://aevit.qiniudn.com/909bc774cc7f9dabaec21a300c6329831483955235.jpeg" alt="image"></p>
+<p><img src="http://file.arvit.xyz/909bc774cc7f9dabaec21a300c6329831483955235.jpeg" alt="image"></p>
 <p>可以看到，<code>valA</code> 是在不同作用域的，这一点很关键。</p>
 <p>这里谨记 <strong>函数调用的内存机制</strong>：</p>
 <blockquote>
@@ -297,7 +297,7 @@
 <p>虽然在这里直接看转换后的代码， <code>struct</code> 里其实是可以修改内部的 <code>valA</code> 的，但是因为 <code>valA</code> 这个变量名，在内部和外部都存在，作用域是不同的，所以苹果在编译器层面就已经是禁止修改的。</p>
 <h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><p>不加 <code>__block</code> 修饰时，<code>valA</code> 存在于多个不同的栈中，也就是说作用域不同，所以编译器才会禁止修改。</p>
 <p>值得一提的是，我们上面举的例子是 <code>基本类型 int</code>，当换成 <code>对象类型</code>（如 <code>NSString</code>）时，转换后是 <code>const</code> 类型的，这是为什么？</p>
-<p><img src="http://aevit.qiniudn.com/48610aa1b83836e1feea9dca0ce1e0db1483956237.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/48610aa1b83836e1feea9dca0ce1e0db1483956237.png" alt="image"></p>
 <blockquote>
 <p>因为结构体的构造函数，只是把调用者（如上面的 <code>main函数</code> ）在栈上的 <code>valStr</code> 的 <code>指针地址</code> 传给了被调用者（如上面的 <code>block函数</code>）；</p>
 <p>如果不加const，那被调用者完全可能通过这个地址来修改这个捕获的对象的值，这个时候，如果被调用者的栈已经被回收了，那这个修改，就是在修改一处已经被回收的内存的内容，那就可能崩溃了。</p>
@@ -315,7 +315,7 @@
 </li>
 </ol>
 <h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>为了验证 <code>block</code> 里的 <code>valB</code> 到底是不是在堆里了，可以打印出地址算一下：</p>
-<p><img src="http://aevit.qiniudn.com/acbac0f5084114ab374d66fa403ee2931484039915.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/acbac0f5084114ab374d66fa403ee2931484039915.png" alt="image"></p>
 <p>定义前的地址（<code>16fd77a68</code>）转成十进制： <code>6171359848</code><br>block 内的地址（<code>170220bb8</code>）转成十进制： <code>6176246712</code></p>
 <p>由此可知两者地址之间相差：<br><code>(6176246712 - 6171359848) / (1024 * 1024) = 4.66M</code></p>
 <p>由于 <code>iOS</code> 里主线程的栈是 <code>1M</code> （非主线程是 <code>512K</code>，<code>OS X</code> 的主线程是 <code>8M</code>）（<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/CreatingThreads/CreatingThreads.html" target="_blank" rel="external">官方文档</a>），所以<code>定义前</code>是在栈中，<code>block</code> 内及<code>定义后</code>就是在堆内了。</p>
@@ -325,21 +325,21 @@
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>下面我们结合代码来具体说明一下第二种方案：</p>
 <p>现在我们只使用带有 <code>__block</code> 修饰符的 <code>valB</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">__block int valB = 11;</div><div class="line">void (^block)(void) = ^&#123;</div><div class="line">    valB = 22;</div><div class="line">    NSLog(@&quot;%d&quot;, valB);</div><div class="line">&#125;;</div><div class="line">block();</div></pre></td></tr></table></figure>
-<p>看下图，可以发现 <code>__block int valB = 11</code> 转换成了一个结构体 <code>__Block_byref_valB_0</code>，注意下图中上面的箭头，构造函数里传递的第二个参数是 <code>&amp;valB</code>（即 <code>valB</code> 变量的首地址）：<br><img src="http://aevit.qiniudn.com/8dd1d76676d2755f77b507351a93f9781484029267.png" alt="image"></p>
-<p>再看其它部分代码：<br><img src="http://aevit.qiniudn.com/609c7734152c10ac49f87302cbbd2d841483965263.jpeg" alt="image"></p>
+<p>看下图，可以发现 <code>__block int valB = 11</code> 转换成了一个结构体 <code>__Block_byref_valB_0</code>，注意下图中上面的箭头，构造函数里传递的第二个参数是 <code>&amp;valB</code>（即 <code>valB</code> 变量的首地址）：<br><img src="http://file.arvit.xyz/8dd1d76676d2755f77b507351a93f9781484029267.png" alt="image"></p>
+<p>再看其它部分代码：<br><img src="http://file.arvit.xyz/609c7734152c10ac49f87302cbbd2d841483965263.jpeg" alt="image"></p>
 <p><code>__Block_byref_valB_0</code> 结构体声明如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">struct __Block_byref_valB_0 &#123;</div><div class="line">  void *__isa;</div><div class="line">__Block_byref_valB_0 *__forwarding;</div><div class="line"> int __flags;</div><div class="line"> int __size;</div><div class="line"> int valB;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>可以看到第二个参数是 <code>__Block_byref_valB_0 *__forwarding</code>，而刚才已经说了 <code>main</code> 函数里 <code>valB</code> 的构造函数里传递的第二个参数是 <code>&amp;valB</code>，所以 <code>__forwarding</code> 这是该实例自身的引用，内存结构大致如下：</p>
-<p><img src="http://aevit.qiniudn.com/308cc2d566a87ed0b8c1f12d565a21731484032183.jpeg" alt="image"></p>
+<p><img src="http://file.arvit.xyz/308cc2d566a87ed0b8c1f12d565a21731484032183.jpeg" alt="image"></p>
 <p>根据我们之前的分析，经过 <code>block</code> 后，编译器会将 <code>valB</code> 拷贝至<strong>堆</strong>中，这时内存结构大致如下：</p>
-<p><img src="http://aevit.qiniudn.com/0e1aaf58c44ca69abb63bb77f8dd65981483967160.jpeg" alt="image"></p>
+<p><img src="http://file.arvit.xyz/0e1aaf58c44ca69abb63bb77f8dd65981483967160.jpeg" alt="image"></p>
 <p>其中栈中（包括 <code>block</code> 及 <code>main</code> ）的 <code>__forwarding</code> 指向堆中 <code>valB 实例</code> 首地址，堆中的 <code>valB 实例</code> 的 <code>__forwarding</code> 指向自身首地址。</p>
 <p>再来看一下 <code>block</code> 里的具体代码实现，可以看到代码里已经是对堆里的内容进行修改了（使用 <code>valB-&gt;__forwarding-&gt;valB</code>）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// block 里的具体定义</div><div class="line">static void __main_block_func_0(struct __main_block_impl_0 *__cself) &#123;</div><div class="line">    __Block_byref_valB_0 *valB = __cself-&gt;valB; // bound by ref</div><div class="line"></div><div class="line">    (valB-&gt;__forwarding-&gt;valB) = 22; // 修改的是堆里的内容</div><div class="line">    NSLog((NSString *)&amp;__NSConstantStringImpl__var_folders_6p_1hbzwy3900vd5kkrph4hz29w0000gn_T_main_b97c95_mi_0, (valB-&gt;__forwarding-&gt;valB));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>所以 <code>block</code> 里修改的实际是 <code>堆</code> 里的东西了。</p>
 <p>最后还有一个问题，变量是怎样被 <code>copy</code> 到堆里的？</p>
 <p>看下图，可以看到 <code>clang -rewrite-objc</code> 后生成的是 <code>_NSConcreteStackBlock</code> 类型的，是存在栈上的，而最终我们打断点会发现类型变成了 <code>_NSConcreteMallocBlock</code> ，这是因为在 <code>ARC</code> 环境下，编译器会自动将 <code>block</code> <code>copy</code> 到堆里，所以变量也会随之 <code>copy</code> 到堆里；如果是 <code>MRC</code> 环境，就需要手动 <code>copy</code> 了。</p>
-<p><img src="http://aevit.qiniudn.com/44793bb2dbf77f118b4a6a9076ffab721484104519.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/44793bb2dbf77f118b4a6a9076ffab721484104519.png" alt="image"></p>
 <h3 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h3><p>加了 <code>__block</code> 后的变量，生成的是一个结构体变量，在经过 <code>block</code> （也就是定义 <code>block</code> ）时，会将该结构体拷贝至<strong>堆</strong>中，栈内的 <code>__forwarding</code> 指向堆中的地址，之后对该变量的操作，实际上是对<strong>堆</strong>里的变量的操作。</p>
 <p>另外，该结构体变量的 <code>isa</code> 指针有三种情况：</p>
 <ul>
@@ -372,7 +372,7 @@
 </tr>
 </tbody>
 </table>
-<p><img src="http://aevit.qiniudn.com/4dc76a9bf32d5c181b3a3c8c1537ed4b1484106867.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/4dc76a9bf32d5c181b3a3c8c1537ed4b1484106867.png" alt="image"></p>
 <p>即：<br><code>block</code> 内没有使用到外部变量，生成的是 <code>_NSConcreteGlobalBlock</code>；<br>如果有使用外部变量，有强引用的是 <code>_NSConcreteMallocBlock</code>，无强引用的是 <code>_NSConcreteStackBlock</code>；</p>
 <p>看完以上三种类型的 <code>block</code> 后，可以做一下这里的 <a href="http://blog.parse.com/learn/engineering/objective-c-blocks-quiz/" target="_blank" rel="external">题目</a> 巩固一下</p>
 <hr>
@@ -390,7 +390,7 @@
 <hr>
 <p>2017-01-09 21:34<br>Aevit<br>深大轻茶馆</p>
 <hr>
-<p><a class="http://aevit.qiniudn.com/1993ab9d9d77c4eabfb9a84b599f149c1483968843.jpeg" title="茶卡盐湖"><img src="http://aevit.qiniudn.com/1993ab9d9d77c4eabfb9a84b599f149c1483968843.jpeg" alt=""></a><br>摄影：Aevit 2016年8月 茶卡盐湖</p>
+<p><a class="http://file.arvit.xyz/1993ab9d9d77c4eabfb9a84b599f149c1483968843.jpeg" title="茶卡盐湖"><img src="http://file.arvit.xyz/1993ab9d9d77c4eabfb9a84b599f149c1483968843.jpeg" alt=""></a><br>摄影：Aevit 2016年8月 茶卡盐湖</p>
 
       
     </div>
@@ -532,6 +532,11 @@
     </span>
     <span class="author">Aevit</span>
   </span>
+
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a href="javascript:void(0)" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18142108号</p></a>
+  </div>
+    
 </div>
 
       </footer>

@@ -282,7 +282,7 @@
 </blockquote>
 <p>接下来会一个又一个的问题，下面会列出我遇到的问题，解决完一个后就用 Xcode 重新 run 一下</p>
 <h3 id="react-natvei-git-upgrade-报错"><a href="#react-natvei-git-upgrade-报错" class="headerlink" title="react-natvei-git-upgrade 报错"></a>react-natvei-git-upgrade 报错</h3><p>如果执行 <code>react-native-git-upgrade</code> 后报以下错误：  </p>
-<p><img src="http://aevit.qiniudn.com/5d8d2ef6ac7d007a766c6f58e250f8d81510995990.png" alt=""></p>
+<p><img src="http://file.arvit.xyz/5d8d2ef6ac7d007a766c6f58e250f8d81510995990.png" alt=""></p>
 <p>解决方法：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 先找到刚才执行 `react-native-git-upgrade` 命令后产生的一个 patch 文件</div><div class="line">$ ls $TMPDIR/react-native-git-upgrade</div><div class="line"></div><div class="line"># 结果类似如下：  </div><div class="line">upgrade_0.44.0_0.50.3.patch</div><div class="line"></div><div class="line"># 然后在项目根目录执行以下命令：  </div><div class="line">$ git apply $TMPDIR/react-native-git-upgrade/upgrade_0.44.0_0.50.3.patch --reject</div></pre></td></tr></table></figure>
 <p>下面是我执行命令后截取产生的部分内容：  </p>
@@ -310,7 +310,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#if __has_include(&lt;React/RCTBridgeModule.h&gt;)</div><div class="line">#import &lt;React/RCTBridgeModule.h&gt;</div><div class="line">#elif __has_include(&quot;RCTBridgeModule.h&quot;)</div><div class="line">#import &quot;RCTBridgeModule.h&quot;</div><div class="line">#endif</div></pre></td></tr></table></figure>
 <p>如果是我们自己写的文件就直接改就行了，如果是第三方库的，就先去看下该库最新版有没适配了，有的话直接更新该库就行，没有的话就只能 fork 该项目后自己改了。  </p>
 <p>如我遇到的这个 RCTBEEPickerManager，去 github 看了下有适配了，所以直接升级就好了：  </p>
-<p><img src="http://aevit.qiniudn.com/f28f12a3bfebfab6f495bb7f22ca1eb61510996056.png" alt=""></p>
+<p><img src="http://file.arvit.xyz/f28f12a3bfebfab6f495bb7f22ca1eb61510996056.png" alt=""></p>
 <p>参考：<br><a href="https://github.com/facebook/react-native/issues/15775" target="_blank" rel="external">https://github.com/facebook/react-native/issues/15775</a></p>
 <h3 id="UMMobClick"><a href="#UMMobClick" class="headerlink" title="UMMobClick"></a>UMMobClick</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Users/xxx/projects/ReactNative/xxx/node_modules/rn-umeng/ios/RCTUmeng/RCTUmeng/RCTUmeng.m:11:9: &apos;UMMobClick/MobClick.h&apos; file not found</div></pre></td></tr></table></figure>
 <p>因为友盟是通过软链把 framework 链接过去的，不知道为啥有时 <code>yarn install</code> 或 <code>npm install</code> 后，那个软链接不见了，所以只能手动重新做一下软链接：  </p>
@@ -345,15 +345,15 @@
 <p>现在统一使用一个 <code>index.js</code> 文件了，如果项目根目录没有这个，需要手动创建一下，再整合一下以前两个文件的内容。  </p>
 <p>使用 index.js 后，<code>AppDelegate.m</code> 里如果有用了 <code>index.ios.bundle</code>，也改为 <code>index.bundle</code>。  </p>
 <h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>由于历史原因，少部分图片引用时将 <code>@2x</code> 或是 <code>@3x</code> 或是 <code>.ios</code> 这个后缀也写进去了，现在这样会报错了：  </p>
-<p><img src="http://aevit.qiniudn.com/ae3b9757747a70e0e42a6399b9ba42ea1510996109.png" alt=""></p>
+<p><img src="http://file.arvit.xyz/ae3b9757747a70e0e42a6399b9ba42ea1510996109.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">如：</div><div class="line">require(&apos;./pic@2x.png&apos;) 或 require(&apos;./pic.ios.png&apos;)</div><div class="line">要换为</div><div class="line">require(&apos;./pic.png&apos;)</div></pre></td></tr></table></figure>
 <p>全局搜索 <code>@2x.png</code> 及 <code>@3x.png</code> 将 <strong>js 文件里</strong> 用到的去掉就行了（注意非 js 文件就不要改了）  </p>
-<h3 id="EventEmitter-引用错误"><a href="#EventEmitter-引用错误" class="headerlink" title="EventEmitter 引用错误"></a>EventEmitter 引用错误</h3><p><img src="http://aevit.qiniudn.com/fcd0a0ff271d410e33aad35ff33429381510996136.png" alt=""></p>
+<h3 id="EventEmitter-引用错误"><a href="#EventEmitter-引用错误" class="headerlink" title="EventEmitter 引用错误"></a>EventEmitter 引用错误</h3><p><img src="http://file.arvit.xyz/fcd0a0ff271d410e33aad35ff33429381510996136.png" alt=""></p>
 <p>根据上面报错路径: <code>./node_modules/react-native-root-siblings/lib/AppRegistryInjection.js</code>  </p>
 <p>查看源码发现是因为新版 RN 的 EventEmitter 的路径已经变了，看了下这个 <code>react-native-root-siblings</code> 是 <code>react-native-root-toast</code> 所依赖的一个库：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import EventEmitter from &apos;react-native/Libraries/EventEmitter/EventEmitter&apos;;</div></pre></td></tr></table></figure>
 <p>去 github 看了下这个库已经适配了，所以直接升级该库就行了</p>
-<h3 id="PropTypes"><a href="#PropTypes" class="headerlink" title="PropTypes"></a>PropTypes</h3><p><img src="http://aevit.qiniudn.com/28c5eded86160314ad2e3030213d72111510996158.png" alt=""></p>
+<h3 id="PropTypes"><a href="#PropTypes" class="headerlink" title="PropTypes"></a>PropTypes</h3><p><img src="http://file.arvit.xyz/28c5eded86160314ad2e3030213d72111510996158.png" alt=""></p>
 <p>以前引用 PropTypes 是从 React 里引：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import React, &#123; PropTypes &#125; from &apos;react&apos;;</div></pre></td></tr></table></figure>
 <p>现在已经完全废弃了，需要另外安装这个库: <a href="https://github.com/facebook/prop-types" target="_blank" rel="external">prop-types</a>  </p>
@@ -366,7 +366,7 @@
 </blockquote>
 <p>另外，以前使用 <code>View.proptypes</code> 的，要改用 <code>ViewProptypes</code>，如:  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import &#123; ViewProptypes &#125; from &apos;react-native&apos;</div><div class="line"></div><div class="line">static proptypes = &#123;</div><div class="line">	style: ViewProptypes.style</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="React-createClass"><a href="#React-createClass" class="headerlink" title="React.createClass"></a>React.createClass</h3><p><img src="http://aevit.qiniudn.com/fed5c02ca363f1a4deab296f33466ca71510996192.png" alt=""></p>
+<h3 id="React-createClass"><a href="#React-createClass" class="headerlink" title="React.createClass"></a>React.createClass</h3><p><img src="http://file.arvit.xyz/fed5c02ca363f1a4deab296f33466ca71510996192.png" alt=""></p>
 <p>ES5 可以使用以下来创建一个类：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var xxx = React.createClass(&#123;&#125;)</div></pre></td></tr></table></figure>
 <p>现在新版 RN 完全废弃这种写法了，要么单独引进 <a href="https://www.npmjs.com/package/create-react-class" target="_blank" rel="external">create-react-class</a> ，要么使用 ES6 的写法：  </p>
@@ -377,7 +377,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">export default class xxx extends React.xxxyyy &#123;</div><div class="line">  static propTypes = &#123;</div><div class="line">    color: PropTypes.string</div><div class="line">  &#125;;</div><div class="line">  static defaultProps = &#123;</div><div class="line">    color: &apos;#8E91A8&apos;</div><div class="line">  &#125;;</div><div class="line">  constructor (props) &#123;</div><div class="line">  	super(props)</div><div class="line">  	this.state = &#123; test: 1 &#125;</div><div class="line">  &#125;</div><div class="line">  render () &#123;</div><div class="line">  	return &lt;View /&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>需要注意的是，使用 create-react-class 时，会自动绑定 this（<a href="https://reactjs.org/docs/react-without-es6.html" target="_blank" rel="external">https://reactjs.org/docs/react-without-es6.html</a>），所以修改为 ES6 写法，要注意 this 的绑定，像这次就遇到一个地方需要手动绑定一下：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">export default class xxx extends React.Component &#123;</div><div class="line">	renderTab (xx, yy) &#123;</div><div class="line">		return &lt;View style=&#123;this.props.style&#125; /&gt;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	render () &#123;</div><div class="line">		&lt;View&gt;</div><div class="line">		&#123; this.props.tabs.map((name, page) =&gt; &#123;</div><div class="line">			const renderTab = this.props.renderTab || this.renderTab</div><div class="line">			// 原本是 return renderTab(xx, yy)，要换为以下：  </div><div class="line">			return renderTab.call(this, xx, yy)</div><div class="line">		&#125;)&#125;</div><div class="line">		&lt;/View&gt;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Image-作为背景"><a href="#Image-作为背景" class="headerlink" title="Image 作为背景"></a>Image 作为背景</h3><p><img src="http://aevit.qiniudn.com/106b2b06f8b5bba923663608c5b594521510996213.png" alt=""></p>
+<h3 id="Image-作为背景"><a href="#Image-作为背景" class="headerlink" title="Image 作为背景"></a>Image 作为背景</h3><p><img src="http://file.arvit.xyz/106b2b06f8b5bba923663608c5b594521510996213.png" alt=""></p>
 <p>以前如果要用一张图片做背景，会在 Image 里包含内容：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;Image&gt;</div><div class="line">	&lt;View /&gt;</div><div class="line">&lt;/Image&gt;</div></pre></td></tr></table></figure>
 <p>现在已经废弃了，要么给 Image 使用绝对定位来布局，要么使用 <code>ImageBackground</code>:  </p>
@@ -424,7 +424,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (UITextView*)getRealTextView:(UITextView*)reactView &#123;</div><div class="line">    if ([self canInputText:reactView]) &#123;</div><div class="line">        return reactView;</div><div class="line">    &#125;</div><div class="line">    // RN 0.50 后 RCTTextField 不是继承自 UITextField 了，多包了一层，这里遍历一下去查找</div><div class="line">    for (UITextView *aView in reactView.subviews) &#123;</div><div class="line">        if ([self canInputText:aView]) &#123;</div><div class="line">            return (UITextView*)aView;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return nil;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (BOOL)canInputText:(UIView*)view &#123;</div><div class="line">    return [view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后去调用一下方法：  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UITextField *view = (UITextField*)[_bridge.uiManager viewForReactTag:reactTag];</div><div class="line">view = [self getRealTextView:view]; // 兼容 RN 0.50</div><div class="line">view.inputView = customView;</div></pre></td></tr></table></figure>
-<h2 id="android-编译"><a href="#android-编译" class="headerlink" title="android 编译"></a>android 编译</h2><h3 id="createJSModules"><a href="#createJSModules" class="headerlink" title="createJSModules"></a>createJSModules</h3><p><img src="http://aevit.qiniudn.com/82a0a827e888527f0e5ce1ca011f15f51510996245.png" alt=""></p>
+<h2 id="android-编译"><a href="#android-编译" class="headerlink" title="android 编译"></a>android 编译</h2><h3 id="createJSModules"><a href="#createJSModules" class="headerlink" title="createJSModules"></a>createJSModules</h3><p><img src="http://file.arvit.xyz/82a0a827e888527f0e5ce1ca011f15f51510996245.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">public List&lt;Class&lt;? extends JavaScriptModule&gt;&gt; createJSModules() &#123;</div><div class="line">	return Collections.emptyList();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>从 RN 0.47 开始，以上写法会报错:  </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">错误: 方法不会覆盖或实现超类型的方法</div></pre></td></tr></table></figure>
@@ -450,7 +450,7 @@
 <hr>
 <p>2017-11-18 17:13<br>Aevit<br>深圳南山  </p>
 <hr>
-<p><img src="http://aevit.qiniudn.com/3ba1a7efb287ad0939e58729582e29251510996366.jpeg" alt=""></p>
+<p><img src="http://file.arvit.xyz/3ba1a7efb287ad0939e58729582e29251510996366.jpeg" alt=""></p>
 <p>摄影：Aevit 2015年8月 黄姚  </p>
 
       
@@ -585,6 +585,11 @@
     </span>
     <span class="author">Aevit</span>
   </span>
+
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a href="javascript:void(0)" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18142108号</p></a>
+  </div>
+    
 </div>
 
       </footer>

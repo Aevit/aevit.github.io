@@ -288,7 +288,7 @@
 <p>从 <code>NSObject.mm</code> 文件里摘抄这个类的成员变量部分代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">class AutoreleasePoolPage </div><div class="line">&#123;</div><div class="line">    // EMPTY_POOL_PLACEHOLDER is stored in TLS when exactly one pool is </div><div class="line">    // pushed and it has never contained any objects. This saves memory </div><div class="line">    // when the top level (i.e. libdispatch) pushes and pops pools but </div><div class="line">    // never uses them.</div><div class="line">#   define EMPTY_POOL_PLACEHOLDER ((id*)1)</div><div class="line"></div><div class="line">#   define POOL_BOUNDARY nil</div><div class="line">    static pthread_key_t const key = AUTORELEASE_POOL_KEY;</div><div class="line">    static uint8_t const SCRIBBLE = 0xA3;  // 0xA3A3A3A3 after releasing</div><div class="line">    static size_t const SIZE = </div><div class="line">#if PROTECT_AUTORELEASEPOOL</div><div class="line">        PAGE_MAX_SIZE;  // must be multiple of vm page size</div><div class="line">#else</div><div class="line">        PAGE_MAX_SIZE;  // size and alignment, power of 2</div><div class="line">#endif</div><div class="line">    static size_t const COUNT = SIZE / sizeof(id);</div><div class="line"></div><div class="line">    magic_t const magic;</div><div class="line">    id *next;</div><div class="line">    pthread_t const thread;</div><div class="line">    AutoreleasePoolPage * const parent;</div><div class="line">    AutoreleasePoolPage *child;</div><div class="line">    uint32_t const depth;</div><div class="line">    uint32_t hiwat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>画个图看一下：</p>
-<p><img src="http://aevit.qiniudn.com/a98396bd64d1610f4889c42d2b76e32e1489222777.jpeg" alt="image"></p>
+<p><img src="http://file.arvit.xyz/a98396bd64d1610f4889c42d2b76e32e1489222777.jpeg" alt="image"></p>
 <ul>
 <li><code>magic</code> 用来校验 <code>AutoreleasePoolPage</code> 的结构是否完整;</li>
 <li><code>next</code> 指向最新添加的 <code>autoreleased</code> 对象的下一个位置，初始化时指向 <code>begin()</code>;</li>
@@ -303,7 +303,7 @@
 <p>接下来让我们来详细说明自动释放池的原理。</p>
 <hr>
 <h2 id="objc-autoreleasePoolPush"><a href="#objc-autoreleasePoolPush" class="headerlink" title="objc_autoreleasePoolPush"></a>objc_autoreleasePoolPush</h2><p>先上张图（红色部分表示 push 后会变化的东西），接着再详细说明其流程：</p>
-<p><img src="http://aevit.qiniudn.com/dd6c093b0b87c86ed7e16c1fe6ad2f0d1489502563.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/dd6c093b0b87c86ed7e16c1fe6ad2f0d1489502563.png" alt="image"></p>
 <p>上文已经提到，<code>objc_autoreleasePoolPush</code> 函数定义如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">void *objc_autoreleasePoolPush(void)</div><div class="line">&#123;</div><div class="line">    return AutoreleasePoolPage::push();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>静态方法 push 的定义如下：</p>
@@ -357,7 +357,7 @@
 <hr>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>最后再总结一下自动释放池的原理，自动释放池是由多个 <code>autorelease page</code> 组成的 <code>双向链表</code>，其中主要通过 push 及 pop 操作来管理：</p>
 <h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><p>自动释放池会先调用 <code>objc_autoreleasePoolPush</code> 函数，这函数首先在当前 <code>next</code> 指向的位置存放一个 <code>POOL_BOUNDARY</code>，然后当向一个对象发送 <code>autorelease</code> 消息时，会在哨兵对象后面插入指向该对象的指针，之后把 <code>next</code> 指向刚插入的位置的下一个内存地址，如图所示：</p>
-<p><img src="http://aevit.qiniudn.com/dd6c093b0b87c86ed7e16c1fe6ad2f0d1489502563.png" alt="image"></p>
+<p><img src="http://file.arvit.xyz/dd6c093b0b87c86ed7e16c1fe6ad2f0d1489502563.png" alt="image"></p>
 <p>当这一页 page 快满时（即 <code>next</code> 即将指向栈顶——end() 位置），说明这一页 page 快满了。这时如果再加入一个对象，会先建立下一页 page，双向链表建立完成后，新的 page 的 <code>next</code> 指向该页的栈底——begin() 位置，之后继续向栈顶添加新的指针。</p>
 <h3 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h3><p>调用完前面说的 <code>objc_autoreleasePoolPush</code> 后，会返回一个 <code>POOL_BOUNDARY</code> 的地址，当对象要释放时，会调用 <code>objc_autoreleasePoolPop</code> 函数，将该 <code>POOL_BOUNDARY</code> 作为其入参，然后会执行如下操作：</p>
 <ul>
@@ -395,7 +395,7 @@
 <hr>
 <p>2017-03-12 21:32<br>Aevit<br>深大轻茶馆</p>
 <hr>
-<p><a class="http://aevit.qiniudn.com/8a7fb3f261eec1bc75d194981555c7291489325426.jpeg" title="黄姚日出"><img src="http://aevit.qiniudn.com/8a7fb3f261eec1bc75d194981555c7291489325426.jpeg" alt=""></a><br>摄影：Aevit 2015年8月 黄姚</p>
+<p><a class="http://file.arvit.xyz/8a7fb3f261eec1bc75d194981555c7291489325426.jpeg" title="黄姚日出"><img src="http://file.arvit.xyz/8a7fb3f261eec1bc75d194981555c7291489325426.jpeg" alt=""></a><br>摄影：Aevit 2015年8月 黄姚</p>
 
       
     </div>
@@ -537,6 +537,11 @@
     </span>
     <span class="author">Aevit</span>
   </span>
+
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a href="javascript:void(0)" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18142108号</p></a>
+  </div>
+    
 </div>
 
       </footer>

@@ -265,7 +265,7 @@
 <p>下面以 <code>numberWithInt</code> 为例，我们将 <code>alloc</code> 及 <code>init</code> 拆为两条语句，并跟 <code>numberWithInt</code> 对比：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">id obj1 = [NSNumber alloc];</div><div class="line">id obj2 = [obj1 initWithInt:1];</div><div class="line">id obj3 = [NSNumber numberWithInt:1];</div><div class="line">id obj4 = [NSNumber alloc];</div></pre></td></tr></table></figure>
 <p>结果如下：</p>
-<p><img src="http://aevit.qiniudn.com/5951492b5bde7d14464c9139252ef13c1477394040.jpeg" alt="UIImage"></p>
+<p><img src="http://file.arvit.xyz/5951492b5bde7d14464c9139252ef13c1477394040.jpeg" alt="UIImage"></p>
 <p>可以看到，<code>alloc</code> 方法返回的是 <code>NSPlaceholderNumber</code> 对象，<code>init</code> 及 <code>numberWithInt</code> 返回的才是 <code>__NSCFNumber</code> 对象。</p>
 <p>这里加多了一句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">id obj4 = [NSNumber alloc];</div></pre></td></tr></table></figure>
@@ -308,7 +308,7 @@
 <hr>
 <p>2016-10-25 21:51<br>Aevit<br>深圳南山</p>
 <hr>
-<p><a class="http://aevit.qiniudn.com/af19262268ecba49a2a09c58b19873211477393690.jpeg" title="经幡"><img src="http://aevit.qiniudn.com/af19262268ecba49a2a09c58b19873211477393690.jpeg" alt=""></a><br>摄影：Aevit 2016年8月 茶卡盐湖</p>
+<p><a class="http://file.arvit.xyz/af19262268ecba49a2a09c58b19873211477393690.jpeg" title="经幡"><img src="http://file.arvit.xyz/af19262268ecba49a2a09c58b19873211477393690.jpeg" alt=""></a><br>摄影：Aevit 2016年8月 茶卡盐湖</p>
 
       
     </div>
@@ -448,6 +448,11 @@
     </span>
     <span class="author">Aevit</span>
   </span>
+
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a href="javascript:void(0)" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18142108号</p></a>
+  </div>
+    
 </div>
 
       </footer>

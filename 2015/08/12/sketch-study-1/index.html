@@ -260,38 +260,38 @@
 <p><code>sketch</code>学习计划：<br>1、看完官方文档（两天）<br>2、找<code>demo</code>自己模仿进行设计（五天）<br>3、自己设计一个<code>app</code>的UI，再自己开发实现最终的成品</p>
 </blockquote>
 <p>以下是学习过程中遇到的几个图标的制作，记录一下</p>
-<p><a href="http://aevit.qiniudn.com/sketch_wifi_final.png" title="1/3 final" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_wifi_final.png?imageView2/1/w/200/h/200" alt=""></a><a href="http://aevit.qiniudn.com/sketch_setting_final.png" title="2/3 final" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_setting_final.png?imageView2/1/w/200/h/200" alt=""></a><a href="http://aevit.qiniudn.com/sketch_love_final.png" title="3/3 final" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_love_final.png?imageView2/1/w/200/h/200" alt=""></a></p>
+<p><a href="http://file.arvit.xyz/sketch_wifi_final.png" title="1/3 final" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_wifi_final.png?imageView2/1/w/200/h/200" alt=""></a><a href="http://file.arvit.xyz/sketch_setting_final.png" title="2/3 final" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_setting_final.png?imageView2/1/w/200/h/200" alt=""></a><a href="http://file.arvit.xyz/sketch_love_final.png" title="3/3 final" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_love_final.png?imageView2/1/w/200/h/200" alt=""></a></p>
 <p>首先，在网上查资料时，突然搜到一个画可爱的企鹅的教程，先来看下图片提提神（先说好了，这企鹅不是我画的）：</p>
-<p><a href="http://aevit.qiniudn.com/wtf_lovely_qq.JPG" title="wtf!!" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/wtf_lovely_qq.JPG?imageView2/2/w/800/h/600" alt=""></a></p>
+<p><a href="http://file.arvit.xyz/wtf_lovely_qq.JPG" title="wtf!!" target="_blank" rel="external"><img src="http://file.arvit.xyz/wtf_lovely_qq.JPG?imageView2/2/w/800/h/600" alt=""></a></p>
 <blockquote>
 <p>我要打死小编，以及这可！爱！的企鹅！！</p>
 </blockquote>
 <a id="more"></a>
 <h4 id="一、wifi图标"><a href="#一、wifi图标" class="headerlink" title="一、wifi图标"></a>一、wifi图标</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">前言：</div><div class="line">a. 主要是对图形进行布尔运算；</div><div class="line">b. 原理：中间画一个实心圆，外部再4个环，最后在最上层弄一个正方形，做相交运算；</div><div class="line">c. 环与环的相交运算结果，貌似与`ps`的不太一样；自己摸索了一段时间才偶然间成功画出wifi图标，不知道有没有什么更简便的方法；  </div><div class="line">d. 此处画的圆，都共用同一个圆心，并且填充为白色，边框不上色</div></pre></td></tr></table></figure>
 <p>1、建一个<code>1280 x 1024</code>的<code>Artboard</code></p>
-<p>2、画一个直径为<code>144</code>的实心圆<br><a href="http://aevit.qiniudn.com/sketch_wifi_0.png" title="1/5 wifi" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_wifi_0.png" alt=""></a></p>
+<p>2、画一个直径为<code>144</code>的实心圆<br><a href="http://file.arvit.xyz/sketch_wifi_0.png" title="1/5 wifi" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_wifi_0.png" alt=""></a></p>
 <p>3、画第一个环</p>
 <blockquote>
 <p>方法：先画一个实心圆（直径为<code>176</code>，即上个圆直径<code>+32</code>），再画另一个稍大的实心圆（直径为<code>208</code>，即上个圆直径<code>+32</code>），然后对这两个圆做<code>Difference</code>运算</p>
 </blockquote>
-<p><a href="http://aevit.qiniudn.com/sketch_wifi_1.png" title="2/5 wifi" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_wifi_1.png" alt=""></a></p>
-<p>4、照第2的方法，再画3个环（其中每个圆的直径都在上一个基础上<code>+32</code>）<br><a href="http://aevit.qiniudn.com/sketch_wifi_2.png" title="3/5 wifi" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_wifi_2.png" alt=""></a></p>
+<p><a href="http://file.arvit.xyz/sketch_wifi_1.png" title="2/5 wifi" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_wifi_1.png" alt=""></a></p>
+<p>4、照第2的方法，再画3个环（其中每个圆的直径都在上一个基础上<code>+32</code>）<br><a href="http://file.arvit.xyz/sketch_wifi_2.png" title="3/5 wifi" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_wifi_2.png" alt=""></a></p>
 <p>5、画一个正方形</p>
 <blockquote>
 <p>边长要超过最大的环的半径，填充为白色，边框不上色</p>
 </blockquote>
-<p><a href="http://aevit.qiniudn.com/sketch_wifi_3.png" title="4/5 wifi" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_wifi_3.png" alt=""></a></p>
-<p>6、选中所有图形，执行<code>Intersect</code>运算（最终效果见右边）<br><a href="http://aevit.qiniudn.com/sketch_wifi_4.png" title="5/5 wifi" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_wifi_4.png" alt=""></a></p>
+<p><a href="http://file.arvit.xyz/sketch_wifi_3.png" title="4/5 wifi" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_wifi_3.png" alt=""></a></p>
+<p>6、选中所有图形，执行<code>Intersect</code>运算（最终效果见右边）<br><a href="http://file.arvit.xyz/sketch_wifi_4.png" title="5/5 wifi" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_wifi_4.png" alt=""></a></p>
 <h4 id="二、setting图标"><a href="#二、setting图标" class="headerlink" title="二、setting图标"></a>二、setting图标</h4><p>1、建一个<code>1024 x 1024</code>的<code>Artboard</code></p>
-<p>2、用<code>Star</code>工具画一个正多角形，调整为8个角<br><a href="http://aevit.qiniudn.com/sketch_setting_0.png" title="1/5 setting" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_setting_0.png" alt=""></a></p>
-<p>3、选中正多角形，按<code>enter</code>键进入编辑模式，<code>cmd+a</code>全选所有锚点，在右边更改锚点类型为<code>Mirrored</code>，这时图形的转角处会有弧度出现<br><a href="http://aevit.qiniudn.com/sketch_setting_1.png" title="2/5 setting" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_setting_1.png" alt=""></a></p>
-<p>4、画一个实心圆<br><a href="http://aevit.qiniudn.com/sketch_setting_2.png" title="3/5 setting" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_setting_2.png" alt=""></a></p>
-<p>5、选中所有图形，执行<code>Intersect</code>运算<br><a href="http://aevit.qiniudn.com/sketch_setting_3.png" title="4/5 setting" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_setting_3.png" alt=""></a></p>
-<p>6、再上一步结果内部画一个稍小的圆（不填充颜色），并执行<code>Difference</code>运算，得到最终结果<br><a href="http://aevit.qiniudn.com/sketch_setting_4.png" title="5/5 setting" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_setting_4.png" alt=""></a></p>
+<p>2、用<code>Star</code>工具画一个正多角形，调整为8个角<br><a href="http://file.arvit.xyz/sketch_setting_0.png" title="1/5 setting" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_setting_0.png" alt=""></a></p>
+<p>3、选中正多角形，按<code>enter</code>键进入编辑模式，<code>cmd+a</code>全选所有锚点，在右边更改锚点类型为<code>Mirrored</code>，这时图形的转角处会有弧度出现<br><a href="http://file.arvit.xyz/sketch_setting_1.png" title="2/5 setting" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_setting_1.png" alt=""></a></p>
+<p>4、画一个实心圆<br><a href="http://file.arvit.xyz/sketch_setting_2.png" title="3/5 setting" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_setting_2.png" alt=""></a></p>
+<p>5、选中所有图形，执行<code>Intersect</code>运算<br><a href="http://file.arvit.xyz/sketch_setting_3.png" title="4/5 setting" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_setting_3.png" alt=""></a></p>
+<p>6、再上一步结果内部画一个稍小的圆（不填充颜色），并执行<code>Difference</code>运算，得到最终结果<br><a href="http://file.arvit.xyz/sketch_setting_4.png" title="5/5 setting" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_setting_4.png" alt=""></a></p>
 <h4 id="三、心形图标"><a href="#三、心形图标" class="headerlink" title="三、心形图标"></a>三、心形图标</h4><p>1、建一个<code>1024 x 1024</code>的<code>Artboard</code></p>
-<p>2、画两个圆（在同一水平线上）<br><a href="http://aevit.qiniudn.com/sketch_heart_0.png" title="1/3 heart" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_heart_0.png" alt=""></a></p>
-<p>3、画一个正方形（旋转45度，注意各顶点位置，如下图的红色部分——好像一个穿着红内裤的屁股啊。。）<br><a href="http://aevit.qiniudn.com/sketch_heart_1.png" title="2/3 heart" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_heart_1.png" alt=""></a></p>
-<p>4、执行<code>Union</code>运算，得到最终效果<br><a href="http://aevit.qiniudn.com/sketch_heart_2.png" title="3/3 heart" target="_blank" rel="external"><img src="http://aevit.qiniudn.com/sketch_heart_2.png" alt=""></a></p>
+<p>2、画两个圆（在同一水平线上）<br><a href="http://file.arvit.xyz/sketch_heart_0.png" title="1/3 heart" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_heart_0.png" alt=""></a></p>
+<p>3、画一个正方形（旋转45度，注意各顶点位置，如下图的红色部分——好像一个穿着红内裤的屁股啊。。）<br><a href="http://file.arvit.xyz/sketch_heart_1.png" title="2/3 heart" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_heart_1.png" alt=""></a></p>
+<p>4、执行<code>Union</code>运算，得到最终效果<br><a href="http://file.arvit.xyz/sketch_heart_2.png" title="3/3 heart" target="_blank" rel="external"><img src="http://file.arvit.xyz/sketch_heart_2.png" alt=""></a></p>
 
       
     </div>
@@ -431,6 +431,11 @@
     </span>
     <span class="author">Aevit</span>
   </span>
+
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a href="javascript:void(0)" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18142108号</p></a>
+  </div>
+    
 </div>
 
       </footer>
