@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Aevit</title>
+  <title>Arvit</title>
   
   <subtitle>To Be A Simple Man</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://aevit.xyz/"/>
+  <link href="http://arvit.xyz/"/>
   <updated>2018-11-21T16:33:59.725Z</updated>
-  <id>http://aevit.xyz/</id>
+  <id>http://arvit.xyz/</id>
   
   <author>
-    <name>Aevit</name>
+    <name>Arvit</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>ReactNative升级至0.50.3</title>
-    <link href="http://aevit.xyz/2017/11/18/rn_upgrade_0.50/"/>
-    <id>http://aevit.xyz/2017/11/18/rn_upgrade_0.50/</id>
+    <link href="http://arvit.xyz/2017/11/18/rn_upgrade_0.50/"/>
+    <id>http://arvit.xyz/2017/11/18/rn_upgrade_0.50/</id>
     <published>2017-11-18T09:13:26.000Z</published>
     <updated>2018-11-21T16:33:59.725Z</updated>
     
@@ -37,21 +37,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="ReactNative" scheme="http://aevit.xyz/tags/ReactNative/"/>
+      <category term="ReactNative" scheme="http://arvit.xyz/tags/ReactNative/"/>
     
-      <category term="升级" scheme="http://aevit.xyz/tags/%E5%8D%87%E7%BA%A7/"/>
+      <category term="升级" scheme="http://arvit.xyz/tags/%E5%8D%87%E7%BA%A7/"/>
     
   </entry>
   
   <entry>
     <title>ReactNative自定义地址调试</title>
-    <link href="http://aevit.xyz/2017/10/12/rn-custom-debug-address/"/>
-    <id>http://aevit.xyz/2017/10/12/rn-custom-debug-address/</id>
+    <link href="http://arvit.xyz/2017/10/12/rn-custom-debug-address/"/>
+    <id>http://arvit.xyz/2017/10/12/rn-custom-debug-address/</id>
     <published>2017-10-11T16:50:34.000Z</published>
     <updated>2018-11-21T16:33:59.741Z</updated>
     
@@ -66,21 +66,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="ReactNative" scheme="http://aevit.xyz/tags/ReactNative/"/>
+      <category term="ReactNative" scheme="http://arvit.xyz/tags/ReactNative/"/>
     
-      <category term="debug" scheme="http://aevit.xyz/tags/debug/"/>
+      <category term="debug" scheme="http://arvit.xyz/tags/debug/"/>
     
   </entry>
   
   <entry>
     <title>ReactNative ScrollView 及 WebView 上下拖动切换</title>
-    <link href="http://aevit.xyz/2017/09/21/rn-switch-scrollview-webview/"/>
-    <id>http://aevit.xyz/2017/09/21/rn-switch-scrollview-webview/</id>
+    <link href="http://arvit.xyz/2017/09/21/rn-switch-scrollview-webview/"/>
+    <id>http://arvit.xyz/2017/09/21/rn-switch-scrollview-webview/</id>
     <published>2017-09-21T13:36:10.000Z</published>
     <updated>2018-11-21T16:33:59.725Z</updated>
     
@@ -93,23 +93,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="ReactNative" scheme="http://aevit.xyz/tags/ReactNative/"/>
+      <category term="ReactNative" scheme="http://arvit.xyz/tags/ReactNative/"/>
     
-      <category term="ScrollView" scheme="http://aevit.xyz/tags/ScrollView/"/>
+      <category term="ScrollView" scheme="http://arvit.xyz/tags/ScrollView/"/>
     
-      <category term="WebView" scheme="http://aevit.xyz/tags/WebView/"/>
+      <category term="WebView" scheme="http://arvit.xyz/tags/WebView/"/>
     
   </entry>
   
   <entry>
     <title>NodeJS编写命令行脚本</title>
-    <link href="http://aevit.xyz/2017/09/07/nodejs-command/"/>
-    <id>http://aevit.xyz/2017/09/07/nodejs-command/</id>
+    <link href="http://arvit.xyz/2017/09/07/nodejs-command/"/>
+    <id>http://arvit.xyz/2017/09/07/nodejs-command/</id>
     <published>2017-09-07T13:49:10.000Z</published>
     <updated>2018-11-21T16:33:59.731Z</updated>
     
@@ -122,23 +122,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="前端" scheme="http://aevit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://arvit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="NodeJS" scheme="http://aevit.xyz/tags/NodeJS/"/>
+      <category term="NodeJS" scheme="http://arvit.xyz/tags/NodeJS/"/>
     
-      <category term="脚本" scheme="http://aevit.xyz/tags/%E8%84%9A%E6%9C%AC/"/>
+      <category term="脚本" scheme="http://arvit.xyz/tags/%E8%84%9A%E6%9C%AC/"/>
     
   </entry>
   
   <entry>
     <title>NSURLSession错误使用引起的网络阻塞问题</title>
-    <link href="http://aevit.xyz/2017/03/28/iOS-network-keep-alive/"/>
-    <id>http://aevit.xyz/2017/03/28/iOS-network-keep-alive/</id>
+    <link href="http://arvit.xyz/2017/03/28/iOS-network-keep-alive/"/>
+    <id>http://arvit.xyz/2017/03/28/iOS-network-keep-alive/</id>
     <published>2017-03-27T16:26:18.000Z</published>
     <updated>2018-11-21T16:33:59.734Z</updated>
     
@@ -155,27 +155,27 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
-      <category term="疑难杂症" scheme="http://aevit.xyz/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
+      <category term="疑难杂症" scheme="http://arvit.xyz/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
     
-      <category term="NSURLProtocol" scheme="http://aevit.xyz/tags/NSURLProtocol/"/>
+      <category term="NSURLProtocol" scheme="http://arvit.xyz/tags/NSURLProtocol/"/>
     
-      <category term="NSURLSession" scheme="http://aevit.xyz/tags/NSURLSession/"/>
+      <category term="NSURLSession" scheme="http://arvit.xyz/tags/NSURLSession/"/>
     
-      <category term="Keep-Alive" scheme="http://aevit.xyz/tags/Keep-Alive/"/>
+      <category term="Keep-Alive" scheme="http://arvit.xyz/tags/Keep-Alive/"/>
     
   </entry>
   
   <entry>
     <title>iOS 自动释放池原理探究</title>
-    <link href="http://aevit.xyz/2017/03/12/iOS-autorelease/"/>
-    <id>http://aevit.xyz/2017/03/12/iOS-autorelease/</id>
+    <link href="http://arvit.xyz/2017/03/12/iOS-autorelease/"/>
+    <id>http://arvit.xyz/2017/03/12/iOS-autorelease/</id>
     <published>2017-03-12T13:32:20.000Z</published>
     <updated>2018-11-21T16:33:59.731Z</updated>
     
@@ -187,23 +187,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
-      <category term="runtime" scheme="http://aevit.xyz/tags/runtime/"/>
+      <category term="runtime" scheme="http://arvit.xyz/tags/runtime/"/>
     
-      <category term="autorelease" scheme="http://aevit.xyz/tags/autorelease/"/>
+      <category term="autorelease" scheme="http://arvit.xyz/tags/autorelease/"/>
     
   </entry>
   
   <entry>
     <title>__block修饰符探究</title>
-    <link href="http://aevit.xyz/2017/01/09/iOS-__block/"/>
-    <id>http://aevit.xyz/2017/01/09/iOS-__block/</id>
+    <link href="http://arvit.xyz/2017/01/09/iOS-__block/"/>
+    <id>http://arvit.xyz/2017/01/09/iOS-__block/</id>
     <published>2017-01-09T13:34:57.000Z</published>
     <updated>2018-11-21T16:34:00.205Z</updated>
     
@@ -220,23 +220,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
-      <category term="__block" scheme="http://aevit.xyz/tags/block/"/>
+      <category term="__block" scheme="http://arvit.xyz/tags/block/"/>
     
-      <category term="runtime" scheme="http://aevit.xyz/tags/runtime/"/>
+      <category term="runtime" scheme="http://arvit.xyz/tags/runtime/"/>
     
   </entry>
   
   <entry>
     <title>iOS设计模式 —— 类簇</title>
-    <link href="http://aevit.xyz/2016/10/25/iOS-class-cluster/"/>
-    <id>http://aevit.xyz/2016/10/25/iOS-class-cluster/</id>
+    <link href="http://arvit.xyz/2016/10/25/iOS-class-cluster/"/>
+    <id>http://arvit.xyz/2016/10/25/iOS-class-cluster/</id>
     <published>2016-10-25T13:51:21.000Z</published>
     <updated>2018-11-21T16:33:59.725Z</updated>
     
@@ -248,21 +248,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
-      <category term="设计模式" scheme="http://aevit.xyz/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <category term="设计模式" scheme="http://arvit.xyz/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>瑞士军刀小动画（iOS）</title>
-    <link href="http://aevit.xyz/2016/09/04/github-swiss-knife/"/>
-    <id>http://aevit.xyz/2016/09/04/github-swiss-knife/</id>
+    <link href="http://arvit.xyz/2016/09/04/github-swiss-knife/"/>
+    <id>http://arvit.xyz/2016/09/04/github-swiss-knife/</id>
     <published>2016-09-04T14:18:21.000Z</published>
     <updated>2018-11-21T16:33:59.740Z</updated>
     
@@ -280,23 +280,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
-      <category term="动画" scheme="http://aevit.xyz/tags/%E5%8A%A8%E7%94%BB/"/>
+      <category term="动画" scheme="http://arvit.xyz/tags/%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
   <entry>
     <title>iOS冷知识汇总</title>
-    <link href="http://aevit.xyz/2016/08/30/iOS-trivia/"/>
-    <id>http://aevit.xyz/2016/08/30/iOS-trivia/</id>
+    <link href="http://arvit.xyz/2016/08/30/iOS-trivia/"/>
+    <id>http://arvit.xyz/2016/08/30/iOS-trivia/</id>
     <published>2016-08-30T12:57:52.000Z</published>
     <updated>2018-11-21T16:33:59.728Z</updated>
     
@@ -308,21 +308,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
-      <category term="冷知识" scheme="http://aevit.xyz/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/"/>
+      <category term="冷知识" scheme="http://arvit.xyz/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
   <entry>
     <title>iOS实现水波动画</title>
-    <link href="http://aevit.xyz/2016/08/04/github-wave-animation/"/>
-    <id>http://aevit.xyz/2016/08/04/github-wave-animation/</id>
+    <link href="http://arvit.xyz/2016/08/04/github-wave-animation/"/>
+    <id>http://arvit.xyz/2016/08/04/github-wave-animation/</id>
     <published>2016-08-03T17:42:06.000Z</published>
     <updated>2018-11-21T16:33:59.729Z</updated>
     
@@ -338,23 +338,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
-      <category term="动画" scheme="http://aevit.xyz/tags/%E5%8A%A8%E7%94%BB/"/>
+      <category term="动画" scheme="http://arvit.xyz/tags/%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
   <entry>
     <title>在Laravel中使用Vue.js（下）</title>
-    <link href="http://aevit.xyz/2016/06/30/vue-in-laravel-2/"/>
-    <id>http://aevit.xyz/2016/06/30/vue-in-laravel-2/</id>
+    <link href="http://arvit.xyz/2016/06/30/vue-in-laravel-2/"/>
+    <id>http://arvit.xyz/2016/06/30/vue-in-laravel-2/</id>
     <published>2016-06-30T12:01:17.000Z</published>
     <updated>2018-11-21T16:33:59.729Z</updated>
     
@@ -370,23 +370,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="前端" scheme="http://aevit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://arvit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="Laravel" scheme="http://aevit.xyz/tags/Laravel/"/>
+      <category term="Laravel" scheme="http://arvit.xyz/tags/Laravel/"/>
     
-      <category term="Vue" scheme="http://aevit.xyz/tags/Vue/"/>
+      <category term="Vue" scheme="http://arvit.xyz/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>在Laravel中使用Vue.js（上）</title>
-    <link href="http://aevit.xyz/2016/06/29/vue-in-laravel-1/"/>
-    <id>http://aevit.xyz/2016/06/29/vue-in-laravel-1/</id>
+    <link href="http://arvit.xyz/2016/06/29/vue-in-laravel-1/"/>
+    <id>http://arvit.xyz/2016/06/29/vue-in-laravel-1/</id>
     <published>2016-06-29T12:56:01.000Z</published>
     <updated>2018-11-21T16:34:00.203Z</updated>
     
@@ -403,23 +403,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="前端" scheme="http://aevit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://arvit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="Laravel" scheme="http://aevit.xyz/tags/Laravel/"/>
+      <category term="Laravel" scheme="http://arvit.xyz/tags/Laravel/"/>
     
-      <category term="Vue" scheme="http://aevit.xyz/tags/Vue/"/>
+      <category term="Vue" scheme="http://arvit.xyz/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>Laravel学习笔记（三）</title>
-    <link href="http://aevit.xyz/2016/06/18/laravel-learning-3/"/>
-    <id>http://aevit.xyz/2016/06/18/laravel-learning-3/</id>
+    <link href="http://arvit.xyz/2016/06/18/laravel-learning-3/"/>
+    <id>http://arvit.xyz/2016/06/18/laravel-learning-3/</id>
     <published>2016-06-17T17:09:40.000Z</published>
     <updated>2018-11-21T16:33:59.724Z</updated>
     
@@ -436,23 +436,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="PHP" scheme="http://aevit.xyz/tags/PHP/"/>
+      <category term="PHP" scheme="http://arvit.xyz/tags/PHP/"/>
     
-      <category term="Laravel" scheme="http://aevit.xyz/tags/Laravel/"/>
+      <category term="Laravel" scheme="http://arvit.xyz/tags/Laravel/"/>
     
-      <category term="学习笔记" scheme="http://aevit.xyz/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="http://arvit.xyz/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>sketch设计学习（三）—— 马拉松</title>
-    <link href="http://aevit.xyz/2016/05/23/sketch-study-3-marathon/"/>
-    <id>http://aevit.xyz/2016/05/23/sketch-study-3-marathon/</id>
+    <link href="http://arvit.xyz/2016/05/23/sketch-study-3-marathon/"/>
+    <id>http://arvit.xyz/2016/05/23/sketch-study-3-marathon/</id>
     <published>2016-05-23T15:47:49.000Z</published>
     <updated>2018-11-21T16:33:59.730Z</updated>
     
@@ -465,23 +465,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="设计" scheme="http://aevit.xyz/tags/%E8%AE%BE%E8%AE%A1/"/>
+      <category term="设计" scheme="http://arvit.xyz/tags/%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="sketch" scheme="http://aevit.xyz/tags/sketch/"/>
+      <category term="sketch" scheme="http://arvit.xyz/tags/sketch/"/>
     
-      <category term="马拉松" scheme="http://aevit.xyz/tags/%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
+      <category term="马拉松" scheme="http://arvit.xyz/tags/%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
     
   </entry>
   
   <entry>
     <title>Laravel学习笔记（二）- 登录授权流程分析</title>
-    <link href="http://aevit.xyz/2016/05/11/laravel-learning-2/"/>
-    <id>http://aevit.xyz/2016/05/11/laravel-learning-2/</id>
+    <link href="http://arvit.xyz/2016/05/11/laravel-learning-2/"/>
+    <id>http://arvit.xyz/2016/05/11/laravel-learning-2/</id>
     <published>2016-05-11T13:48:21.000Z</published>
     <updated>2018-11-21T16:33:59.728Z</updated>
     
@@ -499,23 +499,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="PHP" scheme="http://aevit.xyz/tags/PHP/"/>
+      <category term="PHP" scheme="http://arvit.xyz/tags/PHP/"/>
     
-      <category term="Laravel" scheme="http://aevit.xyz/tags/Laravel/"/>
+      <category term="Laravel" scheme="http://arvit.xyz/tags/Laravel/"/>
     
-      <category term="登录授权" scheme="http://aevit.xyz/tags/%E7%99%BB%E5%BD%95%E6%8E%88%E6%9D%83/"/>
+      <category term="登录授权" scheme="http://arvit.xyz/tags/%E7%99%BB%E5%BD%95%E6%8E%88%E6%9D%83/"/>
     
   </entry>
   
   <entry>
     <title>CSS居中</title>
-    <link href="http://aevit.xyz/2016/05/07/css-center/"/>
-    <id>http://aevit.xyz/2016/05/07/css-center/</id>
+    <link href="http://arvit.xyz/2016/05/07/css-center/"/>
+    <id>http://arvit.xyz/2016/05/07/css-center/</id>
     <published>2016-05-06T17:10:08.000Z</published>
     <updated>2018-11-21T16:34:00.591Z</updated>
     
@@ -528,23 +528,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="前端" scheme="http://aevit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://arvit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
-      <category term="CSS" scheme="http://aevit.xyz/tags/CSS/"/>
+      <category term="CSS" scheme="http://arvit.xyz/tags/CSS/"/>
     
-      <category term="居中" scheme="http://aevit.xyz/tags/%E5%B1%85%E4%B8%AD/"/>
+      <category term="居中" scheme="http://arvit.xyz/tags/%E5%B1%85%E4%B8%AD/"/>
     
   </entry>
   
   <entry>
     <title>使用ngrok进行内网穿透</title>
-    <link href="http://aevit.xyz/2016/03/31/ngrok/"/>
-    <id>http://aevit.xyz/2016/03/31/ngrok/</id>
+    <link href="http://arvit.xyz/2016/03/31/ngrok/"/>
+    <id>http://arvit.xyz/2016/03/31/ngrok/</id>
     <published>2016-03-31T12:24:14.000Z</published>
     <updated>2018-11-21T16:33:59.738Z</updated>
     
@@ -559,32 +559,31 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="后台" scheme="http://aevit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
+      <category term="后台" scheme="http://arvit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
     
-      <category term="ngrok" scheme="http://aevit.xyz/tags/ngrok/"/>
+      <category term="ngrok" scheme="http://arvit.xyz/tags/ngrok/"/>
     
-      <category term="微信公众号" scheme="http://aevit.xyz/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
+      <category term="微信公众号" scheme="http://arvit.xyz/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/"/>
     
   </entry>
   
   <entry>
     <title>苦瓜排骨汤</title>
-    <link href="http://aevit.xyz/2016/03/08/ku-gua-pai-gu-tang/"/>
-    <id>http://aevit.xyz/2016/03/08/ku-gua-pai-gu-tang/</id>
+    <link href="http://arvit.xyz/2016/03/08/ku-gua-pai-gu-tang/"/>
+    <id>http://arvit.xyz/2016/03/08/ku-gua-pai-gu-tang/</id>
     <published>2016-03-08T14:52:00.000Z</published>
-    <updated>2019-01-29T17:12:16.544Z</updated>
+    <updated>2019-01-29T17:19:00.729Z</updated>
     
-    <content type="html"><![CDATA[<audio controls="controls" autostart="0"><br>  <source src="http://m128.xiami.net/201/77201/406532/1769819226_1521686104497.mp3?auth_key=1549422000-0-0-5bd40d4e0e25fcda9f1c27e698be80a2" type="audio/mpeg"><br>Your browser does not support the audio element.<br></audio><p>在我20多年的生命里，我慢慢地了解了关于食物的幸福感。</p><p>一种是在纳木错的星空下，自己离开找了个四下无人的地方随地休息了一小会。在高海拔的寒风下，慢慢品尝一口温水的味道，水在嘴里温养，没有刺激味蕾，一会后这口温水会缓缓流过我的喉咙，沉淀在胃里，余温会让我在寒风中感到一丝难得的温暖，莫名感动。</p><p>我确信还有另一种食物，荡漾在幸福中，叫做苦瓜排骨汤。</p><a id="more"></a><p>14年住在学校中区一间单间，那时候毕业一年不到。有一天下班骑车回宿舍，经过旁边一户人家，房间传来炒菜声，滋滋声伴随菜香一起传来。<br>停好车后打开门，小混蛋（我的猫）总是会出现在我面前，虽然我想他只是肚子饿了而已。我蹲下对他说，今晚咱哥俩喝顿好的。</p><p>盛点水在锅和热水壶里煮。热水壶里的水建议煮多点，因为等下要烫排骨和苦瓜。<br>从冰箱里拿出苦瓜，洗一下，切开一些，剩下的放回冰箱。<br>然后去掉里面的籽，再切小块。<br>去籽建议用一把不锈钢的汤匙，我总觉得我的汤匙的弧度和硬度仿佛是为苦瓜去籽而生的，刮个几次就差不多。如果不想煮出来的苦瓜太苦，可以再用心去慢慢刮掉内层的皮。<br>这个经验来自我妈。我一直觉得我妈是很厉害的。</p><p>水开后倒进排骨里，找东西盖住。<br>我会在水沸腾的时候就将水壶拿起来，因为烫排骨的时候温度越高越好，这样可以减少后面烹煮的时间。<br>虽然这个时间是很少的，但我总认为时间是世界上最强大的东西，因为它可以摧毁一切东西，历史、建筑、思想等等。<br>让排骨在沸水里安静地睡个两分钟，这将是它在人世间为时不长的另一个等待，等待着汤成后散发出的肉香，充斥和温暖一个倔强的胃。</p><p>这时候可以再拿起一个大碗——这个大碗是毕业前从宜家采购的一批生活用品，我记得那时候拖着这批东西还下着小雨。<br>把苦瓜放进碗里，沸水慢慢倒进去。同样找东西盖住。<br>慢慢等待两分钟。<br>这两分钟里，我可以做一些事情，比如说打开电脑，听一下音乐，让苦瓜和着石进的钢琴曲慢慢睡去，等待以最好的姿态和排骨缠绵。</p><p>两分钟后，我会把排骨捞出来，用冷水过一下，然后放进锅里炒一下。<br>下锅前当然是放点油，热好油后把排骨下下去。<br>这时候可以炒个几分钟，喜欢的话可以加点酱油，翻炒翻炒。<br>注意不要让排骨炒太久。<br>时间拖得久是不好的，不单单是因为生活中有些人会离去乃至再也见不到，排骨也是会焦的。</p><p>接下来应该将排骨和苦瓜放进拥有沸腾的水的锅里煮了。<br>可以适当加点油。当然也可以不加的，因为排骨里也有油。这取决于你。<br>盖上盖。静静等候15分钟。<br>这时候可以憧憬一下最后汤成的瞬间，以什么样的心态去迎接。<br>因为等一下喝的汤，是大学食堂里的涮锅汤在某方面永远无法比拟的一个东西。<br>而喝涮锅汤的时候，同样有无法比拟的东西，比如旧时光和旧人。</p><p>汤成。<br>当然在汤成之前是要加点盐的。<br>很多年前第一次喝苦瓜排骨汤时，觉得很苦。<br>很多年后觉得这是一件简单的事。<br>喝完会有种莫名的感动，这种感动直到我再次喝上苦瓜排骨汤的时候，才开始感受到。<br>苦尽甘来的感觉原来是这么棒的。<br>也许是那时候想到有些人前半辈子过得很苦，我有点内疚。</p><p>我还记得那时候一口一口喝着汤的时候，看的电影是《楚门的世界》。<br>这是一部不错的电影。</p><p>我总觉得下班后回家推开门后能说一句“我回来了”，然后与生命中重要的人或猫一起坐下，慢慢喝上自己亲手煮的汤是一件幸福的事。不是因为菜里没有了地沟油。<br>而小混蛋喝了一口就跑开了。</p><p>突然想起一些话：</p><p>人一辈子无非在做三件事，自欺欺人被人欺。</p><p>人生当苦无妨，良人当归即好。</p><hr><p>2016.3.8 22:52 冬春交际<br>Aevit<br>华师</p><p><a href="http://file.arvit.xyz/to_tibet_starry_sky_4.JPG" target="_blank" rel="external"><img src="http://file.arvit.xyz/to_tibet_starry_sky_4.JPG" alt=""></a><br>摄影：Aevit 2015年10月 纳木错</p>]]></content>
+    <content type="html"><![CDATA[<audio controls="controls" autostart="0"><br>  <source src="http://m128.xiami.net/201/77201/406532/1769819226_1521686104497.mp3?auth_key=1549422000-0-0-5bd40d4e0e25fcda9f1c27e698be80a2" type="audio/mpeg"><br>Your browser does not support the audio element.<br></audio><p>在我20多年的生命里，我慢慢地了解了关于食物的幸福感。</p><p>一种是在纳木错的星空下，自己离开找了个四下无人的地方随地休息了一小会。在高海拔的寒风下，慢慢品尝一口温水的味道，水在嘴里温养，没有刺激味蕾，一会后这口温水会缓缓流过我的喉咙，沉淀在胃里，余温会让我在寒风中感到一丝难得的温暖，莫名感动。</p><p>我确信还有另一种食物，荡漾在幸福中，叫做苦瓜排骨汤。</p><a id="more"></a><p>14年住在学校中区一间单间，那时候毕业一年不到。有一天下班骑车回宿舍，经过旁边一户人家，房间传来炒菜声，滋滋声伴随菜香一起传来。<br>停好车后打开门，小混蛋（我的猫）总是会出现在我面前，虽然我想他只是肚子饿了而已。我蹲下对他说，今晚咱哥俩喝顿好的。</p><p>盛点水在锅和热水壶里煮。热水壶里的水建议煮多点，因为等下要烫排骨和苦瓜。<br>从冰箱里拿出苦瓜，洗一下，切开一些，剩下的放回冰箱。<br>然后去掉里面的籽，再切小块。<br>去籽建议用一把不锈钢的汤匙，我总觉得我的汤匙的弧度和硬度仿佛是为苦瓜去籽而生的，刮个几次就差不多。如果不想煮出来的苦瓜太苦，可以再用心去慢慢刮掉内层的皮。<br>这个经验来自我妈。我一直觉得我妈是很厉害的。</p><p>水开后倒进排骨里，找东西盖住。<br>我会在水沸腾的时候就将水壶拿起来，因为烫排骨的时候温度越高越好，这样可以减少后面烹煮的时间。<br>虽然这个时间是很少的，但我总认为时间是世界上最强大的东西，因为它可以摧毁一切东西，历史、建筑、思想等等。<br>让排骨在沸水里安静地睡个两分钟，这将是它在人世间为时不长的另一个等待，等待着汤成后散发出的肉香，充斥和温暖一个倔强的胃。</p><p>这时候可以再拿起一个大碗——这个大碗是毕业前从宜家采购的一批生活用品，我记得那时候拖着这批东西还下着小雨。<br>把苦瓜放进碗里，沸水慢慢倒进去。同样找东西盖住。<br>慢慢等待两分钟。<br>这两分钟里，我可以做一些事情，比如说打开电脑，听一下音乐，让苦瓜和着石进的钢琴曲慢慢睡去，等待以最好的姿态和排骨缠绵。</p><p>两分钟后，我会把排骨捞出来，用冷水过一下，然后放进锅里炒一下。<br>下锅前当然是放点油，热好油后把排骨下下去。<br>这时候可以炒个几分钟，喜欢的话可以加点酱油，翻炒翻炒。<br>注意不要让排骨炒太久。<br>时间拖得久是不好的，不单单是因为生活中有些人会离去乃至再也见不到，排骨也是会焦的。</p><p>接下来应该将排骨和苦瓜放进拥有沸腾的水的锅里煮了。<br>可以适当加点油。当然也可以不加的，因为排骨里也有油。这取决于你。<br>盖上盖。静静等候15分钟。<br>这时候可以憧憬一下最后汤成的瞬间，以什么样的心态去迎接。<br>因为等一下喝的汤，是大学食堂里的涮锅汤在某方面永远无法比拟的一个东西。<br>而喝涮锅汤的时候，同样有无法比拟的东西，比如旧时光和旧人。</p><p>汤成。<br>当然在汤成之前是要加点盐的。<br>很多年前第一次喝苦瓜排骨汤时，觉得很苦。<br>很多年后觉得这是一件简单的事。<br>喝完会有种莫名的感动，这种感动直到我再次喝上苦瓜排骨汤的时候，才开始感受到。<br>苦尽甘来的感觉原来是这么棒的。<br>也许是那时候想到有些人前半辈子过得很苦，我有点内疚。</p><p>我还记得那时候一口一口喝着汤的时候，看的电影是《楚门的世界》。<br>这是一部不错的电影。</p><p>我总觉得下班后回家推开门后能说一句“我回来了”，然后与生命中重要的人或猫一起坐下，慢慢喝上自己亲手煮的汤是一件幸福的事。不是因为菜里没有了地沟油。<br>而小混蛋喝了一口就跑开了。</p><p>突然想起一些话：</p><p>人一辈子无非在做三件事，自欺欺人被人欺。</p><p>人生当苦无妨，良人当归即好。</p><hr><p>2016.3.8 22:52 冬春交际<br>Arvit<br>华师</p><p><a href="http://file.arvit.xyz/to_tibet_starry_sky_4.JPG" target="_blank" rel="external"><img src="http://file.arvit.xyz/to_tibet_starry_sky_4.JPG" alt=""></a><br>摄影：Arvit 2015年10月 纳木错</p>]]></content>
     
     <summary type="html">
     
       &lt;audio controls=&quot;controls&quot; autostart=&quot;0&quot;&gt;&lt;br&gt;  &lt;source src=&quot;http://m128.xiami.net/201/77201/406532/1769819226_1521686104497.mp3?auth_key=1549422000-0-0-5bd40d4e0e25fcda9f1c27e698be80a2&quot; type=&quot;audio/mpeg&quot;&gt;&lt;br&gt;Your browser does not support the audio element.&lt;br&gt;&lt;/audio&gt;
-
 
 &lt;p&gt;在我20多年的生命里，我慢慢地了解了关于食物的幸福感。&lt;/p&gt;
 &lt;p&gt;一种是在纳木错的星空下，自己离开找了个四下无人的地方随地休息了一小会。在高海拔的寒风下，慢慢品尝一口温水的味道，水在嘴里温养，没有刺激味蕾，一会后这口温水会缓缓流过我的喉咙，沉淀在胃里，余温会让我在寒风中感到一丝难得的温暖，莫名感动。&lt;/p&gt;
@@ -592,21 +591,21 @@
     
     </summary>
     
-      <category term="小书房" scheme="http://aevit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
     
-      <category term="小书房" scheme="http://aevit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
-      <category term="做菜" scheme="http://aevit.xyz/tags/%E5%81%9A%E8%8F%9C/"/>
+      <category term="做菜" scheme="http://arvit.xyz/tags/%E5%81%9A%E8%8F%9C/"/>
     
-      <category term="汤" scheme="http://aevit.xyz/tags/%E6%B1%A4/"/>
+      <category term="汤" scheme="http://arvit.xyz/tags/%E6%B1%A4/"/>
     
   </entry>
   
   <entry>
     <title>sketch设计学习（二）</title>
-    <link href="http://aevit.xyz/2016/03/07/sketch-study-2/"/>
-    <id>http://aevit.xyz/2016/03/07/sketch-study-2/</id>
+    <link href="http://arvit.xyz/2016/03/07/sketch-study-2/"/>
+    <id>http://arvit.xyz/2016/03/07/sketch-study-2/</id>
     <published>2016-03-07T12:22:49.000Z</published>
     <updated>2018-11-21T16:33:59.737Z</updated>
     
@@ -619,21 +618,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="设计" scheme="http://aevit.xyz/tags/%E8%AE%BE%E8%AE%A1/"/>
+      <category term="设计" scheme="http://arvit.xyz/tags/%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="sketch" scheme="http://aevit.xyz/tags/sketch/"/>
+      <category term="sketch" scheme="http://arvit.xyz/tags/sketch/"/>
     
   </entry>
   
   <entry>
     <title>PhalApi(π)接口框架-计划任务开发</title>
-    <link href="http://aevit.xyz/2016/02/28/PhalApi-%CF%80-schedule-task/"/>
-    <id>http://aevit.xyz/2016/02/28/PhalApi-π-schedule-task/</id>
+    <link href="http://arvit.xyz/2016/02/28/PhalApi-%CF%80-schedule-task/"/>
+    <id>http://arvit.xyz/2016/02/28/PhalApi-π-schedule-task/</id>
     <published>2016-02-28T12:09:41.000Z</published>
     <updated>2017-09-03T10:37:45.000Z</updated>
     
@@ -650,21 +649,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="PHP" scheme="http://aevit.xyz/tags/PHP/"/>
+      <category term="PHP" scheme="http://arvit.xyz/tags/PHP/"/>
     
-      <category term="PhalApi" scheme="http://aevit.xyz/tags/PhalApi/"/>
+      <category term="PhalApi" scheme="http://arvit.xyz/tags/PhalApi/"/>
     
   </entry>
   
   <entry>
     <title>Laravel学习笔记（一）</title>
-    <link href="http://aevit.xyz/2016/02/25/laravel-learning-1/"/>
-    <id>http://aevit.xyz/2016/02/25/laravel-learning-1/</id>
+    <link href="http://arvit.xyz/2016/02/25/laravel-learning-1/"/>
+    <id>http://arvit.xyz/2016/02/25/laravel-learning-1/</id>
     <published>2016-02-25T15:28:55.000Z</published>
     <updated>2018-11-21T16:34:00.200Z</updated>
     
@@ -684,21 +683,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="PHP" scheme="http://aevit.xyz/tags/PHP/"/>
+      <category term="PHP" scheme="http://arvit.xyz/tags/PHP/"/>
     
-      <category term="Laravel" scheme="http://aevit.xyz/tags/Laravel/"/>
+      <category term="Laravel" scheme="http://arvit.xyz/tags/Laravel/"/>
     
   </entry>
   
   <entry>
     <title>CentOS升级php7</title>
-    <link href="http://aevit.xyz/2015/12/16/CentOS-upgrade-php7/"/>
-    <id>http://aevit.xyz/2015/12/16/CentOS-upgrade-php7/</id>
+    <link href="http://arvit.xyz/2015/12/16/CentOS-upgrade-php7/"/>
+    <id>http://arvit.xyz/2015/12/16/CentOS-upgrade-php7/</id>
     <published>2015-12-15T16:33:53.000Z</published>
     <updated>2018-11-21T16:33:59.735Z</updated>
     
@@ -715,23 +714,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="后台" scheme="http://aevit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
+      <category term="后台" scheme="http://arvit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
     
-      <category term="PHP" scheme="http://aevit.xyz/tags/PHP/"/>
+      <category term="PHP" scheme="http://arvit.xyz/tags/PHP/"/>
     
-      <category term="服务器" scheme="http://aevit.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="服务器" scheme="http://arvit.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>Mac下NMP环境的搭建(MNMP)</title>
-    <link href="http://aevit.xyz/2015/12/16/MAC-NMP/"/>
-    <id>http://aevit.xyz/2015/12/16/MAC-NMP/</id>
+    <link href="http://arvit.xyz/2015/12/16/MAC-NMP/"/>
+    <id>http://arvit.xyz/2015/12/16/MAC-NMP/</id>
     <published>2015-12-15T16:32:53.000Z</published>
     <updated>2018-11-21T16:33:59.737Z</updated>
     
@@ -748,23 +747,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="后台" scheme="http://aevit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
+      <category term="后台" scheme="http://arvit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
     
-      <category term="PHP" scheme="http://aevit.xyz/tags/PHP/"/>
+      <category term="PHP" scheme="http://arvit.xyz/tags/PHP/"/>
     
-      <category term="服务器" scheme="http://aevit.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="服务器" scheme="http://arvit.xyz/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>去西藏(上篇)-草稿</title>
-    <link href="http://aevit.xyz/2015/11/23/to-tibet-one/"/>
-    <id>http://aevit.xyz/2015/11/23/to-tibet-one/</id>
+    <link href="http://arvit.xyz/2015/11/23/to-tibet-one/"/>
+    <id>http://arvit.xyz/2015/11/23/to-tibet-one/</id>
     <published>2015-11-22T17:09:44.000Z</published>
     <updated>2018-11-21T16:33:59.734Z</updated>
     
@@ -779,23 +778,23 @@
     
     </summary>
     
-      <category term="小书房" scheme="http://aevit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
     
-      <category term="小书房" scheme="http://aevit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
-      <category term="西藏" scheme="http://aevit.xyz/tags/%E8%A5%BF%E8%97%8F/"/>
+      <category term="西藏" scheme="http://arvit.xyz/tags/%E8%A5%BF%E8%97%8F/"/>
     
   </entry>
   
   <entry>
     <title>去西藏(下篇)-草稿</title>
-    <link href="http://aevit.xyz/2015/11/23/to-tibet-two/"/>
-    <id>http://aevit.xyz/2015/11/23/to-tibet-two/</id>
+    <link href="http://arvit.xyz/2015/11/23/to-tibet-two/"/>
+    <id>http://arvit.xyz/2015/11/23/to-tibet-two/</id>
     <published>2015-11-22T17:08:44.000Z</published>
     <updated>2018-11-21T16:34:00.207Z</updated>
     
@@ -809,23 +808,23 @@
     
     </summary>
     
-      <category term="小书房" scheme="http://aevit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
     
-      <category term="小书房" scheme="http://aevit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
-      <category term="西藏" scheme="http://aevit.xyz/tags/%E8%A5%BF%E8%97%8F/"/>
+      <category term="西藏" scheme="http://arvit.xyz/tags/%E8%A5%BF%E8%97%8F/"/>
     
   </entry>
   
   <entry>
     <title>去西藏(多图)</title>
-    <link href="http://aevit.xyz/2015/11/22/to-tibet-pics/"/>
-    <id>http://aevit.xyz/2015/11/22/to-tibet-pics/</id>
+    <link href="http://arvit.xyz/2015/11/22/to-tibet-pics/"/>
+    <id>http://arvit.xyz/2015/11/22/to-tibet-pics/</id>
     <published>2015-11-21T17:00:44.000Z</published>
     <updated>2018-11-21T16:33:59.736Z</updated>
     
@@ -841,23 +840,23 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="西藏" scheme="http://aevit.xyz/tags/%E8%A5%BF%E8%97%8F/"/>
+      <category term="西藏" scheme="http://arvit.xyz/tags/%E8%A5%BF%E8%97%8F/"/>
     
   </entry>
   
   <entry>
     <title>VPS配置 - Git</title>
-    <link href="http://aevit.xyz/2015/11/11/vps-config-git/"/>
-    <id>http://aevit.xyz/2015/11/11/vps-config-git/</id>
+    <link href="http://arvit.xyz/2015/11/11/vps-config-git/"/>
+    <id>http://arvit.xyz/2015/11/11/vps-config-git/</id>
     <published>2015-11-11T13:43:53.000Z</published>
     <updated>2018-11-21T16:33:59.730Z</updated>
     
@@ -877,23 +876,23 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="后台" scheme="http://aevit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
+      <category term="后台" scheme="http://arvit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
     
-      <category term="VPS" scheme="http://aevit.xyz/tags/VPS/"/>
+      <category term="VPS" scheme="http://arvit.xyz/tags/VPS/"/>
     
-      <category term="Git" scheme="http://aevit.xyz/tags/Git/"/>
+      <category term="Git" scheme="http://arvit.xyz/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>VPS配置</title>
-    <link href="http://aevit.xyz/2015/11/11/vps-config/"/>
-    <id>http://aevit.xyz/2015/11/11/vps-config/</id>
+    <link href="http://arvit.xyz/2015/11/11/vps-config/"/>
+    <id>http://arvit.xyz/2015/11/11/vps-config/</id>
     <published>2015-11-11T13:42:53.000Z</published>
     <updated>2018-11-21T16:33:59.725Z</updated>
     
@@ -906,21 +905,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="后台" scheme="http://aevit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
+      <category term="后台" scheme="http://arvit.xyz/tags/%E5%90%8E%E5%8F%B0/"/>
     
-      <category term="VPS" scheme="http://aevit.xyz/tags/VPS/"/>
+      <category term="VPS" scheme="http://arvit.xyz/tags/VPS/"/>
     
   </entry>
   
   <entry>
     <title>Table数据转JSON</title>
-    <link href="http://aevit.xyz/2015/11/09/table-to-json/"/>
-    <id>http://aevit.xyz/2015/11/09/table-to-json/</id>
+    <link href="http://arvit.xyz/2015/11/09/table-to-json/"/>
+    <id>http://arvit.xyz/2015/11/09/table-to-json/</id>
     <published>2015-11-09T12:28:41.000Z</published>
     <updated>2018-11-21T16:33:59.739Z</updated>
     
@@ -933,19 +932,19 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="前端" scheme="http://aevit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="http://arvit.xyz/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>基于PhotosKit的截图整理工具</title>
-    <link href="http://aevit.xyz/2015/09/17/github-SCScreenshot/"/>
-    <id>http://aevit.xyz/2015/09/17/github-SCScreenshot/</id>
+    <link href="http://arvit.xyz/2015/09/17/github-SCScreenshot/"/>
+    <id>http://arvit.xyz/2015/09/17/github-SCScreenshot/</id>
     <published>2015-09-16T17:06:55.000Z</published>
     <updated>2018-11-21T16:33:59.736Z</updated>
     
@@ -957,21 +956,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>在家</title>
-    <link href="http://aevit.xyz/2015/09/05/at-home/"/>
-    <id>http://aevit.xyz/2015/09/05/at-home/</id>
+    <link href="http://arvit.xyz/2015/09/05/at-home/"/>
+    <id>http://arvit.xyz/2015/09/05/at-home/</id>
     <published>2015-09-04T17:27:55.000Z</published>
     <updated>2018-11-21T16:33:59.730Z</updated>
     
@@ -983,19 +982,19 @@
     
     </summary>
     
-      <category term="杂货铺" scheme="http://aevit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
     
-      <category term="杂货铺" scheme="http://aevit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
-      <category term="脑抽筋" scheme="http://aevit.xyz/tags/%E8%84%91%E6%8A%BD%E7%AD%8B/"/>
+      <category term="脑抽筋" scheme="http://arvit.xyz/tags/%E8%84%91%E6%8A%BD%E7%AD%8B/"/>
     
   </entry>
   
   <entry>
     <title>sketch设计学习（一）</title>
-    <link href="http://aevit.xyz/2015/08/12/sketch-study-1/"/>
-    <id>http://aevit.xyz/2015/08/12/sketch-study-1/</id>
+    <link href="http://arvit.xyz/2015/08/12/sketch-study-1/"/>
+    <id>http://arvit.xyz/2015/08/12/sketch-study-1/</id>
     <published>2015-08-12T14:22:49.000Z</published>
     <updated>2018-11-21T16:33:59.727Z</updated>
     
@@ -1016,21 +1015,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="设计" scheme="http://aevit.xyz/tags/%E8%AE%BE%E8%AE%A1/"/>
+      <category term="设计" scheme="http://arvit.xyz/tags/%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="sketch" scheme="http://aevit.xyz/tags/sketch/"/>
+      <category term="sketch" scheme="http://arvit.xyz/tags/sketch/"/>
     
   </entry>
   
   <entry>
     <title>图解Monad</title>
-    <link href="http://aevit.xyz/2015/07/18/monad/"/>
-    <id>http://aevit.xyz/2015/07/18/monad/</id>
+    <link href="http://arvit.xyz/2015/07/18/monad/"/>
+    <id>http://arvit.xyz/2015/07/18/monad/</id>
     <published>2015-07-18T13:51:18.000Z</published>
     <updated>2018-11-21T16:33:59.738Z</updated>
     
@@ -1042,19 +1041,19 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="转载" scheme="http://aevit.xyz/tags/%E8%BD%AC%E8%BD%BD/"/>
+      <category term="转载" scheme="http://arvit.xyz/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
   <entry>
     <title>我的工作日常</title>
-    <link href="http://aevit.xyz/2015/07/06/my-work-daily/"/>
-    <id>http://aevit.xyz/2015/07/06/my-work-daily/</id>
+    <link href="http://arvit.xyz/2015/07/06/my-work-daily/"/>
+    <id>http://arvit.xyz/2015/07/06/my-work-daily/</id>
     <published>2015-07-05T17:12:28.000Z</published>
     <updated>2018-11-21T16:33:59.729Z</updated>
     
@@ -1070,19 +1069,19 @@
     
     </summary>
     
-      <category term="小书房" scheme="http://aevit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
     
-      <category term="小书房" scheme="http://aevit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
-      <category term="日常" scheme="http://aevit.xyz/tags/%E6%97%A5%E5%B8%B8/"/>
+      <category term="日常" scheme="http://arvit.xyz/tags/%E6%97%A5%E5%B8%B8/"/>
     
   </entry>
   
   <entry>
     <title>记一次海上日出</title>
-    <link href="http://aevit.xyz/2015/06/22/yang-jiang-zha-po-three-men/"/>
-    <id>http://aevit.xyz/2015/06/22/yang-jiang-zha-po-three-men/</id>
+    <link href="http://arvit.xyz/2015/06/22/yang-jiang-zha-po-three-men/"/>
+    <id>http://arvit.xyz/2015/06/22/yang-jiang-zha-po-three-men/</id>
     <published>2015-06-22T14:25:57.000Z</published>
     <updated>2018-11-21T16:33:59.723Z</updated>
     
@@ -1102,19 +1101,19 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="日出" scheme="http://aevit.xyz/tags/%E6%97%A5%E5%87%BA/"/>
+      <category term="日出" scheme="http://arvit.xyz/tags/%E6%97%A5%E5%87%BA/"/>
     
   </entry>
   
   <entry>
     <title>SCGeneratePrettyAvatar</title>
-    <link href="http://aevit.xyz/2015/06/20/github-SCGeneratePrettyAvatar/"/>
-    <id>http://aevit.xyz/2015/06/20/github-SCGeneratePrettyAvatar/</id>
+    <link href="http://arvit.xyz/2015/06/20/github-SCGeneratePrettyAvatar/"/>
+    <id>http://arvit.xyz/2015/06/20/github-SCGeneratePrettyAvatar/</id>
     <published>2015-06-20T04:37:40.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1130,21 +1129,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>食材</title>
-    <link href="http://aevit.xyz/2015/06/17/capture-food/"/>
-    <id>http://aevit.xyz/2015/06/17/capture-food/</id>
+    <link href="http://arvit.xyz/2015/06/17/capture-food/"/>
+    <id>http://arvit.xyz/2015/06/17/capture-food/</id>
     <published>2015-06-17T15:05:26.000Z</published>
     <updated>2018-11-21T16:33:59.741Z</updated>
     
@@ -1159,19 +1158,19 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="食材" scheme="http://aevit.xyz/tags/%E9%A3%9F%E6%9D%90/"/>
+      <category term="食材" scheme="http://arvit.xyz/tags/%E9%A3%9F%E6%9D%90/"/>
     
   </entry>
   
   <entry>
     <title>next的一点自定义</title>
-    <link href="http://aevit.xyz/2015/06/15/custom-hexo-theme-next/"/>
-    <id>http://aevit.xyz/2015/06/15/custom-hexo-theme-next/</id>
+    <link href="http://arvit.xyz/2015/06/15/custom-hexo-theme-next/"/>
+    <id>http://arvit.xyz/2015/06/15/custom-hexo-theme-next/</id>
     <published>2015-06-14T16:35:26.000Z</published>
     <updated>2017-09-21T14:31:24.000Z</updated>
     
@@ -1184,19 +1183,19 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="hexo" scheme="http://aevit.xyz/tags/hexo/"/>
+      <category term="hexo" scheme="http://arvit.xyz/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>太古仓日落</title>
-    <link href="http://aevit.xyz/2015/06/07/tai-gu-cang-sunset/"/>
-    <id>http://aevit.xyz/2015/06/07/tai-gu-cang-sunset/</id>
+    <link href="http://arvit.xyz/2015/06/07/tai-gu-cang-sunset/"/>
+    <id>http://arvit.xyz/2015/06/07/tai-gu-cang-sunset/</id>
     <published>2015-06-07T15:05:26.000Z</published>
     <updated>2018-11-21T16:33:59.736Z</updated>
     
@@ -1212,19 +1211,19 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="日落" scheme="http://aevit.xyz/tags/%E6%97%A5%E8%90%BD/"/>
+      <category term="日落" scheme="http://arvit.xyz/tags/%E6%97%A5%E8%90%BD/"/>
     
   </entry>
   
   <entry>
     <title>PanCellDemo</title>
-    <link href="http://aevit.xyz/2015/04/04/github-PanCellDemo/"/>
-    <id>http://aevit.xyz/2015/04/04/github-PanCellDemo/</id>
+    <link href="http://arvit.xyz/2015/04/04/github-PanCellDemo/"/>
+    <id>http://arvit.xyz/2015/04/04/github-PanCellDemo/</id>
     <published>2015-04-03T18:02:02.000Z</published>
     <updated>2018-11-21T16:33:59.729Z</updated>
     
@@ -1240,21 +1239,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>autolayout在tableview中的使用</title>
-    <link href="http://aevit.xyz/2015/03/10/ios-use-autolayout-in-tableview/"/>
-    <id>http://aevit.xyz/2015/03/10/ios-use-autolayout-in-tableview/</id>
+    <link href="http://arvit.xyz/2015/03/10/ios-use-autolayout-in-tableview/"/>
+    <id>http://arvit.xyz/2015/03/10/ios-use-autolayout-in-tableview/</id>
     <published>2015-03-10T15:05:26.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1266,21 +1265,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
-      <category term="教程" scheme="http://aevit.xyz/tags/%E6%95%99%E7%A8%8B/"/>
+      <category term="教程" scheme="http://arvit.xyz/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>千与千寻配乐MV：Epic Tribute Medley</title>
-    <link href="http://aevit.xyz/2015/02/10/qian-yu-qian-xun-Epic-Tribute-Medley/"/>
-    <id>http://aevit.xyz/2015/02/10/qian-yu-qian-xun-Epic-Tribute-Medley/</id>
+    <link href="http://arvit.xyz/2015/02/10/qian-yu-qian-xun-Epic-Tribute-Medley/"/>
+    <id>http://arvit.xyz/2015/02/10/qian-yu-qian-xun-Epic-Tribute-Medley/</id>
     <published>2015-02-09T18:02:02.000Z</published>
     <updated>2018-11-21T16:34:00.207Z</updated>
     
@@ -1295,21 +1294,21 @@
     
     </summary>
     
-      <category term="杂货铺" scheme="http://aevit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
     
-      <category term="杂货铺" scheme="http://aevit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
-      <category term="MV" scheme="http://aevit.xyz/tags/MV/"/>
+      <category term="MV" scheme="http://arvit.xyz/tags/MV/"/>
     
-      <category term="音乐" scheme="http://aevit.xyz/tags/%E9%9F%B3%E4%B9%90/"/>
+      <category term="音乐" scheme="http://arvit.xyz/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   
   <entry>
     <title>无题</title>
-    <link href="http://aevit.xyz/2015/02/08/say-sth-150208/"/>
-    <id>http://aevit.xyz/2015/02/08/say-sth-150208/</id>
+    <link href="http://arvit.xyz/2015/02/08/say-sth-150208/"/>
+    <id>http://arvit.xyz/2015/02/08/say-sth-150208/</id>
     <published>2015-02-07T18:02:02.000Z</published>
     <updated>2018-11-21T16:33:59.733Z</updated>
     
@@ -1322,19 +1321,19 @@
     
     </summary>
     
-      <category term="杂货铺" scheme="http://aevit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
     
-      <category term="杂货铺" scheme="http://aevit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
-      <category term="夜" scheme="http://aevit.xyz/tags/%E5%A4%9C/"/>
+      <category term="夜" scheme="http://arvit.xyz/tags/%E5%A4%9C/"/>
     
   </entry>
   
   <entry>
     <title>说</title>
-    <link href="http://aevit.xyz/2015/01/29/say-sth-150129/"/>
-    <id>http://aevit.xyz/2015/01/29/say-sth-150129/</id>
+    <link href="http://arvit.xyz/2015/01/29/say-sth-150129/"/>
+    <id>http://arvit.xyz/2015/01/29/say-sth-150129/</id>
     <published>2015-01-28T18:02:02.000Z</published>
     <updated>2018-11-21T16:33:59.730Z</updated>
     
@@ -1347,19 +1346,19 @@
     
     </summary>
     
-      <category term="杂货铺" scheme="http://aevit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
     
-      <category term="杂货铺" scheme="http://aevit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
-      <category term="夜" scheme="http://aevit.xyz/tags/%E5%A4%9C/"/>
+      <category term="夜" scheme="http://arvit.xyz/tags/%E5%A4%9C/"/>
     
   </entry>
   
   <entry>
     <title>起床在思考（二）</title>
-    <link href="http://aevit.xyz/2015/01/23/qi-chuang-zai-si-kao-er/"/>
-    <id>http://aevit.xyz/2015/01/23/qi-chuang-zai-si-kao-er/</id>
+    <link href="http://arvit.xyz/2015/01/23/qi-chuang-zai-si-kao-er/"/>
+    <id>http://arvit.xyz/2015/01/23/qi-chuang-zai-si-kao-er/</id>
     <published>2015-01-22T18:02:02.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1371,21 +1370,21 @@
     
     </summary>
     
-      <category term="小书房" scheme="http://aevit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
     
-      <category term="小书房" scheme="http://aevit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
-      <category term="起床在思考" scheme="http://aevit.xyz/tags/%E8%B5%B7%E5%BA%8A%E5%9C%A8%E6%80%9D%E8%80%83/"/>
+      <category term="起床在思考" scheme="http://arvit.xyz/tags/%E8%B5%B7%E5%BA%8A%E5%9C%A8%E6%80%9D%E8%80%83/"/>
     
   </entry>
   
   <entry>
     <title>厦门</title>
-    <link href="http://aevit.xyz/2015/01/22/xia-men/"/>
-    <id>http://aevit.xyz/2015/01/22/xia-men/</id>
+    <link href="http://arvit.xyz/2015/01/22/xia-men/"/>
+    <id>http://arvit.xyz/2015/01/22/xia-men/</id>
     <published>2015-01-21T18:06:02.000Z</published>
     <updated>2018-11-21T16:33:59.732Z</updated>
     
@@ -1400,21 +1399,21 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
   </entry>
   
   <entry>
     <title>无题</title>
-    <link href="http://aevit.xyz/2015/01/22/wu-ti/"/>
-    <id>http://aevit.xyz/2015/01/22/wu-ti/</id>
+    <link href="http://arvit.xyz/2015/01/22/wu-ti/"/>
+    <id>http://arvit.xyz/2015/01/22/wu-ti/</id>
     <published>2015-01-21T18:05:02.000Z</published>
     <updated>2018-11-21T16:33:59.724Z</updated>
     
@@ -1429,19 +1428,19 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
   </entry>
   
   <entry>
     <title>武功山帐篷节</title>
-    <link href="http://aevit.xyz/2015/01/22/wu-gong-shan/"/>
-    <id>http://aevit.xyz/2015/01/22/wu-gong-shan/</id>
+    <link href="http://arvit.xyz/2015/01/22/wu-gong-shan/"/>
+    <id>http://arvit.xyz/2015/01/22/wu-gong-shan/</id>
     <published>2015-01-21T18:02:02.000Z</published>
     <updated>2018-11-21T16:33:59.724Z</updated>
     
@@ -1456,21 +1455,21 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
   </entry>
   
   <entry>
     <title>延时虫洞</title>
-    <link href="http://aevit.xyz/2015/01/05/yan-shi-chong-dong/"/>
-    <id>http://aevit.xyz/2015/01/05/yan-shi-chong-dong/</id>
+    <link href="http://arvit.xyz/2015/01/05/yan-shi-chong-dong/"/>
+    <id>http://arvit.xyz/2015/01/05/yan-shi-chong-dong/</id>
     <published>2015-01-04T17:08:26.000Z</published>
     <updated>2018-11-21T16:34:00.203Z</updated>
     
@@ -1489,19 +1488,19 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="延时" scheme="http://aevit.xyz/tags/%E5%BB%B6%E6%97%B6/"/>
+      <category term="延时" scheme="http://arvit.xyz/tags/%E5%BB%B6%E6%97%B6/"/>
     
   </entry>
   
   <entry>
     <title>南亭日落</title>
-    <link href="http://aevit.xyz/2015/01/04/nan-ting-sunset/"/>
-    <id>http://aevit.xyz/2015/01/04/nan-ting-sunset/</id>
+    <link href="http://arvit.xyz/2015/01/04/nan-ting-sunset/"/>
+    <id>http://arvit.xyz/2015/01/04/nan-ting-sunset/</id>
     <published>2015-01-03T18:02:02.000Z</published>
     <updated>2018-11-21T16:34:00.203Z</updated>
     
@@ -1517,19 +1516,19 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="日落" scheme="http://aevit.xyz/tags/%E6%97%A5%E8%90%BD/"/>
+      <category term="日落" scheme="http://arvit.xyz/tags/%E6%97%A5%E8%90%BD/"/>
     
   </entry>
   
   <entry>
     <title>SCInfiniteTableViewDemo</title>
-    <link href="http://aevit.xyz/2015/01/01/github-SCInfiniteTableViewDemo/"/>
-    <id>http://aevit.xyz/2015/01/01/github-SCInfiniteTableViewDemo/</id>
+    <link href="http://arvit.xyz/2015/01/01/github-SCInfiniteTableViewDemo/"/>
+    <id>http://arvit.xyz/2015/01/01/github-SCInfiniteTableViewDemo/</id>
     <published>2014-12-31T18:02:02.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1545,21 +1544,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>SCWrapDemo</title>
-    <link href="http://aevit.xyz/2014/12/26/github-SCWrapDemo/"/>
-    <id>http://aevit.xyz/2014/12/26/github-SCWrapDemo/</id>
+    <link href="http://arvit.xyz/2014/12/26/github-SCWrapDemo/"/>
+    <id>http://arvit.xyz/2014/12/26/github-SCWrapDemo/</id>
     <published>2014-12-25T18:02:02.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1576,21 +1575,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>岗顶随手延时摄影</title>
-    <link href="http://aevit.xyz/2014/12/22/gang-ding-yan-shi-she-ying/"/>
-    <id>http://aevit.xyz/2014/12/22/gang-ding-yan-shi-she-ying/</id>
+    <link href="http://arvit.xyz/2014/12/22/gang-ding-yan-shi-she-ying/"/>
+    <id>http://arvit.xyz/2014/12/22/gang-ding-yan-shi-she-ying/</id>
     <published>2014-12-22T15:05:26.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1603,19 +1602,19 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="延时" scheme="http://aevit.xyz/tags/%E5%BB%B6%E6%97%B6/"/>
+      <category term="延时" scheme="http://arvit.xyz/tags/%E5%BB%B6%E6%97%B6/"/>
     
   </entry>
   
   <entry>
     <title>起床在思考（一）</title>
-    <link href="http://aevit.xyz/2014/12/20/qi-chuang-zai-si-kao-yi/"/>
-    <id>http://aevit.xyz/2014/12/20/qi-chuang-zai-si-kao-yi/</id>
+    <link href="http://arvit.xyz/2014/12/20/qi-chuang-zai-si-kao-yi/"/>
+    <id>http://arvit.xyz/2014/12/20/qi-chuang-zai-si-kao-yi/</id>
     <published>2014-12-19T18:02:02.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1627,23 +1626,23 @@
     
     </summary>
     
-      <category term="小书房" scheme="http://aevit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
     
-      <category term="小书房" scheme="http://aevit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
-      <category term="起床在思考" scheme="http://aevit.xyz/tags/%E8%B5%B7%E5%BA%8A%E5%9C%A8%E6%80%9D%E8%80%83/"/>
+      <category term="起床在思考" scheme="http://arvit.xyz/tags/%E8%B5%B7%E5%BA%8A%E5%9C%A8%E6%80%9D%E8%80%83/"/>
     
   </entry>
   
   <entry>
     <title>生命</title>
-    <link href="http://aevit.xyz/2014/10/04/sheng-ming/"/>
-    <id>http://aevit.xyz/2014/10/04/sheng-ming/</id>
+    <link href="http://arvit.xyz/2014/10/04/sheng-ming/"/>
+    <id>http://arvit.xyz/2014/10/04/sheng-ming/</id>
     <published>2014-10-03T18:02:02.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1655,19 +1654,19 @@
     
     </summary>
     
-      <category term="杂货铺" scheme="http://aevit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
-      <category term="杂货铺" scheme="http://aevit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
+      <category term="杂货铺" scheme="http://arvit.xyz/tags/%E6%9D%82%E8%B4%A7%E9%93%BA/"/>
     
   </entry>
   
   <entry>
     <title>公司下午茶</title>
-    <link href="http://aevit.xyz/2014/08/22/orange/"/>
-    <id>http://aevit.xyz/2014/08/22/orange/</id>
+    <link href="http://arvit.xyz/2014/08/22/orange/"/>
+    <id>http://arvit.xyz/2014/08/22/orange/</id>
     <published>2014-08-21T18:02:02.000Z</published>
     <updated>2018-11-21T16:33:59.735Z</updated>
     
@@ -1687,19 +1686,19 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="随拍" scheme="http://aevit.xyz/tags/%E9%9A%8F%E6%8B%8D/"/>
+      <category term="随拍" scheme="http://arvit.xyz/tags/%E9%9A%8F%E6%8B%8D/"/>
     
   </entry>
   
   <entry>
     <title>出走</title>
-    <link href="http://aevit.xyz/2014/08/09/chu-zhou/"/>
-    <id>http://aevit.xyz/2014/08/09/chu-zhou/</id>
+    <link href="http://arvit.xyz/2014/08/09/chu-zhou/"/>
+    <id>http://arvit.xyz/2014/08/09/chu-zhou/</id>
     <published>2014-08-09T15:05:26.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1711,21 +1710,21 @@
     
     </summary>
     
-      <category term="小书房" scheme="http://aevit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
     
-      <category term="小书房" scheme="http://aevit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
   </entry>
   
   <entry>
     <title>SCTableView</title>
-    <link href="http://aevit.xyz/2014/07/29/github-custom-tableview/"/>
-    <id>http://aevit.xyz/2014/07/29/github-custom-tableview/</id>
+    <link href="http://arvit.xyz/2014/07/29/github-custom-tableview/"/>
+    <id>http://arvit.xyz/2014/07/29/github-custom-tableview/</id>
     <published>2014-07-28T18:02:02.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1742,21 +1741,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>继续走</title>
-    <link href="http://aevit.xyz/2014/07/08/ji-xu-zou/"/>
-    <id>http://aevit.xyz/2014/07/08/ji-xu-zou/</id>
+    <link href="http://arvit.xyz/2014/07/08/ji-xu-zou/"/>
+    <id>http://arvit.xyz/2014/07/08/ji-xu-zou/</id>
     <published>2014-07-07T18:02:02.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1768,21 +1767,21 @@
     
     </summary>
     
-      <category term="小书房" scheme="http://aevit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
     
-      <category term="小书房" scheme="http://aevit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
   </entry>
   
   <entry>
     <title>黑暗中的太阳</title>
-    <link href="http://aevit.xyz/2014/06/26/sun/"/>
-    <id>http://aevit.xyz/2014/06/26/sun/</id>
+    <link href="http://arvit.xyz/2014/06/26/sun/"/>
+    <id>http://arvit.xyz/2014/06/26/sun/</id>
     <published>2014-06-25T18:02:02.000Z</published>
     <updated>2018-11-21T16:33:59.732Z</updated>
     
@@ -1797,21 +1796,21 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="黑暗" scheme="http://aevit.xyz/tags/%E9%BB%91%E6%9A%97/"/>
+      <category term="黑暗" scheme="http://arvit.xyz/tags/%E9%BB%91%E6%9A%97/"/>
     
-      <category term="太阳" scheme="http://aevit.xyz/tags/%E5%A4%AA%E9%98%B3/"/>
+      <category term="太阳" scheme="http://arvit.xyz/tags/%E5%A4%AA%E9%98%B3/"/>
     
   </entry>
   
   <entry>
     <title>SCCaptureCamera</title>
-    <link href="http://aevit.xyz/2014/02/24/github-capture-camera/"/>
-    <id>http://aevit.xyz/2014/02/24/github-capture-camera/</id>
+    <link href="http://arvit.xyz/2014/02/24/github-capture-camera/"/>
+    <id>http://arvit.xyz/2014/02/24/github-capture-camera/</id>
     <published>2014-02-23T18:02:02.000Z</published>
     <updated>2017-09-03T10:37:47.000Z</updated>
     
@@ -1825,21 +1824,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>SCDatePicker</title>
-    <link href="http://aevit.xyz/2013/12/11/github-date-picker/"/>
-    <id>http://aevit.xyz/2013/12/11/github-date-picker/</id>
+    <link href="http://arvit.xyz/2013/12/11/github-date-picker/"/>
+    <id>http://arvit.xyz/2013/12/11/github-date-picker/</id>
     <published>2013-12-10T18:02:02.000Z</published>
     <updated>2017-09-03T10:37:48.000Z</updated>
     
@@ -1853,21 +1852,21 @@
     
     </summary>
     
-      <category term="比特海" scheme="http://aevit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
     
-      <category term="比特海" scheme="http://aevit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
+      <category term="比特海" scheme="http://arvit.xyz/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/"/>
     
-      <category term="开源" scheme="http://aevit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
+      <category term="开源" scheme="http://arvit.xyz/tags/%E5%BC%80%E6%BA%90/"/>
     
-      <category term="iOS" scheme="http://aevit.xyz/tags/iOS/"/>
+      <category term="iOS" scheme="http://arvit.xyz/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>宜家</title>
-    <link href="http://aevit.xyz/2012/05/20/ikea/"/>
-    <id>http://aevit.xyz/2012/05/20/ikea/</id>
+    <link href="http://arvit.xyz/2012/05/20/ikea/"/>
+    <id>http://arvit.xyz/2012/05/20/ikea/</id>
     <published>2012-05-20T15:05:26.000Z</published>
     <updated>2018-11-21T16:33:59.735Z</updated>
     
@@ -1882,19 +1881,19 @@
     
     </summary>
     
-      <category term="屋外" scheme="http://aevit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/categories/%E5%B1%8B%E5%A4%96/"/>
     
     
-      <category term="屋外" scheme="http://aevit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
+      <category term="屋外" scheme="http://arvit.xyz/tags/%E5%B1%8B%E5%A4%96/"/>
     
-      <category term="家具" scheme="http://aevit.xyz/tags/%E5%AE%B6%E5%85%B7/"/>
+      <category term="家具" scheme="http://arvit.xyz/tags/%E5%AE%B6%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>在路上</title>
-    <link href="http://aevit.xyz/2012/02/11/zai-lu-shang/"/>
-    <id>http://aevit.xyz/2012/02/11/zai-lu-shang/</id>
+    <link href="http://arvit.xyz/2012/02/11/zai-lu-shang/"/>
+    <id>http://arvit.xyz/2012/02/11/zai-lu-shang/</id>
     <published>2012-02-10T17:08:26.000Z</published>
     <updated>2017-09-03T10:37:48.000Z</updated>
     
@@ -1906,14 +1905,14 @@
     
     </summary>
     
-      <category term="小书房" scheme="http://aevit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
     
-      <category term="小书房" scheme="http://aevit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
+      <category term="小书房" scheme="http://arvit.xyz/tags/%E5%B0%8F%E4%B9%A6%E6%88%BF/"/>
     
-      <category term="出走" scheme="http://aevit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
+      <category term="出走" scheme="http://arvit.xyz/tags/%E5%87%BA%E8%B5%B0/"/>
     
-      <category term="修行" scheme="http://aevit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
+      <category term="修行" scheme="http://arvit.xyz/tags/%E4%BF%AE%E8%A1%8C/"/>
     
   </entry>
   
