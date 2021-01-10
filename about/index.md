@@ -4,7 +4,7 @@ layout: page
 ---
 
 这个家伙的博客共分四大类：  
-[比特海](/categories/bit-sea/)、[小书房](/categories/think/)、[屋外](/categories/scene/)、[杂货铺](/categories/other/)
+[比特海](/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/)、[小书房](/categories/%E5%B0%8F%E4%B9%A6%E6%88%BF/)、[屋外](/categories/%E5%B1%8B%E5%A4%96/)、[杂货铺](/categories/%E6%9D%82%E8%B4%A7%E9%93%BA/)
 
 ## 比特海
 
