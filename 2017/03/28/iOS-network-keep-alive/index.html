@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="NSURLSession错误使用引起的网络阻塞问题"/>
+
+
+
+
+  <meta name="keywords" content="比特海, iOS, 疑难杂症, NSURLProtocol, NSURLSession, Keep-Alive, Arvit" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Arvit">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://arvit.xyz/2017/03/28/iOS-network-keep-alive/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?27c09d216f39fb173da80070c4219fb8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> NSURLSession错误使用引起的网络阻塞问题 - Arvit </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Arvit</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Arvit</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title-diu-helkyle">
+        
+          NSURLSession错误使用引起的网络阻塞问题
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-03-28
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/比特海/">比特海</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#确认问题"><span class="toc-text">确认问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Charles"><span class="toc-text">Charles</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wireshark"><span class="toc-text">Wireshark</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP"><span class="toc-text">HTTP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTPS"><span class="toc-text">HTTPS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题外"><span class="toc-text">题外</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决问题"><span class="toc-text">解决问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一段时间公司的 APP 在某个时间段比较多人访问时，经常出现连接不上服务器的情况，刚开始我们一直都以为是服务器问题，运维同事做了一些措施还是不能解决。</p>
+<p>后来在使用 <code>Charles</code> 抓包时，看到每次的接口请求，<code>Keep-Alive</code> 都是不生效的。</p>
+<p>猜测是因为这里导致用户发起的每个请求，都要重新进行 DNS 解析、建立 SSL 握手等操作（尤其我们首页每次刷新还都会同时发起好几个请求…）。</p>
+<p>而我们 DNS 用的貌似是第三方的服务，所以问题比较大可能是出在跟我们服务器的握手阶段（为了方便定位是什么问题，我在一个版本中，加入了错误码的提示，发现很多是超时、握手失败等情况）。</p>
+<p>当很多人同时访问时，由于前面有大量握手（我们用的是 HTTPS，报文会比 HTTP 多一些）没建立成功，服务器还在忙着处理，后面的请求就处理不过来了，所以就阻塞了。</p>
+<p>那应该如何解决呢？</p>
+<a id="more"></a>
+<h2 id="确认问题"><a href="#确认问题" class="headerlink" title="确认问题"></a>确认问题</h2><h3 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a>Charles</h3><p>去找了运维同事看了后台配置，看起来是没问题，但是使用 Charles 抓包看的 <code>Keep-Alive</code>（又称持久连接、连接重用）就一直不生效：</p>
+<p><img src="http://file.arvit.xyz/8332f71e13336060218c2ba8bfe31b401490671091.png" alt="image"></p>
+<p>后来突然想到，android 上会不会有问题？抓包看了下，android 上的 <code>Keep-Alive</code> 是正常的：</p>
+<p><img src="http://file.arvit.xyz/1684ede887d1e83519d988c600b1bdf51490671159.png" alt="image"></p>
+<h3 id="Wireshark"><a href="#Wireshark" class="headerlink" title="Wireshark"></a>Wireshark</h3><h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><p>为了再次确认，开了个 demo，使用 Wireshark 来看报文，由于对这软件还不是很熟，先拿个 HTTP 的链接来试下，这是 <code>Keep-Alive</code> 不生效的情况（这里使用的是内网的服务器，其中 <code>10.1.17.81</code> 是我本机 IP，<code>10.0.3.150</code> 是我们内网服务器 IP）：</p>
+<p><img src="http://file.arvit.xyz/4766cc7f71cdd2286020e2855f053b431490671706.png" alt="image"></p>
+<blockquote>
+<p>PS: 图中上面使用的 <code>ip.addr == 10.0.0.150</code> 是用来过滤查看这次接口相关的报文</p>
+</blockquote>
+<p>从上图我们也可以直观地看到，前三条报文是用来建立 TCP 握手连接的（这里先注意上图箭头处的端口 <code>58922</code>，这是我本机使用的端口，是由系统动态创建的端口，用来跟服务器通信的）。</p>
+<p>接下来再请求一遍同个接口，使用 Charles 看到 <code>Keep-Alive</code> 是生效的，这是 Wireshark 上的情况：</p>
+<p><img src="http://file.arvit.xyz/c9c388932a70633c91455b2b8df5427b1490671765.png" alt="image"></p>
+<p>可以看到，这里已经少了几条报文，其中包括三次握手的报文，并且我本机的端口使用的还是 <code>58922</code>。</p>
+<p>当过了 <code>Keep-Alive</code> 有效期（这个时间是后台配置的），我再重新请求同个接口，这时端口已经变了：</p>
+<p><img src="http://file.arvit.xyz/b3a9e6de59cd45e9313c3ba19dacdb881490672948.png" alt="image"></p>
+<h4 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h4><p>接下来看一下 HTTPS 相关的报文（这里我还是使用同个接口，不过使用的是生产环境的，所以下面的图会将我们服务器的 IP 打码）</p>
+<p>这是 <code>Keep-Alive</code> 不生效的情况：</p>
+<p><img src="http://file.arvit.xyz/a3779616da76eddc54347ad3ab6c293f1490673131.png" alt="image"></p>
+<p>可以看到，本机端口使用的是 <code>58858</code>， 这次请求的报文比 HTTP 的请求多了好一些，主要都是用来建立 SSL 握手的。</p>
+<p>这是 <code>Keep-Alive</code> 生效的情况：</p>
+<p><img src="http://file.arvit.xyz/e002e1f0014272b51ffd3b8d29f0b0c71490673329.png" alt="image"></p>
+<p>省掉了 SSL 握手的操作，一下子就减少了很多报文。</p>
+<p>后面过了 <code>Keep-Alive</code> 有效期，再重新请求同个接口，端口变了，同时也要重新进行 SSL 握手了：</p>
+<p><img src="http://file.arvit.xyz/e8aa14c1c7157b9ac4a6d932bbce4ea81490673926.png" alt="image"></p>
+<h4 id="题外"><a href="#题外" class="headerlink" title="题外"></a>题外</h4><p>这里简单介绍一下下面那几行分别表示的意思：</p>
+<ul>
+<li><p>Frame: 物理层的数据帧概况</p>
+</li>
+<li><p>Ethernet II: 数据链路层以太网帧头部信息</p>
+</li>
+<li><p>Internet Protocol Version 4: 互联网层IP包头部信息</p>
+</li>
+<li><p>Transmission Control Protocol: 传输层T的数据段头部信息，此处是TCP</p>
+</li>
+<li><p>Hypertext Transfer Protocol: 应用层的信息，此处是HTTP协议</p>
+</li>
+</ul>
+<p>TCP 报文格式如下图（图片来自此 <a href="https://zhangbinalan.gitbooks.io/protocol/content/tcpbao_wen_ge_shi.html" target="_blank" rel="external">文章</a>）：</p>
+<p><img src="https://zhangbinalan.gitbooks.io/protocol/content/Center.gif" alt="image"></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>从以上分析可以看出，如果 <code>Keep-Alive</code> 不生效，每个请求/应答客户端和服务器都要新建一个连接，完成之后立即断开连接（HTTP协议为无连接的协议），这点从每次请求，本机端口都变了可以看出；</p>
+<p>当 <code>Keep-Alive</code> 生效时，客户端到服务器端的连接持续有效，当出现对服务器的后继请求时，就可以避免重新建立连接。</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p><code>HTTP/1.1</code> 开始已经默认启用 <code>Keep-Alive</code>，后台也有配置了相应的超时时间及最大请求数，并且安卓也没问题，所以就开始排查 iOS 项目的网络模块。</p>
+<p>之前刚接手这项目时，就有人说这个项目代码也有点历史了，经过了很多人的手，其中封装的网络模块可能有两三种。结果这一排查，了不得啊……</p>
+<p>使用的是 <code>AFNetworking</code>，对这个的封装就有三种方式，然后在某些地方还零星隐藏着第四种方式——直接使用 <code>AFNetwroking</code> 提供的方法。</p>
+<p>再然后因为某个需求，需要对所有请求都统一做某些操作，前面接手的人为了方便，就注册了一个自定义 <code>NSURLProtocol</code> 来统一处理。最后排查到问题就是出在这里了，这是里面 <code>startLoading</code> 的写法：</p>
+<p><img src="http://file.arvit.xyz/a5dcdbaf28e2881699d3a1458fadc43e1490682717.png" alt="image"></p>
+<p>这里的写法有个问题，就是每次请求都重新创建了一个 <code>NSURLSession</code> 实例，所以就导致了上面的 <code>Keep-Alive</code> 不生效了，每次请求都要重新进行 DNS 解析、建立握手等操作。</p>
+<p>没有特殊需求的情况下，<code>NSURLSession</code> 应该是只创建一个实例就够了，然后通过创建多个 <code>NSURLSessionTask</code> 实例去进行请求。</p>
+<p>不过这个自定义的 <code>NSURLProtocol</code> 需要实现的需求其实没有必要这样做，这样还会有点性能问题，趁着新需求还没来，所以花了两天时间对网络模块做了以下优化改造：</p>
+<ul>
+<li><p>之前项目是用 <code>AFHTTPRequestOperationManager</code>，是基于 <code>NSURLConnection</code> 的，索性这次升级使用更好的基于 <code>NSURLSession</code> 的 <code>AFHTTPSessionManager</code>；</p>
+</li>
+<li><p>自定义一个类，继承自 <code>AFHTTPSessionManager</code>，然后项目中目前存在的四种网络请求方式，都使用这个自定义类的单例实例来发起请求，达到使用同一个 <code>NSURLSession</code> 实例的目的；</p>
+</li>
+<li><p>写好网络模块相关说明，嘱咐后来人都使用同一种网络请求方式。</p>
+</li>
+</ul>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以前使用 HTTP 请求接口时，这个阻塞问题还不是很明显，后来换了 HTTPS 后，因为建立握手的步骤会多点，这个问题一下子就爆发出来，接到了很多用户反馈。</p>
+<p>一直都以为是服务器问题，运维同事也做了某些措施还是无效，没想到最终是客户端的问题。其实这个 <code>Keep-Alive</code> 问题之前我就在 Charles 发现了不生效，也在群里跟运维同事反馈了，但是最开始被忽略了…后来在多日无法解决时，我又提出来了，这时才有运维同事跟我来联调查看，最终才能发现问题根源，所以，沟通很重要啊…</p>
+<p><code>Keep-Alive</code> 生效后，能有效缓解服务器的阻塞问题，不过当以后访问量达到更大的级别，就得服务器再做别的优化了。</p>
+<hr>
+<p>2017-03-28 00:26<br>Aevit<br>深圳南山</p>
+<hr>
+<p><a class="http://file.arvit.xyz/559196984c69340facb7eae40544b3b11490684514.jpeg" title="广州塔骑车"><img src="http://file.arvit.xyz/559196984c69340facb7eae40544b3b11490684514.jpeg" alt=""></a><br>摄影：Aevit 2014年4月 广州塔</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/比特海/">比特海</a>
+            
+              <a href="/tags/iOS/">iOS</a>
+            
+              <a href="/tags/疑难杂症/">疑难杂症</a>
+            
+              <a href="/tags/NSURLProtocol/">NSURLProtocol</a>
+            
+              <a href="/tags/NSURLSession/">NSURLSession</a>
+            
+              <a href="/tags/Keep-Alive/">Keep-Alive</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/09/07/nodejs-command/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">NodeJS编写命令行脚本</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/03/12/iOS-autorelease/">
+        <span class="next-text nav-default">iOS 自动释放池原理探究</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:aevit@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="http://www.okayapi.com/?f=aevit" class="iconfont icon-pocket" title="pocket"></a>
+        
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2014 - 
+    
+    2020
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Arvit</span>
+  </span>
+
+  <div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a href="javascript:void(0)" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">粤ICP备18142108号</p></a>
+  </div>
+    
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://arvit.xyz/2017/03/28/iOS-network-keep-alive/';
+        this.page.identifier = '2017/03/28/iOS-network-keep-alive/';
+        this.page.title = 'NSURLSession错误使用引起的网络阻塞问题';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//aevit.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>
