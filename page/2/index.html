@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+
+<!-- Website keywords -->
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="Arvit's blog" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://arvit.xyz/page/2/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?" + "f4cfb083de30d9524c6a3a2496247c40";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>Arvit&#39;s blog</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Arvit&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        About              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">Arvit's blog</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              About  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+  
+  
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/10/25/iOS-class-cluster/">iOS设计模式 —— 类簇</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-10-25
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 <code>iOS</code> 中，类簇的使用是比较普遍的，如 <code>NSNumber</code>，<code>NSArray</code>，<code>NSString</code> 等，属于 <code>抽象工厂</code> 模式的一种应用，隐藏了具体的实现类，只暴露出简单的接口。</p>
+    <div class="read-more">
+      <a href="/2016/10/25/iOS-class-cluster/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/09/04/github-swiss-knife/">瑞士军刀小动画（iOS）</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-09-04
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>周末闲来无事，刚好想起 <a target="_blank" rel="noopener" href="http://pandara.xyz/">@我最敬爱和佩服的烧饼哥</a> 前阵子去北京，过安检时被没收了一把瑞士军刀，就画了把瑞士军刀，并弄了个小动画送给他。</p>
+<p>希望他下次过安检时不要被查到我这把瑞士军刀，不然可能连电脑都要没收了＝。＝</p>
+<blockquote>
+<p>PS: 图是用 <code>Sketch</code> 画的</p>
+</blockquote>
+<p>展示：</p>
+<p><img src="http://file.arvit.xyz/e209ef12cf7b513c883956a89aa6f3fd1472996709.gif" alt="image"></p>
+    <div class="read-more">
+      <a href="/2016/09/04/github-swiss-knife/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/08/30/iOS-trivia/">iOS冷知识汇总</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-08-30
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要收录iOS开发的一些冷知识（不定期更新）</p>
+    <div class="read-more">
+      <a href="/2016/08/30/iOS-trivia/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/08/04/github-wave-animation/">iOS实现水波动画</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-08-04
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>iOS下实现水波动画，动画曲线使用的是<code>正弦型函数解析式</code>。<br>效果图如下（图在最后有点卡顿的感觉，是因为gif重新开始播放了）</p>
+<blockquote>
+<p>PS：gif图中下面的<code>Water</code>，在水波动画的基础上，使用遮罩实现了<code>Water</code>字体的<code>蓝白颜色交替</code></p>
+</blockquote>
+<p><img src="http://file.arvit.xyz/6d34efef07654d9ac80ca3cafe89c9931470240534.gif" alt="image"></p>
+    <div class="read-more">
+      <a href="/2016/08/04/github-wave-animation/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/06/30/vue-in-laravel-2/">在Laravel中使用Vue.js（下）</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-06-30
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<a href="/2016/06/29/vue-in-laravel-1/">上一篇文章</a>中，我们已经介绍了如何在<code>Laravel</code>中搭建<code>Vue.js</code>所需要的环境，以及简单的编码示例，接下来我们将会稍微深入一点，完成一个多标签切换显示的小功能。</p>
+<blockquote>
+<p>本文需要对<code>Laravel</code>及<code>Vue.js</code>有基本的了解；</p>
+<p>另外，本文使用到了<code>sass</code>、<code>jade</code>，如果不了解或不想使用，可以考虑其他预处理器，甚至可以粗暴地使用原生<code>html</code>、<code>css</code>来写</p>
+</blockquote>
+    <div class="read-more">
+      <a href="/2016/06/30/vue-in-laravel-2/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/06/29/vue-in-laravel-1/">在Laravel中使用Vue.js（上）</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-06-29
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Laravel</code>是一套简洁、优雅的PHP Web开发框架(PHP Web Framework)。官方宣传语：<code>The PHP Framework For Web Artisans</code> - <code>为web艺术家创建的框架</code></p>
+<p><code>Vue.js</code>是数据驱动的组件，为现代化的 Web 界面而生</p>
+<p>本文主要说明如何在<code>Laravel</code>中使用<code>Vue.js</code>，包括<code>Vue</code>的环境布署、<code>Vue</code>的开发过程、<code>Vue</code>的使用demo</p>
+<blockquote>
+<p>本文需要对<code>Laravel</code>及<code>Vue.js</code>有基本的了解<br>本文用到的知识点：<code>nvm</code>、<code>npm</code>、<code>Browserify</code>、<code>gulp</code>、<code>es6的Promise</code>、<code>CDN</code>等</p>
+</blockquote>
+    <div class="read-more">
+      <a href="/2016/06/29/vue-in-laravel-1/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/06/18/laravel-learning-3/">Laravel学习笔记（三）</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-06-18
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p>本文笔记主要包括以下内容：</p>
+<ol>
+<li>保存小量数据为本地文件（<code>File</code>持久化）</li>
+<li>写入<code>config</code>文件（默认的<code>Config::set</code>方法不能持久化到文件）</li>
+<li>传递<code>php变量</code>给<code>js</code>使用</li>
+</ol>
+    <div class="read-more">
+      <a href="/2016/06/18/laravel-learning-3/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/05/23/sketch-study-3-marathon/">sketch设计学习（三）—— 马拉松</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-05-23
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p>之前在 <a target="_blank" rel="noopener" href="https://dribbble.com/roling/projects/333174-12-weeks-marathon-in-Sketch">dribbble</a> 上有个人发起一个<code>sketch</code>学习的马拉松——12周，每天临摹一张。<br>觉得通过这次马拉松，应该能让我成为一个合格的美工（设计师这么高尚的职业我觉得我是沾不上的。。）<br>这次学习的目的是希望以后在开发过程中遇到切图，小icon的绘制等问题，能够自己独立解决；<br>也希望能顺便提高自己的审美水平。</p>
+<p>从<code>2016-03-23</code> 到 <code>2016-06-14</code>，共计<code>12周整</code>，终于完成了这次马拉松！<br>成果如下：<br>（注意本文：<strong>多图预警</strong> <strong>多图预警</strong> <strong>多图预警</strong>）</p>
+    <div class="read-more">
+      <a href="/2016/05/23/sketch-study-3-marathon/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/05/11/laravel-learning-2/">Laravel学习笔记（二）- 登录授权流程分析</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-05-11
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p><code>Laravel</code> 内置了登录授权相关的一些东西，可以开箱即用。<br>接下来将会对登录授权的使用方法及流程分析进行一下介绍。<br>通过这篇文章，可以了解以下东西：</p>
+<ol>
+<li>学会使用<code>laravel</code>的自带登录授权功能；</li>
+<li>了解自带的登录授权的相关流程；</li>
+<li>修改自带的<code>auth</code>相关路由前缀；</li>
+<li>更改<code>auth</code>的<code>blade</code>模版文件路径</li>
+</ol>
+    <div class="read-more">
+      <a href="/2016/05/11/laravel-learning-2/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/05/07/css-center/">CSS居中</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-05-07
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p>前阵子学习前端开发，遇到的第一个难点是对 <code>css</code> 的使用，刚开始没有什么章法。<br>后来找到一篇简短教程，有了一个大概的了解，推荐看一下: <a target="_blank" rel="noopener" href="http://zh.learnlayout.com/">学习CSS布局</a>。</p>
+<p>开发过程中，经常会遇到需要居中（水平居中、垂直居中、水平+垂直居中）的情况。<br>由于情况比较多，在最近的项目中遇到了一些，通过各种搜索，现记录如下，主要有以下几种：</p>
+    <div class="read-more">
+      <a href="/2016/05/07/css-center/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+    
+  <nav class="pagination">  
+      
+      <a class="prev" href="/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/page/3/">  
+        <span class="next-text">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  
+</section>
+        </div>
+          
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2014 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Arvit</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

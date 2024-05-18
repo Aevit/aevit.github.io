@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+
+<!-- Website keywords -->
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="Arvit's blog" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://arvit.xyz/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?" + "f4cfb083de30d9524c6a3a2496247c40";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>Arvit&#39;s blog</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Arvit&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        About              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">Arvit's blog</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              About  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+  
+  
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2022/03/01/iOS_system_dynamic_library/">反编译 iOS 系统库二进制文件</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2022-03-01
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有时一些 Crash 是挂在系统库，如 CoreFoundation 里，因为是闭源的，没法直接分析代码。不过我们可以找到对应系统库的二进制文件进行反编译，查看对应汇编指令，结合 Crash 时的一些寄存器，以此猜测其执行流程。  </p>
+    <div class="read-more">
+      <a href="/2022/03/01/iOS_system_dynamic_library/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2022/01/07/solve_wrong_stack_crash/">通过反编译排查堆栈偏移过大的 Crash</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2022-01-07
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="0x0-前言"><a href="#0x0-前言" class="headerlink" title="0x0 前言"></a>0x0 前言</h2><p>外网新增一个 Crash，数量较多，短时间内就上升到 Top2，需要尽快排查修复。  </p>
+    <div class="read-more">
+      <a href="/2022/01/07/solve_wrong_stack_crash/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2021/12/14/large_report_data_crash/">上报数据量过大导致的 Crash</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2021-12-14
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="0x0-前言"><a href="#0x0-前言" class="headerlink" title="0x0 前言"></a>0x0 前言</h2><p>前不久外网发生了以下两类 Crash：  </p>
+    <div class="read-more">
+      <a href="/2021/12/14/large_report_data_crash/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2017/11/18/rn_upgrade_0.50/">ReactNative升级至0.50.3</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-11-18
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要记录升级项目的 <code>ReactNative</code> 框架版本（<code>0.44</code> 升到 <code>0.50</code>）过程中遇到的一些问题，主要包含三部分：  </p>
+<ul>
+<li>iOS 编译  </li>
+<li>运行 JS  </li>
+<li>android 编译</li>
+</ul>
+<p>这次框架升级变动比较大，下面我们一步一步来解决。  </p>
+    <div class="read-more">
+      <a href="/2017/11/18/rn_upgrade_0.50/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2017/10/12/rn-custom-debug-address/">ReactNative自定义地址调试</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-10-12
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ReactNative 在 android 上开发时摇一摇选择 <code>Debug server host &amp; port for device</code> 即可 让真机访问指定 ip 及 端口上的 js bundle 文件，如下图：  </p>
+<p><img src="http://file.arvit.xyz/1c7580a83ebca1cf079500233937e7641507740235.jpeg"></p>
+<p>但是 iOS 默认没有这个功能，初始化一个项目后（截止本文，最新版本为 0.48.0），默认使用的是 <code>localhost:8081</code>，所以真机调试要么设置代理，要么手动更改 <code>AppDelegate.m</code> 里代码（这样每次改完都得重新编译一遍）。  </p>
+<p>下面我们将一步一步找出方法来给 iOS 的摇一摇增加一个跟 android 一样的菜单项来修改 ip 及端口。  </p>
+    <div class="read-more">
+      <a href="/2017/10/12/rn-custom-debug-address/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2017/09/21/rn-switch-scrollview-webview/">ReactNative ScrollView 及 WebView 上下拖动切换</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-09-21
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要记录在 ReactNative 里如何实现 ScrollView 及 WebView 的上下拖动切换。  </p>
+<p>由于 ReactNative 里 <a target="_blank" rel="noopener" href="https://facebook.github.io/react-native/docs/webview.html">WebView</a> 没有提供 <code>onScrollEndDrag</code> 等拖动事件的回调，所以只能通过别的方法来实现。原生的 WebView 有这些回调，但是这样的话得借助 iOS 跟 android 两端的原生代码，这里我们只通过 js 来实现最终效果：  </p>
+    <div class="read-more">
+      <a href="/2017/09/21/rn-switch-scrollview-webview/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2017/09/07/nodejs-command/">NodeJS编写命令行脚本</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-09-07
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前段时间电脑键盘和触摸板都用不了了，试了下重装系统都不行，还不小心丢了博客的 <code>markdown</code> 源文件，只剩 <code>github</code> 上的 <code>html</code> 文件…  </p>
+<p>事隔几个月后，刚好公司项目在发版前都要修改一些参数（如版本号等），人工修改的方式存在漏改或改错的风险，便学了下 NodeJS 写了个预发布脚本（然后也一起写了个工具将 hexo 的  html 文件转为需要的 markdown 文件…）  </p>
+    <div class="read-more">
+      <a href="/2017/09/07/nodejs-command/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2017/03/28/iOS-network-keep-alive/">NSURLSession错误使用引起的网络阻塞问题</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-03-28
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一段时间公司的 APP 在某个时间段比较多人访问时，经常出现连接不上服务器的情况，刚开始我们一直都以为是服务器问题，运维同事做了一些措施还是不能解决。</p>
+<p>后来在使用 <code>Charles</code> 抓包时，看到每次的接口请求，<code>Keep-Alive</code> 都是不生效的。</p>
+<p>猜测是因为这里导致用户发起的每个请求，都要重新进行 DNS 解析、建立 SSL 握手等操作（尤其我们首页每次刷新还都会同时发起好几个请求…）。</p>
+<p>而我们 DNS 用的貌似是第三方的服务，所以问题比较大可能是出在跟我们服务器的握手阶段（为了方便定位是什么问题，我在一个版本中，加入了错误码的提示，发现很多是超时、握手失败等情况）。</p>
+<p>当很多人同时访问时，由于前面有大量握手（我们用的是 HTTPS，报文会比 HTTP 多一些）没建立成功，服务器还在忙着处理，后面的请求就处理不过来了，所以就阻塞了。</p>
+<p>那应该如何解决呢？</p>
+    <div class="read-more">
+      <a href="/2017/03/28/iOS-network-keep-alive/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2017/03/12/iOS-autorelease/">iOS 自动释放池原理探究</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-03-12
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章主要通过苹果开源的 <a target="_blank" rel="noopener" href="https://opensource.apple.com/source/objc4/objc4-706/runtime/NSObject.mm.auto.html">NSObject.mm</a>（注：写这文章时的日期是 2017.3.12，使用的版本是<code>objc4-706</code>，可能与以前的版本会稍有不同） 来对 <code>@autoreleasepool</code> 进行说明。</p>
+    <div class="read-more">
+      <a href="/2017/03/12/iOS-autorelease/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2017/01/09/iOS-__block/">__block修饰符探究</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-01-09
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们知道，在 <code>block</code> 里面能读取外部变量，但是如果需要修改外部变量的值，需要给变量加上 <code>__block</code> 修饰符才行。</p>
+<p>接下来让我们带着2个问题来研究一下：</p>
+<ol>
+<li>为什么不加 <code>__block</code> 就只能读取，不能修改（即：<code>block</code> 的实现，是怎么达到不能修改的）</li>
+<li>加了 <code>__block</code> 为什么就能修改</li>
+</ol>
+    <div class="read-more">
+      <a href="/2017/01/09/iOS-__block/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+    
+  <nav class="pagination">  
+      
+      
+      <a class="next" href="/page/2/">  
+        <span class="next-text">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  
+</section>
+        </div>
+          
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2014 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Arvit</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

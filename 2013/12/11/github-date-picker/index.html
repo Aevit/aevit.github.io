@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="SCDatePicker" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="比特海, 开源, iOS, Arvit&#39;s blog" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="Arvit's blog" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://arvit.xyz/2013/12/11/github-date-picker/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?" + "f4cfb083de30d9524c6a3a2496247c40";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>SCDatePicker - Arvit&#39;s blog</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Arvit&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        About              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">Arvit's blog</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              About  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      SCDatePicker
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2013-12-11
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">效果图：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">描述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">项目地址：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage%EF%BC%88%E4%B8%A4%E7%A7%8D%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%89%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">Usage（两种构造方法）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To-do%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">To do：</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h2 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h2><p><a target="_blank" rel="noopener" href="https://raw.github.com/Aevit/SCDatePicker/master/SCDatePickerViewDemo/preview.png"><img src="https://raw.github.com/Aevit/SCDatePicker/master/SCDatePickerViewDemo/preview.png"></a>  </p>
+<h2 id="描述："><a href="#描述：" class="headerlink" title="描述："></a>描述：</h2><p>扁平化的日期选择器，可定制化程序比较高（可定制显示年、月、日、周、时、分、秒中的部分）</p>
+<p>参考<a target="_blank" rel="noopener" href="https://github.com/christopherney/FlatDatePicker">https://github.com/christopherney/FlatDatePicker</a><br>由于FlatDatePicker这个没有用复用，也就是如果有30天，就会创建30个label。并且只提供几种样式（如年月日、年月日时分等），没有我所需要的样式，所以最后参考这个项目重新写了个日期选择器。  </p>
+<span id="more"></span>
+
+<h2 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h2><p><a target="_blank" rel="noopener" href="https://github.com/Aevit/SCDatePicker">go to github</a></p>
+<h2 id="Usage（两种构造方法）："><a href="#Usage（两种构造方法）：" class="headerlink" title="Usage（两种构造方法）："></a>Usage（两种构造方法）：</h2><p>首先，复制 SCDatePickerView 这文件夹至你的项目中。然后调用<code>初始化方法</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    //init 1</span><br><span class="line">    SCDatePickerView *picker = [[SCDatePickerView alloc] initWithParentView:self.view];</span><br><span class="line">    picker.pickerType = SCDatePickerViewTypeDateAndTime;        </span><br><span class="line">        </span><br><span class="line">    //or init 2</span><br><span class="line">    //SCDatePickerView *picker = [[SCDatePickerView alloc] initWithParentView:self.view rowNum:6 withYear:YES withMonth:YES withDay:YES withweekday:YES withHour:YES withMinute:YES withSecond:NO];</span><br><span class="line">    picker.delegate = self;</span><br><span class="line">    self.datePicker = picker;</span><br><span class="line">    [self.datePicker show];</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">`delegate方法`</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>- (void)SCDatePickerView:(SCDatePickerView *)datePicker dateDidChange:(NSDate *)date &#123;
+    NSLog(@&quot;date:%@&quot;, date);
+&#125;
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">    - (void)SCDatePickerView:(SCDatePickerView *)datePicker didCancel:(UIButton *)sender &#123;</span><br><span class="line">        NSLog(@&quot;cancel&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="To-do："><a href="#To-do：" class="headerlink" title="To do："></a>To do：</h2><p>1、更改为可循环滚动</p>
+<p>2、增加白色风格主题</p>
+<p>3、增加创建普通pickervView功能</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="https://arvit.xyz">Arvit</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="https://arvit.xyz/2013/12/11/github-date-picker/">https://arvit.xyz/2013/12/11/github-date-picker/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+      
+      <a href="/tags/%E5%BC%80%E6%BA%90/">开源</a>
+      
+      <a href="/tags/iOS/">iOS</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2014/02/24/github-capture-camera/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">SCCaptureCamera</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2012/05/20/ikea/">  
+        <span class="next-text nav-default">宜家</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="disqus_thread">  
+        <noscript>  
+          Please enable JavaScript to view the  
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>  
+        </noscript>  
+      </div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2014 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Arvit</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+  
+<script type="text/javascript">
+  var disqus_config = function() {
+    this.page.url = 'https://arvit.xyz/2013/12/11/github-date-picker/';
+    this.page.identifier = '2013/12/11/github-date-picker/';
+    this.page.title = 'SCDatePicker';
+  };
+  (function() {
+    var d = document,
+      s = d.createElement('script');
+
+    s.src = '//aevit.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+  
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

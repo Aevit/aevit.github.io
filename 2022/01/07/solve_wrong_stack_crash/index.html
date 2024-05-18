@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="通过反编译排查堆栈偏移过大的 Crash" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="比特海, iOS, Crash, 反编译, Arvit&#39;s blog" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="Arvit's blog" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://arvit.xyz/2022/01/07/solve_wrong_stack_crash/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?" + "f4cfb083de30d9524c6a3a2496247c40";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>通过反编译排查堆栈偏移过大的 Crash - Arvit&#39;s blog</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Arvit&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        About              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">Arvit's blog</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              About  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      通过反编译排查堆栈偏移过大的 Crash
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2022-01-07
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x0-%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">0x0 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x1-Crash-%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF"><span class="toc-number">2.</span> <span class="toc-text">0x1 Crash 关键信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x2-%E6%89%8B%E5%8A%A8%E8%BF%98%E5%8E%9F%E5%A0%86%E6%A0%88"><span class="toc-number">3.</span> <span class="toc-text">0x2 手动还原堆栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#symbolicatecrash-%E8%BF%98%E5%8E%9F%E5%85%A8%E9%83%A8%E5%A0%86%E6%A0%88"><span class="toc-number">3.1.</span> <span class="toc-text">symbolicatecrash 还原全部堆栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#atos-%E8%BF%98%E5%8E%9F%E6%9F%90%E8%A1%8C%E5%A0%86%E6%A0%88"><span class="toc-number">3.2.</span> <span class="toc-text">atos 还原某行堆栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">3.3.</span> <span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x3-%E5%8F%8D%E7%BC%96%E8%AF%91"><span class="toc-number">4.</span> <span class="toc-text">0x3 反编译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E7%9C%9F%E5%AE%9E%E5%9C%B0%E5%9D%80"><span class="toc-number">4.1.</span> <span class="toc-text">计算真实地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E6%B1%87%E7%BC%96%E7%BB%93%E6%9E%9C"><span class="toc-number">4.2.</span> <span class="toc-text">反汇编结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="toc-number">4.3.</span> <span class="toc-text">汇编指令分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">4.4.</span> <span class="toc-text">源码分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x4-ASLR-%E4%BB%8B%E7%BB%8D"><span class="toc-number">5.</span> <span class="toc-text">0x4 ASLR 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x5-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text">0x5 参考资料</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h2 id="0x0-前言"><a href="#0x0-前言" class="headerlink" title="0x0 前言"></a>0x0 前言</h2><p>外网新增一个 Crash，数量较多，短时间内就上升到 Top2，需要尽快排查修复。  </p>
+<span id="more"></span>
+
+<p>Crash 堆栈如下：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Thread 21 Crashed: </span><br><span class="line">0 QQKSong 0x0000000105dad868 +[UIView(GDTExtensions) isDisplayedInScreen:] + 179108</span><br><span class="line">1 QQKSong 0x0000000105d9dc88 +[UIView(GDTExtensions) isDisplayedInScreen:] + 114628</span><br><span class="line">2 QQKSong 0x0000000105da1514 +[UIView(GDTExtensions) isDisplayedInScreen:] + 129104</span><br><span class="line">3 QQKSong 0x0000000105da226c +[UIView(GDTExtensions) isDisplayedInScreen:] + 132520</span><br><span class="line">4 QQKSong 0x0000000105da2b4c +[UIView(GDTExtensions) isDisplayedInScreen:] + 134792</span><br><span class="line">5 QQKSong 0x0000000105d8d624 +[UIView(GDTExtensions) isDisplayedInScreen:] + 47456</span><br><span class="line">6 QQKSong 0x0000000105d8e414 +[UIView(GDTExtensions) isDisplayedInScreen:] + 51024</span><br><span class="line">7 QQKSong 0x0000000105d8e0f4 +[UIView(GDTExtensions) isDisplayedInScreen:] + 50224</span><br><span class="line">8 QQKSong 0x0000000105d8e2d4 +[UIView(GDTExtensions) isDisplayedInScreen:] + 50704</span><br><span class="line">9 QQKSong 0x0000000105d90ee8 +[UIView(GDTExtensions) isDisplayedInScreen:] + 61988</span><br><span class="line">10 QQKSong 0x0000000105d914dc +[UIView(GDTExtensions) isDisplayedInScreen:] + 63512</span><br><span class="line">11 QQKSong 0x0000000105d919a0 +[UIView(GDTExtensions) isDisplayedInScreen:] + 64732</span><br><span class="line">12 QQKSong 0x0000000105da5abc +[UIView(GDTExtensions) isDisplayedInScreen:] + 146936</span><br><span class="line">13 QQKSong 0x0000000105d886dc +[UIView(GDTExtensions) isDisplayedInScreen:] + 27160</span><br><span class="line">14 QQKSong 0x0000000105da5990 +[UIView(GDTExtensions) isDisplayedInScreen:] + 146636</span><br><span class="line">15 QQKSong 0x0000000105d93270 +[UIView(GDTExtensions) isDisplayedInScreen:] + 71084</span><br><span class="line">16 CFNetwork 0x00000001aa43b8e4 _CFNetServiceBrowserSearchForServices + 75936</span><br><span class="line">17 CFNetwork 0x00000001aa44c3b4 __CFHTTPMessageSetResponseProxyURL + 9332</span><br><span class="line">8 libdispatch.dylib 0x00000001a9a7d298 __dispatch_call_block_and_release + 24</span><br><span class="line">10 libdispatch.dylib 0x00000001a9a7e280 __dispatch_client_callout + 16</span><br><span class="line">10 libdispatch.dylib 0x00000001a9a5a4f0 __dispatch_lane_serial_drain$VARIANT$armv81 + 568</span><br><span class="line">21 libdispatch.dylib 0x00000001a9a5b010 __dispatch_lane_invoke$VARIANT$armv81 + 456</span><br><span class="line">12 libdispatch.dylib 0x00000001a9a64800 __dispatch_workloop_worker_thread + 692</span><br><span class="line">13 libsystem_pthread.dylib 0x00000001f24eb5a4 __pthread_wqthread + 272</span><br><span class="line">14 libsystem_pthread.dylib 0x00000001f24ee874 _start_wqthread + 8</span><br><span class="line">SEGV_ACCERR</span><br></pre></td></tr></table></figure>
+
+<p>以上堆栈表面上看起来像是子线程调用 <code>+[UIView(GDTExtensions) isDisplayedInScreen:]</code>，且该方法循环调用了，不过看后面的偏移量较大，如有些偏移量为 <code>+ 179108</code>，不太正常。  </p>
+<p>该分类名为 <code>GDTExtensions</code>，为 AMS SDK 内的文件，问了 SDK 侧要到源码，该分类的代码量实际也没那么多，且基本不存在循环调用的可能。  </p>
+<p>此时无法知道 Crash 具体是在哪里，下面将简单介绍如何排查这种堆栈偏移量过大的问题。  </p>
+<p>PS: 这里分享一个小技巧，如何通过一个方法名或是类名等，找到是在哪个二进制文件内：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/your_proj_path</span><br><span class="line">$ grep -r GDTExtensions .</span><br><span class="line">Binary file ./Pods/AMSSDK/AMSSDK/lib/libGDTMobTangramSDK.a matches</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x1-Crash-关键信息"><a href="#0x1-Crash-关键信息" class="headerlink" title="0x1 Crash 关键信息"></a>0x1 Crash 关键信息</h2><p>这里先贴一下其它 Crash 关键信息：</p>
+<p>Crash 版本、架构、访问的地址及还原前堆栈：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Version: 7.24.20.631_JAIL(TestFlight)</span><br><span class="line">Code Type: ARM-64 (Native)</span><br><span class="line">Exception Codes: SEGV_ACCERR at 000000000000000000</span><br><span class="line"></span><br><span class="line">Thread 21 Crashed: </span><br><span class="line">0  QQKSong                        0x0000000105dad868 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2930176</span><br><span class="line">1  QQKSong                        0x0000000105d9dc88 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2865696</span><br><span class="line">2  QQKSong                        0x0000000105da1514 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2880176</span><br><span class="line">3  QQKSong                        0x0000000105da226c _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2883584</span><br><span class="line">4  QQKSong                        0x0000000105da2b4c _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2885856</span><br><span class="line">5  QQKSong                        0x0000000105d8d624 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2798528</span><br><span class="line">6  QQKSong                        0x0000000105d8e414 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2802096</span><br><span class="line">7  QQKSong                        0x0000000105d8e0f4 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2801296</span><br><span class="line">8  QQKSong                        0x0000000105d8e2d4 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2801776</span><br><span class="line">9  QQKSong                        0x0000000105d90ee8 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2813056</span><br><span class="line">10 QQKSong                        0x0000000105d914dc _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2814576</span><br><span class="line">11 QQKSong                        0x0000000105d919a0 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2815808</span><br><span class="line">12 QQKSong                        0x0000000105da5abc _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2898000</span><br><span class="line">13 QQKSong                        0x0000000105d886dc _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2778224</span><br><span class="line">14 QQKSong                        0x0000000105da5990 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2897712</span><br><span class="line">15 QQKSong                        0x0000000105d93270 _ZN9audiobase9AudioHttp13AudioHttpImpl10threadFuncEPv + 2822160</span><br><span class="line">16 CFNetwork                      0x00000001aa43b8e4 CFNetServiceBrowserSearchForServices + 75932</span><br><span class="line">17 CFNetwork                      0x00000001aa44c3b4 _CFHTTPMessageSetResponseProxyURL + 9328</span><br><span class="line">8  libdispatch.dylib              0x00000001a9a7d298 0x00000001a9a1d000 + 393872</span><br><span class="line">10 libdispatch.dylib              0x00000001a9a7e280 0x00000001a9a1d000 + 397952</span><br><span class="line">10 libdispatch.dylib              0x00000001a9a5a4f0 0x00000001a9a1d000 + 251120</span><br><span class="line">21 libdispatch.dylib              0x00000001a9a5b010 0x00000001a9a1d000 + 253968</span><br><span class="line">12 libdispatch.dylib              0x00000001a9a64800 0x00000001a9a1d000 + 292864</span><br><span class="line">13 libsystem_pthread.dylib        0x00000001f24eb5a4 _pthread_wqthread + 268</span><br><span class="line">14 libsystem_pthread.dylib        0x00000001f24ee874 start_wqthread + 4</span><br></pre></td></tr></table></figure>
+
+<p>寄存器信息：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Thread 21 crashed with ARM 64 Thread State:</span><br><span class="line">     x0:  000000000000000000    x1: 0x000000016e79d97c    x2: 000000000000000000     x3: 0x000000016e79db44</span><br><span class="line">     x4:  0x000000000000c413    x5: 000000000000000000    x6: 000000000000000000     x7: 000000000000000000</span><br><span class="line">     x8:  0x0000000000000009    x9: 0x00000001f5a48954   x10: 000000000000000000    x11: 0x000000007a200000</span><br><span class="line">    x12: 0x00000000000000c0    x13: 0x0000000000000001   x14: 0x000000000000001b    x15: 0x000000000000007e</span><br><span class="line">    x16: 0xffffffffffffffe1    x17: 0x00000001a9d355d8   x18: 000000000000000000    x19: 0x0000000280f66400</span><br><span class="line">    x20: 0x00000002800292a0    x21: 0x00000001f590b2d4   x22: 0x00000000feedfacf    x23: 0x875f6484f469a2a6</span><br><span class="line">    x24: 0x000000010c950000    x25: 000000000000000000   x26: 000000000000000000    x27: 0x000000010a4eb4a8</span><br><span class="line">    x28: 0x000000010b5ea000    fp: 0x000000016e79dba0    lr: 0x0000000105dad838    </span><br><span class="line">    sp: 0x000000016e79db10     pc: 0x0000000105dad868 +[UIView(GDTExtensions) isDisplayedInScreen:] +  179108</span><br></pre></td></tr></table></figure>
+
+<p>QQKSong 地址段：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x1021d8000 - 0x10a35ffff +QQKSong arm64 &lt;8e69fce9d64730278f0e08c45fb22df5&gt; /private/var/containers/Bundle/Application/A09F4678-9FE1-403A-B457-07372E6C83DE/QQKSong.app/QQKSong</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x2-手动还原堆栈"><a href="#0x2-手动还原堆栈" class="headerlink" title="0x2 手动还原堆栈"></a>0x2 手动还原堆栈</h2><h3 id="symbolicatecrash-还原全部堆栈"><a href="#symbolicatecrash-还原全部堆栈" class="headerlink" title="symbolicatecrash 还原全部堆栈"></a>symbolicatecrash 还原全部堆栈</h3><p>1、找到 <code>symbolicatecrash</code> 位置 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /Applications/Xcode.app -name symbolicatecrash -type f</span><br></pre></td></tr></table></figure>
+
+<p>结果类似：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/iOSSupport/Library/PrivateFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash</span><br><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/Library/PrivateFrameworks/DVTFoundation.framework/symbolicatecrash</span><br><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/Library/PrivateFrameworks/DVTFoundation.framework/symbolicatecrash</span><br><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/DVTFoundation.framework/symbolicatecrash</span><br><span class="line">/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash</span><br></pre></td></tr></table></figure>
+
+<p><code>SharedFrameworks</code> 路径下的为需要的：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash</span><br></pre></td></tr></table></figure>
+
+<p>2、执行命令</p>
+<p>将还原前的 crash 堆栈、dsym 文件放到同一个目录，然后执行：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash origin.crash QQKSong.app.dSYM &gt; result.crash</span><br></pre></td></tr></table></figure>
+
+<p>如果报以下错误：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: &quot;DEVELOPER_DIR&quot; is not defined at ./symbolicatecrash line 69.</span><br></pre></td></tr></table></figure>
+
+<p>则设置一下环境变量再跑一次上面那命令还原堆栈：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer</span><br></pre></td></tr></table></figure>
+
+<h3 id="atos-还原某行堆栈"><a href="#atos-还原某行堆栈" class="headerlink" title="atos 还原某行堆栈"></a>atos 还原某行堆栈</h3><p>使用 <code>atos</code> 命令，或使用 <a target="_blank" rel="noopener" href="https://github.com/answer-huang/dSYMTools">dSYMTools</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">atos -o executable -arch architecture -l loadAddress address</span><br></pre></td></tr></table></figure>
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>以上还原堆栈的结果，跟 bugly 还原的结果一致，都为该分类方法，且偏移量同样过大，所以手动还原堆栈无法解决问题。  </p>
+<p>根据上面的其它关键 Crash 信息，我们可以看到 pc 寄存器的地址为 <code>0x0000000105dad868</code>，是落在 QQKSong 地址段内的：   </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x1021d8000 - 0x10a35ffff +QQKSong arm64 &lt;8e69fce9d64730278f0e08c45fb22df5&gt; /private/var/containers/Bundle/Application/A09F4678-9FE1-403A-B457-07372E6C83DE/QQKSong.app/QQKSong</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>pc 寄存器: 保存 CPU 将要执行的下一条指令的地址，也就是即将要执行的指令代码。 </p>
+</blockquote>
+<p>所以接下来尝试进行反编译来获取 Crash 时的具体位置。  </p>
+<h2 id="0x3-反编译"><a href="#0x3-反编译" class="headerlink" title="0x3 反编译"></a>0x3 反编译</h2><p>使用 <code>Hopper Disassembler</code> 进行反编译，可以去其<a target="_blank" rel="noopener" href="https://hopperapp.com/">官网</a>下载，免费版可以每次使用半小时，基本够我们进行分析了（良心软件）。  </p>
+<h3 id="计算真实地址"><a href="#计算真实地址" class="headerlink" title="计算真实地址"></a>计算真实地址</h3><p>因为 Apple 使用了 ASLR（下面会讲到什么是 ASLR），每次启动时的二进制地址都会随机偏移，所以我们需要先解出 pc 寄存器在二进制文件内的真实地址，结果如下（下面 <code>0x0021d8000</code> 为 QQKSong 地址段首地址 <code>0x1021d8000 - 0x100000000</code>，为什么要减去 <code>0x100000000</code> 后面 ASLR 部分会有说明）：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(0x0000000105dad868-0x0021d8000).toString(16) = 0x103bd5868</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://file.arvit.xyz/16306718396687.jpg"></p>
+<h3 id="反汇编结果"><a href="#反汇编结果" class="headerlink" title="反汇编结果"></a>反汇编结果</h3><p>我们找到 ipa 里的 QQKSong 二进制文件，丢进 Hopper，等加载完成后，按 <code>G</code> 键，跳转到上面计算出的地址 <code>0x103bd5868</code>，结果如下：  </p>
+<p><img src="http://file.arvit.xyz/16306727554773.jpg"></p>
+<p>挂在这条汇编指令，很明显是 <code>+[TSEnvironmentXXQ injectingImageNames]</code> 附近代码导致的 Crash：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0000000103bd5868 ldr x20, [x26]   ; CODE XREF=+[TSEnvironmentXXQ injectingImageNames]+368</span><br></pre></td></tr></table></figure>
+
+<h3 id="汇编指令分析"><a href="#汇编指令分析" class="headerlink" title="汇编指令分析"></a>汇编指令分析</h3><p>上述汇编指令表示将 <code>x26</code> 寄存器的值赋值给 <code>x20</code>，上面我们知道 Crash 时访问的地址为 <code>0x000000000000000000</code>：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception Codes: SEGV_ACCERR at 000000000000000000</span><br></pre></td></tr></table></figure>
+
+<p>根据以往经验，这里 <code>x26</code> 有可能为一个 C++ 空指针，访问空指针时发生了 Crash。我们继续往上看其它汇编指令，看 <code>x26</code> 的值是从哪里来的：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0000000103bd584c ldr x26, [x24, #0x60]</span><br></pre></td></tr></table></figure>
+
+<p>该指令表示取 <code>x24</code> 偏移 <code>0x60</code> 个地址的数据赋值给 <code>x26</code>，这种可以猜测是访问 <code>x24</code> 内某个成员变量。所以这里大致可以推测出这样的伪代码：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">struct x24 = xxx; // 某个结构体实例  </span><br><span class="line">struct x26 = x24-&gt;0x60_member; // 访问了 +0x60 的成员变量，此时 x26 的值为 NULL  </span><br><span class="line">x20 = NULL-&gt;first_addr; // 访问了 x26（此时为 NULL）的首地址，此时就 Crash 了  </span><br></pre></td></tr></table></figure>
+
+<p>从 Hopper 看到的伪代码也基本符合我们预期，不过这里有更进一步的信息，Crash 是挂在一个循环内的第一句代码：  </p>
+<p><img src="http://file.arvit.xyz/16306729296498.jpg"></p>
+<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><p>然后就找到 SDK 同学要到该方法源码如下：  </p>
+<p><img src="http://file.arvit.xyz/wecom-temp-98028fcc0014e9f72608aea994b48464.png" alt="wecom-temp-98028fcc0014e9f72608aea994b48464"></p>
+<p><img src="http://file.arvit.xyz/16306738880807.jpg"></p>
+<p>结合上面的推测，这里 Crash 基本就确定是因为 <code>p_uuid_info</code> 为 NULL 了。   </p>
+<p>这里的寄存器相关对应关系如下：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x26: p_uuid_info  </span><br><span class="line">x24: infos  </span><br><span class="line">x24+0x60: infos-&gt;uuidArray  </span><br></pre></td></tr></table></figure>
+
+<p>由于是系统方法，所以只能进行规避：进行空指针的判断，为空则不执行下一步逻辑。  </p>
+<h2 id="0x4-ASLR-介绍"><a href="#0x4-ASLR-介绍" class="headerlink" title="0x4 ASLR 介绍"></a>0x4 ASLR 介绍</h2><p>什么是 ASLR？  </p>
+<ul>
+<li>Address Space Layout Randomization，地址空间布局随机化。</li>
+<li>是一种通过增加攻击者预测目的地址难度，防止攻击者直接定位攻击代码位置，达到阻止溢出攻击的目的的一种技术。</li>
+<li>MachO 可执行文件<strong>每次启动的起始地址</strong>不一样。</li>
+<li>苹果从 iOS 4.3 之后引入了 ASLR 技术，也就是说把 Mach-O 载入内存后，所有的地址都会经过 ASLR 偏移。</li>
+</ul>
+<p>Mach-O 文件 Header、Load Commmands、Data 由三部分组成，如下图所示：  </p>
+<p><img src="http://file.arvit.xyz/16308326909197.jpg"></p>
+<blockquote>
+<p>Mach-O 内容也可以通过此工具查看: <a target="_blank" rel="noopener" href="https://github.com/DeVaukz/MachO-Explorer">MachO-Explorer</a></p>
+</blockquote>
+<ul>
+<li><p><code>Header</code>: 位于 Mach-O 文件的开始位置，包含了该文件的基本信息，如目标架构，文件类型，加载指令数量和 dyld 加载时需要的标志位。可以使用 otool 命令查看内容：    </p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ otool -v -h QQKSong.app/QQKSong</span><br><span class="line"></span><br><span class="line">Mach header</span><br><span class="line">      magic  cputype cpusubtype  caps    filetype ncmds sizeofcmds      flags</span><br><span class="line">MH_MAGIC_64    ARM64        ALL  0x00     EXECUTE    85       9248   NOUNDEFS DYLDLINK TWOLEVEL WEAK_DEFINES BINDS_TO_WEAK PIE MH_HAS_TLV_DESCRIPTORS</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Load Commands</code>: 包含 Mach-O 里命令类型信息，名称和二进制文件的位置。可以使用 otool 命令查看内容：  </p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ otool -v -l QQKSong.app/QQKSong</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Data</code>: 由 Segment 的数据组成，是 Mach-O 占比最多的部分，有代码有数据，比如符号表。Data 共三个 Segment，TEXT、DATA、LINKEDIT。其中 TEXT 和 DATA 对应一个或多个 Section，LINKEDIT 没有 Section，需要配合 LC_SYMTAB 来解析 symbol table 和 string table，包含 dyld 所需各种数据，比如符号表、间接符号表、rebase 操作码、绑定操作码、导出符号、函数启动信息、数据表、代码签名等。这些里面是 Mach-O 的主要数据。下面介绍几条有用的命令：  </p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看内容分布</span><br><span class="line">$ xcrun size -x -l -m QQKSong.app/QQKSong</span><br><span class="line"></span><br><span class="line"># 查看某个 Section 内容</span><br><span class="line">$ xcrun otool -s __TEXT __text QQKSong.app/QQKSong</span><br><span class="line"></span><br><span class="line"># 查看 Mach-O 汇编内容（注：QQKSong 二进制输出结果大小有 1.23GB）  </span><br><span class="line">xcrun otool -v -t QQKSong.app/QQKSong  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>Mach-O 结构及 ASLR 地址偏移图解如下：  </p>
+<p><img src="http://file.arvit.xyz/16309331449640.jpg"></p>
+<p>根据上图可以知道，前面计算真实地址为什么要减去 <code>0x100000000</code>，主要就是 <code>__PAGESIZE</code> 的大小，该大小为 4GB，也即 <code>0x100000000</code>，从 Hopper 也可以看到其是从 0x100000000 开始解析的：  </p>
+<p><img src="http://file.arvit.xyz/16306723270020.jpg"></p>
+<h2 id="0x5-参考资料"><a href="#0x5-参考资料" class="headerlink" title="0x5 参考资料"></a>0x5 参考资料</h2><p><a target="_blank" rel="noopener" href="https://ming1016.github.io/2020/03/29/apple-system-executable-file-macho">https://ming1016.github.io/2020/03/29/apple-system-executable-file-macho/</a> </p>
+<p><a target="_blank" rel="noopener" href="https://alvinzhu.me/2017/07/22/start-from-launch.html">https://alvinzhu.me/2017/07/22/start-from-launch.html</a></p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="https://arvit.xyz">Arvit</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="https://arvit.xyz/2022/01/07/solve_wrong_stack_crash/">https://arvit.xyz/2022/01/07/solve_wrong_stack_crash/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E6%AF%94%E7%89%B9%E6%B5%B7/">比特海</a>
+      
+      <a href="/tags/iOS/">iOS</a>
+      
+      <a href="/tags/Crash/">Crash</a>
+      
+      <a href="/tags/%E5%8F%8D%E7%BC%96%E8%AF%91/">反编译</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2022/03/01/iOS_system_dynamic_library/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">反编译 iOS 系统库二进制文件</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2021/12/14/large_report_data_crash/">  
+        <span class="next-text nav-default">上报数据量过大导致的 Crash</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="disqus_thread">  
+        <noscript>  
+          Please enable JavaScript to view the  
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>  
+        </noscript>  
+      </div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/aevit" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2014 - 2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Arvit</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+  
+<script type="text/javascript">
+  var disqus_config = function() {
+    this.page.url = 'https://arvit.xyz/2022/01/07/solve_wrong_stack_crash/';
+    this.page.identifier = '2022/01/07/solve_wrong_stack_crash/';
+    this.page.title = '通过反编译排查堆栈偏移过大的 Crash';
+  };
+  (function() {
+    var d = document,
+      s = d.createElement('script');
+
+    s.src = '//aevit.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+  
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>
